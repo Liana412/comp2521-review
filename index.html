@@ -1,0 +1,242 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>COMP2521 · Final Review Studio</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e8edf8;background:#0b1020;font-size:14px}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}header{height:72px;border-bottom:1px solid #273048;display:flex;align-items:center;justify-content:space-between;padding:0 30px;background:#10172a;position:sticky;top:0;z-index:5}.logo{font-size:18px;font-weight:800;letter-spacing:-.5px}.logo span{color:#9c9bff}.badge{color:#a5b4d2;background:#1a2643;border:1px solid #2f3b5b;border-radius:99px;padding:5px 10px;font-size:11px}.app{display:flex;min-height:calc(100vh - 72px)}aside{width:220px;flex:none;background:#10172a;border-right:1px solid #273048;padding:22px 12px}nav button{display:flex;align-items:center;gap:12px;width:100%;border:0;background:transparent;color:#a3afca;text-align:left;padding:13px 15px;border-radius:10px;margin:3px 0}nav button:hover,nav button.active{background:#252e52;color:white}nav button.active{box-shadow:inset 3px 0 #9695ff}.sidebar-foot{font-size:12px;color:#71809f;padding:22px 15px;line-height:1.7}.main{flex:1;min-width:0;max-width:1440px;padding:30px 38px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:2px;color:#a09fff;font-size:11px;font-weight:800}.h1{font-size:29px;letter-spacing:-1px;font-weight:780;margin:9px 0}.sub{color:#91a0bf;line-height:1.7;margin-bottom:24px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card,.panel{background:#141d32;border:1px solid #2a3451;border-radius:15px;padding:20px}.stat{font-size:29px;font-weight:780;margin-top:12px}.muted{color:#91a0bf}.kicker{font-size:12px;color:#91a0bf}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.panel h3{margin:0 0 14px;font-size:16px}.btn{border:1px solid #3a496c;border-radius:9px;background:#202b46;color:#eaf0ff;padding:10px 14px}.btn:hover{background:#303c60}.primary{background:#7775ed;border-color:#7775ed;color:white}.primary:hover{background:#8e8af7}.good{background:#143f37;border-color:#246d58;color:#93efcd}.warn{background:#4a3032;border-color:#825054;color:#ffc1bb}.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.layout{display:grid;grid-template-columns:300px 1fr;gap:18px}.question-list{max-height:70vh;overflow:auto}.item{padding:14px;border:1px solid #303c59;border-radius:10px;margin:9px 0;cursor:pointer;background:#18223a}.item.active{border-color:#8884fa;background:#242d51}.item:hover{border-color:#6975a0}.item strong{display:block;margin:6px 0}.tag{display:inline-block;font-size:11px;color:#c6cdf0;background:#293452;border:1px solid #3b4b71;padding:3px 7px;border-radius:6px;margin-right:5px;margin-bottom:4px}.tag.purple{color:#d7c5ff;background:#382b58}.tag.red{color:#ffb5b4;background:#4b2937}.tag.green{color:#9de4bd;background:#194536}input,select,textarea{background:#0d1528;border:1px solid #33415f;border-radius:9px;color:#e8edf8;padding:11px;width:100%;outline:0}input:focus,select:focus,textarea:focus{border-color:#9391ff}textarea{resize:vertical;line-height:1.55}.searchbar{display:grid;grid-template-columns:1fr 155px 155px;gap:9px;margin-bottom:15px}pre,code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}pre{background:#0a1222;border:1px solid #2e3c58;border-radius:10px;overflow:auto;padding:17px;line-height:1.58;font-size:12px;white-space:pre}.editor{min-height:280px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;tab-size:4}.section{margin-top:18px}.section-title{font-weight:700;margin:0 0 10px}.hidden{display:none!important}.empty{padding:45px 20px;color:#8c9bb6;text-align:center;border:1px dashed #455271;border-radius:12px}.divider{height:1px;background:#2b3853;margin:20px 0}.pill{border-radius:30px;background:#273253;color:#b9c6e6;font-size:12px;padding:5px 10px}.highlight{background:#8b562c;color:#ffda99;border-bottom:2px solid #ffb45e}.tip{border-left:3px solid #8a86f7;background:#1b2440;padding:12px 14px;color:#b8c7e8;line-height:1.6;border-radius:4px}.label{display:block;font-size:12px;color:#a6b3d1;margin:12px 0 6px}.ref-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.ref-card{padding:0;overflow:hidden}.ref-card .head{padding:17px 18px;display:flex;justify-content:space-between;align-items:center}.ref-card pre{border:0;border-radius:0;margin:0;max-height:240px}.muted-small{font-size:12px;color:#8393b0;line-height:1.6}.progress{height:8px;background:#303d5c;border-radius:99px;overflow:hidden;margin-top:15px}.progress>span{display:block;height:100%;background:#8c89fc}.toast{position:fixed;bottom:22px;right:22px;background:#293957;border:1px solid #687eab;color:white;padding:12px 16px;border-radius:10px;z-index:20;display:none}.toast.on{display:block}@media(max-width:950px){aside{width:70px}nav button{font-size:0;justify-content:center;padding:13px 3px}nav button span{font-size:22px}.sidebar-foot{display:none}.main{padding:23px}.grid{grid-template-columns:repeat(2,1fr)}.layout,.two,.ref-grid{grid-template-columns:1fr}.question-list{max-height:230px}}@media(max-width:570px){header{padding:0 15px}.main{padding:17px}.grid{gap:8px}.card{padding:13px}.searchbar{grid-template-columns:1fr}.h1{font-size:24px}}
+
+/* Warm, minimal light theme — 2026 demo refresh */
+:root{color:#302e2a;background:#faf9f6;color-scheme:light}
+body{background:#faf9f6}
+header{background:#fffefa;border-color:#eae5dc;box-shadow:0 1px 4px #40351d08}
+.logo{color:#292824}.logo span{color:#a07953}.badge{color:#796d5d;background:#f7f2e9;border-color:#e9dfd1}
+aside{background:#f8f6f1;border-color:#ece7df}nav button{color:#746d62}nav button:hover,nav button.active{background:#ede6db;color:#453829}nav button.active{box-shadow:inset 3px 0 #b79672}.sidebar-foot,.muted-small{color:#898176}
+.eyebrow{color:#a17d58}.sub,.muted,.kicker{color:#817b72}.card,.panel{background:#fff;border-color:#eae5dc;box-shadow:0 2px 14px #56452a08}.stat{color:#3d342b}
+.btn{border-color:#e2d9cb;background:#fffdfa;color:#554b3f}.btn:hover{background:#f4eee5}.primary{background:#9f8060;border-color:#9f8060;color:#fff}.primary:hover{background:#8b6d4d}.good{background:#e9f3eb;border-color:#cfe4d4;color:#326645}.warn{background:#fff0ec;border-color:#f0d5cc;color:#9f574a}
+.item{background:#fffefa;border-color:#eae5dc}.item.active{border-color:#b79a75;background:#f8f3eb}.item:hover{border-color:#c8ad8e}.tag{color:#766c60;background:#f5f1eb;border-color:#e8e0d4}.tag.purple{color:#806142;background:#f4e9da}.tag.red{color:#a95b50;background:#fff0ec}.tag.green{color:#487b56;background:#edf6ee}
+input,select,textarea{background:#fffefa;border-color:#e3dbce;color:#39342e}input:focus,select:focus,textarea:focus{border-color:#ad8e67;box-shadow:0 0 0 3px #ac8a5f1a}
+pre{background:#f8f7f4;border-color:#ece7df;color:#342f29}.empty{color:#81796e;border-color:#dcd2c4}.divider{background:#ede8df}.pill{background:#f3ede5;color:#77634d}.highlight{background:#ffe7a9;color:#57401d;border-bottom-color:#d5a644}.tip{border-color:#c3a17c;background:#f9f4ed;color:#776451}.progress{background:#ece6db}.progress>span{background:#ad8d66}.toast{background:#443b31;border-color:#443b31;color:#fff}
+
+/* v4: uncluttered ivory checklist design */
+.main{max-width:1160px}.h1{font-size:27px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.panel,.card{border-radius:12px;box-shadow:none}.check-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #f0ece6}.check-row:last-child{border-bottom:0}.checkbox-label{display:flex;align-items:center;gap:10px;min-width:0;cursor:pointer}.checkbox-label input{width:17px;height:17px;accent-color:#987a57;flex-shrink:0}.checked-label{text-decoration:line-through;color:#a19a90}.text-link{background:none;border:0;color:#95724c;font-size:12px;white-space:nowrap;padding:4px}.text-link:hover{text-decoration:underline}.progress.slim{margin:3px 0 10px;height:5px}.two{align-items:start}nav button{font-size:13px}nav button span{font-size:17px}header .actions .btn{font-size:12px}
+@media(max-width:950px){nav button{font-size:0}}@media(max-width:570px){header{height:auto;min-height:64px;gap:8px;flex-wrap:wrap;padding:12px}.app{min-height:calc(100vh - 64px)}}
+details.check-group{border-bottom:1px solid #f0ece6;padding:11px 0}details.check-group:last-child{border:0}details.check-group summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:650;list-style:none}details.check-group summary::-webkit-details-marker{display:none}details.check-group summary:before{content:"›";font-size:17px;color:#998775;margin-right:8px}details.check-group[open] summary:before{content:"⌄"}details.check-group .check-row{padding-left:20px}details.check-group .progress{margin-left:20px;width:calc(100% - 20px)}
+</style></head><body><header><div class="logo">◈ COMP<span>2521</span> <small style="font-size:12px;color:#9c907f;font-weight:500">REVIEW STUDIO</small></div><div class="actions"><span class="badge">26T3 · DEMO</span><button class="btn" onclick="exportMistakes()">↓ 错题笔记</button><button class="btn" onclick="exportTemplates()">↓ 模板代码</button></div></header><div class="app"><aside><nav id="nav"></nav><div class="sidebar-foot">你的私人期末题库<br>本地自动保存 · 无需登录<br>适合 GitHub Pages 静态部署</div></aside><main class="main" id="view"></main></div><div class="toast" id="toast"></div>
+<script>
+const TEMPLATES=[
+{category:'Graph',name:'BFS · 邻接矩阵',desc:'Queue + visited + pred；遍历所有 vertex，而不是 edge 数量。',code:`void bfs(Graph g, Vertex src) {
+    int nV = GraphNumVertices(g);
+    bool *visited = calloc(nV, sizeof(bool));
+    int *pred = malloc(nV * sizeof(int));
+    for (int i = 0; i < nV; i++) pred[i] = -1;
+    Queue q = QueueNew();
+    visited[src] = true;
+    QueueEnqueue(q, src);
+    while (QueueSize(q) > 0) {
+        Vertex v = QueueDequeue(q);
+        for (Vertex w = 0; w < nV; w++) {
+            if (GraphIsAdjacent(g, v, w) && !visited[w]) {
+                visited[w] = true;
+                pred[w] = v;
+                QueueEnqueue(q, w);
+            }
+        }
+    }
+    QueueFree(q);
+    free(visited);
+    free(pred);
+}`},
+{category:'Graph',name:'DFS · 递归',desc:'visited 在递归前设置；内层循环按 GraphNumVertices(g)。',code:`static void dfsRec(Graph g, Vertex v, bool *visited) {
+    visited[v] = true;
+    int nV = GraphNumVertices(g);
+    for (Vertex w = 0; w < nV; w++) {
+        if (GraphIsAdjacent(g, v, w) && !visited[w]) {
+            dfsRec(g, w, visited);
+        }
+    }
+}
+void dfs(Graph g, Vertex src) {
+    int nV = GraphNumVertices(g);
+    bool *visited = calloc(nV, sizeof(bool));
+    dfsRec(g, src, visited);
+    free(visited);
+}`},
+{category:'Graph',name:'Dijkstra · 伪代码',desc:'非负权图单源最短路。O(V²) 朴素实现；具体 ADT 接口以课程为准。',code:`dist[src] = 0; other dist[] = INF
+pred[] = -1; visited[] = false
+repeat up to V times:
+    choose unvisited vertex v with min dist[v]
+    if none reachable: break
+    visited[v] = true
+    for each outgoing edge v -> w with weight:
+        if dist[v] + weight < dist[w]:
+            dist[w] = dist[v] + weight
+            pred[w] = v`},
+{category:'MST',name:'Prim · 伪代码',desc:'从一个点扩展；每次选连接已访问与未访问点的最小边。',code:`visited[start] = true
+while selectedEdges < V - 1:
+    find minimum-weight edge (v, w)
+    where visited[v] != visited[w]
+    if no such edge: graph is disconnected
+    add edge to MST
+    mark the new vertex visited`},
+{category:'MST',name:'Kruskal · 伪代码',desc:'边排序 + Union-Find；避免形成 cycle。',code:`sort all edges by weight ascending
+make each vertex its own disjoint set
+for each edge (u, v) in sorted order:
+    if find(u) != find(v):
+        add edge to MST
+        union(u, v)
+    stop once MST has V - 1 edges`},
+{category:'Tree',name:'BST · 递归插入',desc:'先处理 NULL，再按 value 决定左右；重复值不插入。',code:`struct node *bstInsert(struct node *t, int value) {
+    if (t == NULL) {
+        struct node *n = malloc(sizeof(*n));
+        n->value = value;
+        n->left = n->right = NULL;
+        return n;
+    }
+    if (value < t->value) t->left = bstInsert(t->left, value);
+    else if (value > t->value) t->right = bstInsert(t->right, value);
+    return t;
+}`},
+{category:'Tree',name:'BST · 删除最大值',desc:'一直走 right；右子树为空时，用 left 接回原位置。',code:`struct node *bstDeleteLargest(struct node *t, int *max) {
+    if (t == NULL) return NULL; // 调用前最好确保非空
+    if (t->right == NULL) {
+        *max = t->value;
+        struct node *left = t->left;
+        free(t);
+        return left;
+    }
+    t->right = bstDeleteLargest(t->right, max);
+    return t;
+}`},
+{category:'List',name:'Linked List · 反转',desc:'三个指针 prev/curr/next；O(n) 时间、O(1) 额外空间。',code:`struct node *reverseList(struct node *head) {
+    struct node *prev = NULL;
+    struct node *curr = head;
+    while (curr != NULL) {
+        struct node *next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}`},
+{category:'ADT',name:'Queue / Stack / Priority Queue',desc:'概念速查。函数名因课程提供的 ADT 而不同，请对照头文件。',code:`QUEUE (FIFO): enqueue / dequeue / isEmpty
+STACK (LIFO): push / pop / isEmpty
+PRIORITY QUEUE: insert / deleteMin / isEmpty
+
+BFS -> Queue
+DFS iterative -> Stack
+Dijkstra/Prim (optimized) -> Priority Queue`},
+{category:'Complexity',name:'复杂度 · 快速记忆',desc:'常用复杂度参考，具体取决于图表示、数据结构和实现。',code:`Linked list search: O(n)
+BST find/insert: O(h) [balanced O(log n), worst O(n)]
+BFS/DFS (adjacency list): O(V + E)
+BFS/DFS (adjacency matrix): O(V^2)
+Kruskal (sorting + DSU): O(E log E)
+Prim (adjacency matrix): O(V^2)
+Dijkstra (naive array): O(V^2)
+Merge sort: O(n log n)
+Insertion sort: worst O(n^2)`}
+];
+const SEED=[
+{id:'q1',title:'treeCopy · Copy a tree to a depth',source:'Practice',topic:'Tree',difficulty:'Medium',prompt:'实现 treeCopy(t, depth)，只复制从根开始到指定深度的节点（根深度为 0）。空树或者 depth < 0 返回 NULL。',starter:`struct node *treeCopy(struct node *t, int depth) {
+    // TODO: base cases + allocate + recursive copies
+}`,answer:`struct node *treeCopy(struct node *t, int depth) {
+    if (t == NULL || depth < 0) return NULL;
+    struct node *n = malloc(sizeof(*n));
+    n->value = t->value;
+    n->left = treeCopy(t->left, depth - 1);
+    n->right = treeCopy(t->right, depth - 1);
+    return n;
+}`,explanation:'先用 || 处理两个独立的退出条件；否则 t 可能是 NULL，却继续访问 t->value。O(k) 时间与空间，其中 k 为实际复制的节点数。',origin:'根据你近期练习的题型整理；题面为复述，并非复制课程原题。'},
+{id:'q2',title:'bstDeleteLargest · Delete maximum',source:'Practice',topic:'Tree',difficulty:'Easy',prompt:'删除 BST 中值最大的节点，通过 int *max 返回被删除的最大值，并返回新的树根。',starter:`struct node *bstDeleteLargest(struct node *t, int *max) {
+    // TODO
+}`,answer:TEMPLATES[6].code,explanation:'最大值在最右边；当 right == NULL，返回 left 子树给父节点接住。时间 O(h)。',origin:'根据你近期练习的题型整理。'},
+{id:'q3',title:'treeIsSizeBalanced · Check size balance',source:'Practice',topic:'Tree',difficulty:'Medium',prompt:'判断每个节点的左右子树节点数差是否不超过 1；所有节点都满足则返回 true。',starter:`bool treeIsSizeBalanced(struct node *t) {
+    // TODO
+}`,answer:`static int treeSize(struct node *t) {
+    if (t == NULL) return 0;
+    return 1 + treeSize(t->left) + treeSize(t->right);
+}
+bool treeIsSizeBalanced(struct node *t) {
+    if (t == NULL) return true;
+    int l = treeSize(t->left);
+    int r = treeSize(t->right);
+    return abs(l - r) <= 1 &&
+           treeIsSizeBalanced(t->left) &&
+           treeIsSizeBalanced(t->right);
+}`,explanation:'必须递归检查所有节点，不能只检查 root。此直接写法最坏 O(n²)；优化为一次后序遍历 O(n)。',origin:'根据你近期练习的题型整理。'},
+{id:'q4',title:'DFS traversal · Visit reachable vertices',source:'Lab',topic:'Graph',difficulty:'Easy',prompt:'使用 DFS 从 src 开始遍历邻接矩阵图，防止重复访问节点。',starter:`static void dfsRec(Graph g, Vertex v, bool *visited) {
+    // TODO
+}
+void dfs(Graph g, Vertex src) {
+    // TODO
+}`,answer:TEMPLATES[1].code,explanation:'循环界限是 GraphNumVertices，不是 GraphNumEdges。visited 分配大小也是 nV，函数结束 free。邻接矩阵复杂度 O(V²)。',origin:'根据你之前的 DFS 代码和典型 Lab 练习整理。'},
+{id:'q5',title:'BFS · Queue + visited + predecessor',source:'Lab',topic:'Graph',difficulty:'Medium',prompt:'从 src 做 BFS，使用 Queue 遍历图，并用 pred[w] 记录 w 的前驱。',starter:`void bfs(Graph g, Vertex src) {
+    // TODO: init visited/pred, queue, traversal
+}`,answer:TEMPLATES[0].code,explanation:'第一次发现 w 时就标记 visited[w] = true，并将 pred[w] = v；pred 应初始化为 -1。',origin:'根据你之前的 BFS 代码和典型 Lab 练习整理。'},
+{id:'q6',title:'Prim vs Kruskal · Choose an MST',source:'Past Exam · Demo',topic:'MST',difficulty:'Medium',prompt:'TODO：用最简单的语言解释 Prim 和 Kruskal 的选择规则，并分别写出核心伪代码。此题是模拟练习，未导入真实 past exam。',starter:`// TODO: Prim
+
+// TODO: Kruskal`,answer:`Prim: 从已访问点集合向外选最小跨界边，增加一个新顶点。
+Kruskal: 所有边按权重从小到大处理；不形成环就加入。
+
+Prim -> visited[] / min crossing edge
+Kruskal -> sort edges / disjoint set`,explanation:'两者都在连通、无向、带权图上求 MST；不同的是 Prim 扩展点集、Kruskal 按边排序防环。',origin:'演示题，并非真实历年试卷。'},
+{id:'q7',title:'listReverse · Iterative',source:'Practice',topic:'List',difficulty:'Easy',prompt:'原地反转单链表并返回新头节点，不能新建节点。',starter:`struct node *reverseList(struct node *head) {
+    // TODO
+}`,answer:TEMPLATES[7].code,explanation:'先保存 next，再改 curr->next，否则会丢掉后续链表。O(n) 时间，O(1) 空间。',origin:'典型 COMP2521 链表题型示例。'}
+];
+const SYLLABUS=[
+ ['Fundamentals','Complexity / Big-O'],['Fundamentals','Recursion'],['Fundamentals','Pointers / Memory'],
+ ['List','Linked Lists'],['List','Stacks / Queues'],['Tree','Binary Trees'],['Tree','BST operations'],['Tree','AVL / Balancing'],
+ ['Sorting','Sorting algorithms'],['Sorting','Searching'],['Graph','Graph representations'],['Graph','BFS'],['Graph','DFS'],['Graph','Connectivity / Spanning Trees'],
+ ['Graph','Shortest Paths / Dijkstra'],['MST','Prim'],['MST','Kruskal'],['ADT','ADT interfaces / implementations'],['ADT','Hash Tables / Maps'],['ADT','Heaps / Priority Queues']
+];
+const normTopic=t=>{let v=String(t||'').toLowerCase();if(v.includes('mst'))return 'MST';if(v.includes('graph'))return 'Graph';if(v.includes('bst')||v.includes('tree'))return 'Tree';if(v.includes('list')||v.includes('stack')||v.includes('queue'))return 'List';if(v.includes('sort')||v.includes('search'))return 'Sorting';if(v.includes('complex')||v.includes('recursive')||v.includes('pointer'))return 'Fundamentals';return t||'Other'};
+const questionType=q=>q.type||((q.source||'').includes('Past Exam')&&q.title.includes('Prim vs Kruskal')?'theory':'code');
+const KEY='comp2521-review-studio-v1';
+let state;try{state=JSON.parse(localStorage.getItem(KEY))}catch(e){};if(!state||!Array.isArray(state.questions))state={questions:SEED,notes:{},attempts:{},mistakes:{},done:{},tab:'dashboard',selected:'q1'};
+state.topicDone ||= {}; state.extraTopics ||= []; state.questions.forEach(q=>{if(!q.type)q.type=questionType(q)});
+let tab='dashboard', selected=state.selected||'q1', search='',filterSource='All',filterTopic='All',showAnswer=false;
+const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));const save=()=>{state.selected=selected;localStorage.setItem(KEY,JSON.stringify(state))};const qget=()=>state.questions.find(q=>q.id===selected)||state.questions[0];function toast(s){$('toast').textContent=s;$('toast').classList.add('on');setTimeout(()=>$('toast').classList.remove('on'),2400)}
+const tabs=[['dashboard','⌂','复习清单'],['bank','▤','代码题库'],['practice','✎','TODO 刷题'],['knowledge','☰','知识点'],['theory','◇','理论刷题'],['mistakes','⚑','错题集'],['review','⌘','模板 / ADT'],['manage','＋','题库管理']];
+function setTab(t){tab=t;showAnswer=false;render()}function header(title,sub,eyebrow='COMP2521 · 26T3'){return `<div class="eyebrow">${eyebrow}</div><h1 class="h1">${title}</h1><div class="sub">${sub}</div>`}
+function render(){ $('nav').innerHTML=tabs.map(x=>`<button class="${tab===x[0]?'active':''}" onclick="setTab('${x[0]}')"><span>${x[1]}</span> ${x[2]}</button>`).join(''); if(tab==='dashboard') dashboard();if(tab==='bank')bank();if(tab==='practice')practice();if(tab==='knowledge')knowledge();if(tab==='theory')theory();if(tab==='mistakes')mistakes();if(tab==='review')review();if(tab==='manage')manage()}
+function allTopics(){return [...SYLLABUS.map(([group,name])=>({group,name})),...state.extraTopics.map(x=>({group:x.group||'Other',name:x.name}))]}
+function isTopicDone(name){return !!state.topicDone[name]}
+function toggleTopic(name){state.topicDone[name]=!state.topicDone[name];save();render()}
+function pickTopic(name){filterTopic='All';search='';let low=name.toLowerCase(), map={'BFS':'bfs','DFS':'dfs','Prim':'prim','Kruskal':'kruskal','BST operations':'bst','Binary Trees':'tree','Linked Lists':'list','Connectivity / Spanning Trees':'graph','Shortest Paths / Dijkstra':'dijkstra'};let term=map[name]||low.split(' ')[0];let q=state.questions.find(q=>`${q.title} ${q.topic} ${q.prompt}`.toLowerCase().includes(term.toLowerCase()));if(q)selected=q.id;save();setTab(q?'practice':'knowledge');if(!q)toast('该知识点尚未导入对应题目')}
+function dashboard(){
+ const all=allTopics(), doneTopic=all.filter(t=>isTopicDone(t.name)).length;
+ const doneQ=state.questions.filter(q=>state.done[q.id]).length;
+ const codeQ=state.questions.filter(q=>questionType(q)==='code');
+ const theoryQ=state.questions.filter(q=>questionType(q)==='theory');
+ const total=all.length+state.questions.length;
+ const percent=total?Math.round(100*(doneTopic+doneQ)/total):0;
+ const groups=[...new Set(all.map(t=>t.group))];
+ const questionGroups=[...new Set(state.questions.map(q=>q.source))];
+ $('view').innerHTML=header('我的复习计划','一张清单记录全部知识点和题目。勾选完成，进度自动更新。')+
+ `<div class="panel" style="margin-bottom:16px"><div class="actions" style="justify-content:space-between;align-items:end"><div><div class="kicker">总进度</div><div class="stat">${percent}% <span class="muted-small" style="font-weight:400">${doneTopic+doneQ} / ${total} 项</span></div></div><div class="muted-small">知识点 ${doneTopic}/${all.length}　代码题 ${codeQ.filter(q=>state.done[q.id]).length}/${codeQ.length}　理论题 ${theoryQ.filter(q=>state.done[q.id]).length}/${theoryQ.length}</div></div><div class="progress"><span style="width:${percent}%"></span></div></div>`+
+ `<div class="two" style="margin-top:0"><section class="panel"><div class="actions" style="justify-content:space-between"><h3>知识点</h3><button class="text-link" onclick="setTab('knowledge')">打开知识点 →</button></div>${groups.map(g=>{const arr=all.filter(t=>t.group===g),n=arr.filter(t=>isTopicDone(t.name)).length;return `<details class="check-group" ${n<arr.length?'open':''}><summary>${esc(g)} <span class="muted-small">${n}/${arr.length}</span></summary><div class="progress slim"><span style="width:${100*n/arr.length}%"></span></div>${arr.map(t=>`<div class="check-row"><label class="checkbox-label"><input type="checkbox" ${isTopicDone(t.name)?'checked':''} onchange="toggleTopic(decodeURIComponent('${encodeURIComponent(t.name)}'))"><span class="${isTopicDone(t.name)?'checked-label':''}">${esc(t.name)}</span></label><button class="text-link" onclick="pickTopic(decodeURIComponent('${encodeURIComponent(t.name)}'))">练习 →</button></div>`).join('')}</details>`}).join('')}</section>`+
+ `<section class="panel"><div class="actions" style="justify-content:space-between"><h3>题目 TODO</h3><button class="text-link" onclick="setTab('bank')">打开题库 →</button></div><div class="muted-small" style="margin-bottom:12px">${doneQ}/${state.questions.length} 道完成 · 新导入的题目会自动加入此清单</div>${questionGroups.map(g=>{const arr=state.questions.filter(q=>q.source===g),n=arr.filter(q=>state.done[q.id]).length;return `<details class="check-group" ${n<arr.length?'open':''}><summary>${esc(g)} <span class="muted-small">${n}/${arr.length}</span></summary><div class="progress slim"><span style="width:${100*n/arr.length}%"></span></div>${arr.map(q=>`<div class="check-row"><label class="checkbox-label"><input type="checkbox" ${state.done[q.id]?'checked':''} onchange="state.done[decodeURIComponent('${encodeURIComponent(q.id)}')]=this.checked;save();render()"><span class="${state.done[q.id]?'checked-label':''}">${esc(q.title)}</span></label><button class="text-link" onclick="selected=decodeURIComponent('${encodeURIComponent(q.id)}');setTab('${questionType(q)==='theory'?'theory':'practice'}')">做题 →</button></div>`).join('')}</details>`}).join('')}<div class="actions section"><button class="btn primary" onclick="setTab('practice')">代码刷题</button><button class="btn" onclick="setTab('theory')">理论刷题</button><button class="btn" onclick="setTab('mistakes')">错题 (${Object.keys(state.mistakes).length})</button></div></section></div>`+
+ `<p class="muted-small section">当前是功能 Demo，完整知识点和题目需要与你后续提供的 Slides、Lab、Practice、Past Exam 逐项对照导入。个人进度存在本浏览器，换设备前记得导出备份。</p>`;
+}
+function knowledge(){let all=allTopics(),groups=[...new Set(all.map(t=>t.group))],done=all.filter(t=>isTopicDone(t.name)).length;$('view').innerHTML=header('知识点复习','用 Checklist 记录掌握情况。知识点目录是初步骨架，正式版本会根据你的 Slides 完整校对。')+`<div class="panel"><div class="actions" style="justify-content:space-between"><h3>已掌握 ${done} / ${all.length}</h3><button class="btn" onclick="setTab('review')">打开模板 / ADT</button></div>${groups.map(g=>`<div class="section"><div class="section-title">${esc(g)}</div>${all.filter(t=>t.group===g).map(t=>`<div class="check-row"><label class="checkbox-label"><input type="checkbox" ${isTopicDone(t.name)?'checked':''} onchange="toggleTopic('${esc(t.name).replaceAll("'","\'")}')"><span class="${isTopicDone(t.name)?'checked-label':''}">${esc(t.name)}</span></label><button class="text-link" onclick="pickTopic('${esc(t.name).replaceAll("'","\'")}')">关联练习 →</button></div>`).join('')}</div>`).join('')}<div class="divider"></div><div class="section-title">补充知识点</div><div class="actions"><input id="newTopic" placeholder="输入知识点名称" style="flex:1;min-width:200px"><button class="btn" onclick="addTopic()">添加</button></div></div>`}
+function addTopic(){let n=$('newTopic').value.trim();if(!n)return;if(allTopics().some(t=>t.name.toLowerCase()===n.toLowerCase())){toast('知识点已存在');return}state.extraTopics.push({group:'自定义',name:n});save();render()}
+function theory(){let arr=state.questions.filter(q=>questionType(q)==='theory');if(!arr.length){$('view').innerHTML=header('理论刷题 · Past Exam','保留真实试卷的题目来源；不编造不存在的历年真题。')+`<div class="empty">尚未导入 Past Exam 理论原题。以后给我试卷后，我会按年份、题型、知识点归档。<p><button class="btn" onclick="setTab('knowledge')">先复习知识点</button></p></div>`;return}if(!arr.some(q=>q.id===selected))selected=arr[0].id;let q=qget();$('view').innerHTML=header('理论刷题','只做 Past Exam 理论题；先独立作答，再查看参考答案。标注为 Demo 的并非真实历年试题。')+`<div class="layout"><div class="question-list">${arr.map(x=>`<div class="item ${x.id===selected?'active':''}" onclick="selected='${esc(x.id)}';showAnswer=false;save();render()"><span class="tag">${esc(x.source)}</span><strong>${esc(x.title)}</strong>${state.done[x.id]?'<span class="tag green">已完成</span>':''}</div>`).join('')}</div><div class="panel"><div class="actions"><span class="tag">${esc(q.topic)}</span><span class="tag">${esc(q.source)}</span></div><h2>${esc(q.title)}</h2><p class="sub">${esc(q.prompt)}</p><textarea class="editor" style="min-height:155px" placeholder="在这里写出你的答案…" oninput="state.attempts[selected]=this.value;save()">${esc(state.attempts[q.id]||'')}</textarea><div class="actions section"><button class="btn primary" onclick="showAnswer=!showAnswer;render()">${showAnswer?'隐藏答案':'查看答案 / 解析'}</button><button class="btn" onclick="state.done[selected]=!state.done[selected];save();render()">${state.done[q.id]?'✓ 已掌握':'○ 标记完成'}</button><button class="btn" onclick="markMistake()">加入错题</button></div>${showAnswer?`<div class="divider"></div><div class="section-title">参考答案</div><pre>${esc(q.answer)}</pre><div class="tip">${esc(q.explanation)}</div>`:''}</div></div>`}
+function listItems(arr){return arr.map(q=>`<div class="item ${selected===q.id?'active':''}" onclick="selectQuestion('${esc(q.id)}')"><span class="tag">${esc(q.source)}</span><span class="tag">${esc(q.topic)}</span>${state.mistakes[q.id]?'<span class="tag red">错题</span>':''}${state.done[q.id]?'<span class="tag green">完成</span>':''}<strong>${esc(q.title)}</strong><div class="muted-small">${esc(q.difficulty||'')} · ${esc((q.prompt||'').slice(0,54))}</div></div>`).join('')||'<div class="empty">没有符合筛选条件的题目</div>'}
+function filtered(){return state.questions.filter(q=>questionType(q)==='code'&&(filterSource==='All'||q.source===filterSource)&&(filterTopic==='All'||q.topic===filterTopic)&&`${q.title} ${q.prompt} ${q.topic}`.toLowerCase().includes(search.toLowerCase()))}function searchUI(){return `<div class="searchbar"><input id="search" placeholder="搜索题名 / 题干 / 知识点" value="${esc(search)}" oninput="search=this.value;refreshList()"><select id="sf" onchange="filterSource=this.value;refreshList()">${['All','Lab','Practice','Past Exam','Past Exam · Demo'].map(s=>`<option ${filterSource===s?'selected':''}>${s}</option>`).join('')}</select><select id="tf" onchange="filterTopic=this.value;refreshList()">${['All',...new Set(state.questions.map(q=>q.topic))].map(s=>`<option ${filterTopic===s?'selected':''}>${esc(s)}</option>`).join('')}</select></div>`}function refreshList(){let e=$('list');if(e)e.innerHTML=listItems(filtered())}function selectQuestion(id){selected=id;showAnswer=false;save();render()}
+function bank(){ $('view').innerHTML=header('代码题库','按来源与知识点筛选；选中题目可以直接开始 TODO 练习，也可以编辑内容。')+searchUI()+`<div class="layout"><div class="question-list" id="list">${listItems(filtered())}</div><div id="detail"></div></div>`;drawDetail()}
+function drawDetail(){let q=qget();if(!$('detail'))return;if(!q){$('detail').innerHTML='<div class="empty">先添加一道题</div>';return}$('detail').innerHTML=`<div class="panel"><div class="actions"><span class="tag purple">${esc(q.source)}</span><span class="tag">${esc(q.topic)}</span><span class="tag">${esc(q.difficulty)}</span></div><h2>${esc(q.title)}</h2><div class="sub">${esc(q.prompt)}</div><div class="muted-small">${esc(q.origin||'自定义题目')}</div><div class="section"><div class="section-title">Starter / TODO</div><pre>${esc(q.starter)}</pre></div><div class="actions"><button class="btn primary" onclick="setTab('practice')">开始做题</button><button class="btn" onclick="editQuestion('${esc(q.id)}')">编辑题目</button><button class="btn" onclick="toggleBankAnswer()">${showAnswer?'隐藏':'查看'}答案</button></div>${showAnswer?`<div class="section"><pre>${esc(q.answer)}</pre><div class="tip">${esc(q.explanation)}</div></div>`:''}</div>`}function toggleBankAnswer(){showAnswer=!showAnswer;drawDetail()}
+function randomQuestion(){let arr=filtered();if(!arr.length)arr=state.questions.filter(q=>questionType(q)==='code');if(arr.length){selected=arr[Math.floor(Math.random()*arr.length)].id;save()}}
+function nextQuestion(){randomQuestion();showAnswer=false;render()}
+function practice(){if(!state.questions.some(q=>q.id===selected&&questionType(q)==='code'))selected=state.questions.find(q=>questionType(q)==='code')?.id;let q=qget();if(!q){$('view').innerHTML=header('无限刷题','先添加题目');return}$('view').innerHTML=header('TODO 刷题模式','不需要编译器，不需要测试环境；专注于自己写代码、对照标准答案、记录错误。')+`<div class="actions" style="margin-bottom:15px"><span class="pill">${esc(q.source)}</span><span class="pill">${esc(q.topic)}</span><span class="pill">${esc(q.difficulty)}</span><span class="muted-small">${state.questions.findIndex(x=>x.id===q.id)+1} / ${state.questions.length}</span><div style="flex:1"></div><button class="btn" onclick="setTab('bank')">选择题目</button><button class="btn" onclick="nextQuestion()">随机下一题 ↻</button></div><div class="panel"><h2 style="margin-top:0">${esc(q.title)}</h2><p class="sub">${esc(q.prompt)}</p><div class="section-title">你的 TODO 代码</div><textarea class="editor" id="answerEditor" spellcheck="false" oninput="state.attempts[selected]=this.value;save()">${esc(state.attempts[q.id]??q.starter)}</textarea><div class="muted-small">自动保存到当前浏览器。Tab 可插入 4 个空格。</div><div class="actions section"><button class="btn primary" onclick="showAnswer=!showAnswer;render()">${showAnswer?'隐藏答案':'显示正确答案 / 解析'}</button><button class="btn ${state.done[q.id]?'good':''}" onclick="state.done[selected]=!state.done[selected];save();render()">${state.done[q.id]?'✓ 已完成':'✓ 标记掌握'}</button><button class="btn warn" onclick="markMistake()">⚑ 加入错题集</button><button class="btn" onclick="resetAttempt()">重置 TODO</button></div>${showAnswer?`<div class="divider"></div><div class="section-title">参考答案</div><pre>${esc(q.answer)}</pre><div class="section-title">解析 / 易错点</div><div class="tip">${esc(q.explanation)}</div>`:''}</div>`;let ed=$('answerEditor');ed.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();let a=ed.selectionStart,b=ed.selectionEnd;ed.value=ed.value.slice(0,a)+'    '+ed.value.slice(b);ed.selectionStart=ed.selectionEnd=a+4;state.attempts[selected]=ed.value;save()}})}function resetAttempt(){if(confirm('重置这道题的个人代码吗？')){delete state.attempts[selected];save();render()}}function markMistake(){let q=qget();state.mistakes[q.id]=state.mistakes[q.id]||{highlight:'',note:''};save();toast('已加入错题集，可以添加高亮与注释');setTab('mistakes')}
+function highlighted(code,fragment){code=String(code||'');if(!fragment)return esc(code);let i=code.indexOf(fragment);if(i<0)return esc(code);return esc(code.slice(0,i))+'<mark class="highlight">'+esc(fragment)+'</mark>'+esc(code.slice(i+fragment.length))}
+function mistakes(){let arr=state.questions.filter(q=>state.mistakes[q.id]);if(!arr.length){$('view').innerHTML=header('错题集','错误代码高亮 + 自己的注解，集中复盘薄弱环节。')+`<div class="empty">暂时没有错题。去「无限刷题」做题后，点「加入错题集」。<p><button class="btn primary" onclick="setTab('practice')">开始刷题</button></p></div>`;return}if(!arr.some(q=>q.id===selected))selected=arr[0].id;let q=qget(),m=state.mistakes[q.id];$('view').innerHTML=header('错题集','把写错的代码片段复制到「高亮文本」，再记录原因；下次复习直接看错误与正确答案。')+`<div class="layout"><div class="question-list">${arr.map(x=>`<div class="item ${x.id===selected?'active':''}" onclick="selectQuestion('${esc(x.id)}')"><span class="tag red">错题</span><strong>${esc(x.title)}</strong><span class="muted-small">${esc(x.topic)}</span></div>`).join('')}</div><div class="panel"><h2 style="margin-top:0">${esc(q.title)}</h2><div class="section-title">你的上次代码（高亮视图）</div><pre id="codeHigh">${highlighted(state.attempts[q.id]??q.starter,m.highlight)}</pre><label class="label">高亮代码片段（原样复制其中一行或部分文字）</label><input id="hi" value="${esc(m.highlight)}" placeholder="例如：if (t == NULL && depth < 0)" oninput="saveMistake()"><label class="label">错误注解 / 为什么错 / 正确思路</label><textarea id="note" rows="4" placeholder="例如：两个退出条件应使用 ||，否则会解引用空指针。" oninput="saveMistake()">${esc(m.note)}</textarea><div class="section-title section">参考答案</div><pre>${esc(q.answer)}</pre><div class="tip">${esc(q.explanation)}</div><div class="actions section"><button class="btn" onclick="selected='${esc(q.id)}';setTab('practice')">重新做这题</button><button class="btn warn" onclick="delete state.mistakes[selected];save();render()">移出错题集</button></div></div></div>`}function saveMistake(){let m=state.mistakes[selected];m.highlight=$('hi').value;m.note=$('note').value;$('codeHigh').innerHTML=highlighted(state.attempts[selected]??qget().starter,m.highlight);save()}
+function review(){let groups=['All',...new Set(TEMPLATES.map(t=>t.category))];$('view').innerHTML=header('代码模板 & ADT 速查','只保留高频算法骨架与复杂度，便于考前快速回忆。参考实现使用示意接口，实际提交请以课程提供的 .h 文件为准。')+`<div class="actions" style="margin-bottom:18px">${groups.map(g=>`<button class="btn" onclick="renderRefs('${g}')">${g}</button>`).join('')}</div><div class="ref-grid" id="refs"></div>`;renderRefs('All')}function renderRefs(g){$('refs').innerHTML=TEMPLATES.filter(t=>g==='All'||t.category===g).map((t,i)=>`<section class="panel ref-card"><div class="head"><div><span class="tag purple">${esc(t.category)}</span><h3 style="margin:8px 0 0">${esc(t.name)}</h3></div><button class="btn" onclick="copyText(${TEMPLATES.indexOf(t)})">复制</button></div><div class="muted-small" style="padding:0 18px 12px">${esc(t.desc)}</div><pre>${esc(t.code)}</pre></section>`).join('')}function copyText(i){navigator.clipboard.writeText(TEMPLATES[i].code).then(()=>toast('模板已复制')).catch(()=>toast('浏览器未授权复制'))}
+function manage(){ $('view').innerHTML=header('添加题目 / 数据管理','正式题库会根据你提供的 Lab、Slides、Practice 和 Past Exam 资料统一整理。这里只需偶尔补充新题。')+`<div class="two"><section class="panel"><h3 id="formTitle">添加一道题</h3><input type="hidden" id="qid"><label class="label">题目标题</label><input id="qt" placeholder="如：listIsPalindromic"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px"><div><label class="label">来源</label><select id="qs"><option>Lab</option><option selected>Practice</option><option>Past Exam</option><option>Past Exam · Demo</option></select></div><div><label class="label">知识点</label><input id="qc" placeholder="Tree"></div><div><label class="label">难度</label><select id="qd"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></div></div><label class="label">题目类型</label><select id="qtype"><option value="code">代码题</option><option value="theory">理论题（Past Exam）</option></select><label class="label">完整题干</label><textarea id="qp" rows="4"></textarea><label class="label">TODO / Starter Code</label><textarea id="qstart" rows="5" class="editor"></textarea><label class="label">正确答案（C 代码或文字）</label><textarea id="qa" rows="7" class="editor"></textarea><label class="label">解析 / 易错点</label><textarea id="qe" rows="3"></textarea><div class="actions section"><button class="btn primary" onclick="saveQuestion()">保存题目</button><button class="btn" onclick="clearForm()">清空</button><button class="btn warn hidden" id="deleteBtn" onclick="deleteQuestion()">删除当前题目</button></div></section><section class="panel"><h3>一键导出复习资料</h3><p class="muted-small">最常用的两个导出内容已经独立出来：代码模板和错题笔记，都是 Markdown，可在 Notion / VS Code / GitHub 查看。</p><div class="actions"><button class="btn primary" onclick="exportTemplates()">↓ 导出所有模板代码 .md</button><button class="btn" onclick="exportMistakes()">↓ 导出错题笔记 .md</button></div><div class="divider"></div><h3>以后怎么扩展题库？</h3><p class="muted-small">你可以直接把 Lab / Slides / Practice / Past Exam 文件给我，我会整理题干、TODO、标准解答、知识点和出处，生成可直接使用的更新版题库。无需你逐题填写 JSON。</p><p class="muted-small">临时补一道题，可以使用左侧表单。要在不同设备间迁移记录，再使用下方备份。</p><div class="actions"><button class="btn" onclick="exportData()">下载完整备份 .json</button><label class="btn" style="cursor:pointer">恢复备份 / 导入整理好的题库<input type="file" accept="application/json,.json" onchange="importData(event)" style="display:none"></label></div><div class="divider"></div><div class="tip">GitHub Pages 可直接托管本站。个人刷题记录保存在当前浏览器；需要换设备时，请先备份再恢复。</div><div class="divider"></div><button class="btn warn" onclick="resetDemo()">恢复原始 Demo（清空个人记录）</button></section></div>`}
+function editQuestion(id){let q=state.questions.find(x=>x.id===id);setTab('manage');if(!q)return;$('qid').value=q.id;$('qt').value=q.title;$('qs').value=q.source;$('qc').value=q.topic;$('qd').value=q.difficulty;$('qtype').value=questionType(q);$('qp').value=q.prompt;$('qstart').value=q.starter;$('qa').value=q.answer;$('qe').value=q.explanation;$('formTitle').textContent='编辑题目';$('deleteBtn').classList.remove('hidden')}
+function clearForm(){setTab('manage')}
+function saveQuestion(){let id=$('qid').value||'custom_'+Date.now();let q={id,title:$('qt').value.trim(),source:$('qs').value,topic:$('qc').value.trim()||'Other',difficulty:$('qd').value,type:$('qtype').value,prompt:$('qp').value,starter:$('qstart').value||'// TODO',answer:$('qa').value,explanation:$('qe').value,origin:'个人添加 / 可编辑'};if(!q.title||!q.prompt){toast('请填写标题和题干');return}let i=state.questions.findIndex(x=>x.id===id);if(i>=0)state.questions[i]=q;else state.questions.push(q);selected=id;save();toast('题目已保存');setTab('bank')}
+function deleteQuestion(){if(!confirm('确定删除这道题及相关记录吗？'))return;let id=$('qid').value;state.questions=state.questions.filter(q=>q.id!==id);delete state.attempts[id];delete state.mistakes[id];delete state.done[id];selected=state.questions[0]?.id;save();setTab('bank')}
+function downloadText(filename,content,type='text/markdown;charset=utf-8'){let blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function exportTemplates(){let md='# COMP2521 · 模板代码与 ADT 复习\n\n> 代码模板仅作复习参考。请根据实际课程头文件核对 ADT 接口。\n\n';for(let t of TEMPLATES){md+=`## ${t.category} · ${t.name}\n\n${t.desc}\n\n\`\`\`text\n${t.code}\n\`\`\`\n\n`;}downloadText('COMP2521-templates.md',md);toast('代码模板已导出')}
+function exportMistakes(){let arr=state.questions.filter(q=>state.mistakes[q.id]);let md='# COMP2521 · 错题笔记\n\n';if(!arr.length)md+='暂无错题。请先在刷题页面标记错题。\n';for(let q of arr){let m=state.mistakes[q.id],mine=state.attempts[q.id]??q.starter;md+=`## ${q.title}\n\n- 来源：${q.source}\n- 知识点：${q.topic}\n\n**题目：** ${q.prompt}\n\n**高亮错误片段：**\n\n\`\`\`c\n${m.highlight||'（未标注）'}\n\`\`\`\n\n**我的代码：**\n\n\`\`\`c\n${mine}\n\`\`\`\n\n**我的注解：** ${m.note||'（未填写）'}\n\n**参考答案：**\n\n\`\`\`c\n${q.answer||'（暂无答案）'}\n\`\`\`\n\n**解析：** ${q.explanation||'（暂无解析）'}\n\n---\n\n`;}downloadText('COMP2521-mistake-notes.md',md);toast('错题笔记已导出')}
+function exportData(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='comp2521-review-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);toast('备份已下载')}
+function importData(e){let f=e.target.files?.[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(Array.isArray(d)){d={questions:d,notes:{},attempts:{},mistakes:{},done:{}}}if(!Array.isArray(d.questions)||!d.questions.every(q=>q.title&&q.prompt&&q.source)){throw Error('文件不是有效题库')}d.questions=d.questions.map((q,i)=>({...q,id:String(q.id||'import_'+i),starter:q.starter||'// TODO',answer:q.answer||'',explanation:q.explanation||'',topic:q.topic||'Other',difficulty:q.difficulty||'Medium',type:q.type||questionType(q)}));if(!confirm(`追加 / 更新 ${d.questions.length} 道题？同 ID 的题目会更新，原有刷题记录保留。`))return;const old=new Map(state.questions.map(q=>[q.id,q]));d.questions.forEach(q=>old.set(q.id,q));state.questions=[...old.values()];state.topicDone ||= {};state.extraTopics ||= [];selected=state.questions[0]?.id;save();setTab('dashboard');toast('导入成功')}catch(err){toast('导入失败：'+err.message)}};r.readAsText(f)}function resetDemo(){if(!confirm('恢复示例题库并清除所有个人记录？'))return;localStorage.removeItem(KEY);location.reload()}
+render();
+</script></body></html>

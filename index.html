@@ -20,8 +20,9 @@ pre{background:#f8f7f4;border-color:#ece7df;color:#342f29}.empty{color:#81796e;b
 details.check-group{border-bottom:1px solid #f0ece6;padding:11px 0}details.check-group:last-child{border:0}details.check-group summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:650;list-style:none}details.check-group summary::-webkit-details-marker{display:none}details.check-group summary:before{content:"›";font-size:17px;color:#998775;margin-right:8px}details.check-group[open] summary:before{content:"⌄"}details.check-group .check-row{padding-left:20px}details.check-group .progress{margin-left:20px;width:calc(100% - 20px)}
 .question-picker{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.question-picker select{width:auto;min-width:0;max-width:100%}.question-picker #question{flex:1;min-width:min(100%,240px)}.question-text,.tip{white-space:pre-wrap;overflow-wrap:anywhere}.question-text{line-height:1.55}.panel{min-width:0}.panel pre{overflow:auto}details.solution summary{cursor:pointer;font-weight:650}.editor{width:100%}
 .workbench{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}.workbench .writing-panel{position:sticky;top:16px}.writing-panel .editor{min-height:300px;margin-top:10px}.source-links a{color:#795938}.question-text{margin-bottom:0}@media(max-width:1050px){.workbench{grid-template-columns:1fr}.workbench .writing-panel{position:static}}
+.exercise-panel .task-copy{font-size:1.05rem;line-height:1.75;margin:0 0 20px;overflow-wrap:anywhere}.exercise-panel h3{font-size:.82rem;letter-spacing:.04em;color:#6f5a45;margin:18px 0 6px}.example-card{border:1px solid #e9e0d3;border-radius:12px;background:#faf7f1;overflow:hidden}.example-card div{padding:12px 14px;display:grid;gap:4px}.example-card div+div{border-top:1px solid #e9e0d3}.example-card span{font-size:.8rem;color:#6f5a45}.example-card code{white-space:pre-wrap;overflow-wrap:anywhere}.exercise-panel .context-copy{line-height:1.65;margin:8px 0;color:#594c40}.exercise-panel .source-links{margin-top:10px}.exercise-panel summary{cursor:pointer;color:#795938}.exercise-panel details{margin-top:18px}
 </style></head><body><header><div class="logo">◈ COMP<span>2521</span> <small style="font-size:12px;color:#9c907f;font-weight:500">REVIEW STUDIO</small></div><div class="actions"><span class="badge">26T3</span></div></header><div class="app"><aside><nav id="nav"></nav><div class="sidebar-foot">草稿和错题自动保存在此浏览器</div></aside><main class="main" id="view"></main></div><div class="toast" id="toast"></div>
-<script src="questions.js?v=2"></script>
+<script src="questions.js?v=3"></script>
 <script>
 const TEMPLATES=[
 {category:'Graph',name:'BFS · 邻接矩阵',desc:'Queue + visited + pred；遍历所有 vertex，而不是 edge 数量。',code:`void bfs(Graph g, Vertex src) {
@@ -206,13 +207,23 @@ function practice() {
       <button class="btn" id="next" ${index === questions.length - 1 ? 'disabled' : ''}>下一题</button>
     </div>
     <div class="workbench">
-    <section class="panel">
+    <section class="panel exercise-panel">
       <h2 style="margin-top:0">${esc(q.title)}</h2>
-      <div class="actions source-links">
-        ${q.origin?.startsWith('https://cgi.cse.unsw.edu.au/') ? `<a href="${esc(q.origin)}" target="_blank" rel="noopener">查看原题</a>` : ''}
-        ${/^https:\/\/(?:www|cgi)\.cse\.unsw\.edu\.au\//.test(q.starterUrl || '') ? `<a href="${esc(q.starterUrl)}" target="_blank" rel="noopener">下载课程配套文件</a>` : ''}
-      </div>
-      <p class="question-text">${esc(q.prompt)}</p>
+      <p class="task-copy">${esc(q.prompt)}</p>
+      ${q.example ? `<h3>示例</h3>
+        <div class="example-card">
+          <div><span>给定</span><code>${esc(q.example.input)}</code></div>
+          <div><span>预期结果</span><code>${esc(q.example.output)}</code></div>
+        </div>` : ''}
+      ${q.rules ? `<h3>需要遵守</h3><p class="context-copy">${esc(q.rules)}</p>` : ''}
+      ${q.context ? `<details><summary>题目用到的类型和接口</summary>
+        <p class="context-copy question-text">${esc(q.context)}</p></details>` : ''}
+      ${q.origin?.startsWith('https://cgi.cse.unsw.edu.au/') ? `<details>
+        <summary>课程原题与配套资料</summary>
+        <div class="actions source-links">
+          <a href="${esc(q.origin)}" target="_blank" rel="noopener">查看原题</a>
+          ${/^https:\/\/(?:www|cgi)\.cse\.unsw\.edu\.au\//.test(q.starterUrl || '') ? `<a href="${esc(q.starterUrl)}" target="_blank" rel="noopener">下载配套文件</a>` : ''}
+        </div></details>` : ''}
     </section>
     <section class="panel writing-panel">
       <label class="section-title" for="answerEditor">我的作答</label>

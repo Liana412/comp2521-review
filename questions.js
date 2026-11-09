@@ -5,12 +5,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 01",
     "topic": "C Revision",
     "type": "code",
-    "prompt": "Your task is to implement the following function in arrayShift.c:\n\nvoid shift(int arr[], int size, int n);\n\nThis function shifts an array of the given size to the right n times. When an array is shifted to the right, each element is moved one index to the right (i.e., if an element was at index i, it will now be at index i + 1), and the element at the end of the array (at index N - 1 where N is the size of the array) is moved to the start (index 0).\n\nn can be assumed to be non-negative.\n\nTesting\n\narrayShift.c contains a main function which allows you to test your shift function. The main function:\n\n• Reads the size of the array\n• Reads the values of the array\n• Displays the array\n• Reads the value of n\n• Calls shift\n• Displays the updated array\n\nHere are some examples of its usage:\n\nmake\n...\n./arrayShift\nEnter array size: 3\nEnter array values: 16 5 2\nArray: [16, 5, 2]\nEnter shift: 1\nArray after shifting 1 time(s): [2, 16, 5]\n./arrayShift\nEnter array size: 5\nEnter array values: 16 5 2 -3 4\nArray: [16, 5, 2, -3, 4]\nEnter shift: 3\nArray after shifting 3 time(s): [2, -3, 4, 16, 5]\n./arrayShift\nEnter array size: 5\nEnter array values: 16 5 2 -3 4\nArray: [16, 5, 2, -3, 4]\nEnter shift: 10\nArray after shifting 10 time(s): [16, 5, 2, -3, 4]",
+    "prompt": "把数组原地向右循环移动 n 位。每右移一位，最后一个元素绕回开头。",
     "starter": "void shift(int arr[], int size, int n) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/1/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip",
+    "rules": "n ≥ 0。",
+    "example": {
+      "input": "arr = [2, 5, 7]，n = 1",
+      "output": "arr 变为 [7, 2, 5]"
+    }
   },
   {
     "id": "unsw-26t3-lab-01-2",
@@ -18,12 +23,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 01",
     "topic": "C Revision",
     "type": "code",
-    "prompt": "Your task is to implement the following function in listShift.c:\n\nstruct node *shift(struct node *list, int n);\n\nThis function shifts a linked list to the right n times and returns a pointer to the start of the updated list. When a linked list is shifted to the right, the node at the end of the list is moved to the start.\n\nn can be assumed to be non-negative.\n\nConstraints\n\n• You must not use malloc or any of its variants\n• You must not modify the integer values in any nodes\n\nTesting\n\nlistShift.c contains a main function which allows you to test your shift function. The main function:\n\n• Reads the size of the list\n• Reads the values of the list\n• Displays the list\n• Reads the value of n\n• Calls shift\n• Displays the updated list\n\nHere are some examples of its usage:\n\nmake\n...\n./listShift\nEnter list size: 3\nEnter list values: 16 5 2\nList: [16, 5, 2]\nEnter shift: 1\nList after shifting 1 time(s): [2, 16, 5]\n./listShift\nEnter list size: 5\nEnter list values: 16 5 2 -3 4\nList: [16, 5, 2, -3, 4]\nEnter shift: 3\nList after shifting 3 time(s): [2, -3, 4, 16, 5]\n./listShift\nEnter list size: 5\nEnter list values: 16 5 2 -3 4\nList: [16, 5, 2, -3, 4]\nEnter shift: 10\nList after shifting 10 time(s): [16, 5, 2, -3, 4]",
+    "prompt": "把链表向右循环移动 n 位，返回新的头指针。",
     "starter": "struct node *shift(struct node *list, int n) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/1/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip",
+    "rules": "n ≥ 0。只重接节点，不分配新节点，也不改节点里的值。",
+    "example": {
+      "input": "1 → 2 → 3，n = 1",
+      "output": "3 → 1 → 2"
+    }
   },
   {
     "id": "unsw-26t3-lab-01-3",
@@ -31,12 +41,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 01",
     "topic": "C Revision",
     "type": "code",
-    "prompt": "Your task is to implement the following function in arrayInsertOrdered.c:\n\nvoid insertOrdered(int arr[], int size, int value);\n\nThis function takes an array which is sorted in increasing order, and inserts the given value into the array such that the array remains ordered.\n\nThe function can assume that it can store an element at index size. For example, suppose that the inputs are:\n\nThen the value should be inserted like so:\n\nTesting\n\narrayInsertOrdered.c contains a main function which allows you to test your insertOrdered function. The main function:\n\n• Reads the size of the array\n• Reads the values of the array\n• Displays the array\n• Reads the value to be inserted\n• Calls insertOrdered\n• Displays the updated array\n\nHere are some examples of its usage:\n\nmake\n...\n./arrayInsertOrdered\nEnter array size: 4\nEnter array values (must be in ascending order): 2 5 7 8\nArray: [2, 5, 7, 8]\nEnter value to insert: 6\nArray after inserting 6: [2, 5, 6, 7, 8]\n./arrayInsertOrdered\nEnter array size: 5\nEnter array values (must be in ascending order): -8 -3 -1 2 4\nArray: [-8, -3, -1, 2, 4]\nEnter value to insert: -9\nArray after inserting -9: [-9, -8, -3, -1, 2, 4]\n./arrayInsertOrdered\nEnter array size: 6\nEnter array values (must be in ascending order): -5 0 2 6 9 14\nArray: [-5, 0, 2, 6, 9, 14]\nEnter value to insert: 2\nArray after inserting 2: [-5, 0, 2, 2, 6, 9, 14]",
+    "prompt": "把 value 插入递增数组，原地保持顺序。",
     "starter": "void insertOrdered(int arr[], int size, int value) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/1/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip",
+    "rules": "下标 size 处有一个可写位置。",
+    "example": {
+      "input": "arr = [2, 5, 8]，value = 6",
+      "output": "arr 变为 [2, 5, 6, 8]"
+    }
   },
   {
     "id": "unsw-26t3-lab-01-4",
@@ -44,12 +59,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 01",
     "topic": "C Revision",
     "type": "code",
-    "prompt": "Your task is to implement the following function in listInsertOrdered.c:\n\nstruct node *insertOrdered(struct node *list, int value);\n\nThis function takes a linked list which is sorted in increasing order, inserts the given value into the list such that the list remains ordered, and then returns a pointer to the start of the updated list.\n\nTesting\n\nlistInsertOrdered.c contains a main function which allows you to test your insertOrdered function. The main function:\n\n• Reads the size of the list\n• Reads the values of the list\n• Displays the list\n• Reads the value to be inserted\n• Calls insertOrdered\n• Displays the updated list\n\nHere are some examples of its usage:\n\nmake\n...\n./listInsertOrdered\nEnter list size: 4\nEnter list values (must be in ascending order): 2 5 7 8\nList: [2, 5, 7, 8]\nEnter value to insert: 6\nList after inserting 6: [2, 5, 6, 7, 8]\n./listInsertOrdered\nEnter list size: 5\nEnter list values (must be in ascending order): -8 -3 -1 2 4\nList: [-8, -3, -1, 2, 4]\nEnter value to insert: -9\nList after inserting -9: [-9, -8, -3, -1, 2, 4]\n./listInsertOrdered\nEnter list size: 6\nEnter list values (must be in ascending order): -5 0 2 6 9 14\nList: [-5, 0, 2, 6, 9, 14]\nEnter value to insert: 2\nList after inserting 2: [-5, 0, 2, 2, 6, 9, 14]",
+    "prompt": "把 value 插入有序链表，返回更新后的头指针。",
     "starter": "struct node *insertOrdered(struct node *list, int value) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/1/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week01/downloads/files.zip",
+    "rules": "插入后保持升序。",
+    "example": {
+      "input": "2 → 5 → 8，value = 1",
+      "output": "1 → 2 → 5 → 8"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-1",
@@ -57,12 +77,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in bst.c:\n\nint bstSumEvens(struct node *t);\n\nThis function should return the sum of all the even values in the given BST.\n\nFor example, consider the following BST:\n\nGiven the above BST, the function should return 70, because the sum of even values in the BST is 4 + 16 + 24 + 26 = 70.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runBst program.\n\nNo time complexity analysis is required for this task.",
+    "prompt": "返回 BST 里所有偶数节点值之和。",
     "starter": "int bstSumEvens(struct node *t) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "",
+    "example": {
+      "input": "偶数节点值为 4、16、24、26",
+      "output": "70"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-2",
@@ -70,12 +95,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in bst.c:\n\nint bstNumLeaves(struct node *t);\n\nThis function should return the number of leaf nodes in the given BST. A leaf node is a node that has no child nodes. The following diagram shows some example trees, with the leaf nodes highlighted in red.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runBst program.\n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write it in analysis.txt along with an explanation. The time complexity should be in terms of n or h, where n is the number of nodes in the tree and h is the height of the tree. You should decide which is more appropriate for your implementation.\n\nTo decide whether to use n or h, think about whether your function always traverses the entire tree (regardless of the structure of the tree) or just one or a constant number of branches. If a function only goes down one or a constant number of branches, then its efficiency depends on the height of the tree rather than the total number of nodes.",
+    "prompt": "数出 BST 有多少个叶节点。叶节点没有左孩子，也没有右孩子。",
     "starter": "int bstNumLeaves(struct node *t) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "完成后想一下最坏时间复杂度。",
+    "example": {
+      "input": "根为 5，左右孩子分别为 2 和 7",
+      "output": "2"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-3",
@@ -83,12 +113,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in bst.c:\n\nint bstRange(struct node *t);\n\nThis function should return the range of the given BST. The range of a BST is the difference between its smallest value and largest value. If the given tree is empty, the function should return -1.\n\nFor example, consider the following BST:\n\nGiven the above BST, the function should return 27, because its smallest value is 2, its largest value is 29, and thus its range is 29 - 2 = 27.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runBst program.\n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write it in analysis.txt along with an explanation. The time complexity should be in terms of n or h, where n is the number of nodes in the tree and h is the height of the tree. You should decide which is more appropriate for your implementation.",
+    "prompt": "求 BST 的最大值减最小值。空树返回 -1。",
     "starter": "int bstRange(struct node *t) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "完成后想一下最坏时间复杂度。",
+    "example": {
+      "input": "最小值 2，最大值 29",
+      "output": "27"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-4",
@@ -96,12 +131,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in bst.c:\n\nstruct node *bstDeleteLeaves(struct node *t);\n\nThis function should delete all the leaf nodes in the given BST and return the root of the updated tree.\n\nFor example, consider the following BST:\n\nThe BST contains four leaf nodes, so the function should delete all of them so that the BST now looks like this:\n\nOnce you think you've got the function working, test it by recompiling with make and running the runBst program.\n\nNote: Be careful to avoid memory leaks! Code that causes memory leaks will incur a penalty which is 10% of the marks for this task.\n\nFor this task, you can avoid memory leaks by calling free() on each node that you delete.\n\nNo time complexity analysis is required for this task.",
+    "prompt": "删除 BST 原本的所有叶节点，返回更新后的根。",
     "starter": "struct node *bstDeleteLeaves(struct node *t) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "释放被删除的节点。",
+    "example": {
+      "input": "根为 5，左右孩子为 2 和 7",
+      "output": "只剩节点 5"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-5",
@@ -109,12 +149,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in bst.c:\n\nint bstClosest(struct node *t, int value);\n\nThis function should return the value in the BST which is closest to the given value. The function can assume the given BST is not empty. If there is more than one closest value, the function may return any of them. For example, consider the following BST:\n\n• If the given value is 30, then the function should return 30, because the closest value to 30 in the BST is 30.\n• If the given value is 15, then the function should return 18, because the closest value to 15 in the BST is 18.\n• If the given value is 7, then the function should return 3 or 11, because the closest values to 7 in the BST are 3 or 11 and they are equally close to 7.\n\nHint: You may find the abs function (provided by stdlib.h) useful.\n\nNote: To get full marks for this task, your function must have a worst-case time complexity of O(h), where h is the height of the BST. A solution which is slower than O(h) can earn at most half of the marks for this task.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runBst program.\n\nNo time complexity analysis is required for this task.",
+    "prompt": "返回 BST 中与 value 差值最小的节点值。并列时任选一个。",
     "starter": "int bstClosest(struct node *t, int value) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "树非空。满分要求最坏 O(h)，h 是树高。",
+    "example": {
+      "input": "树中有 3 和 11，value = 7",
+      "output": "3 或 11"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-6",
@@ -122,12 +167,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in bst.c:\n\nvoid bstLevelOrder(struct node *t);\n\nThis function should print the level-order traversal of the given BST on a single line separated by spaces (i.e., the same format as the other traverse-and-print functions). The following diagram aims to give an idea of how level-order traversal scans the nodes in a tree:\n\nThe output from this traversal would be: 5 3 7 2 4 6 9 1 8.\n\nLevel-order traversal cannot be done recursively (at least not easily) and is typically implemented using a queue. The algorithm is roughly as follows:\n\nLevel Order Traversal:\n\tInput: bst t\n\n\tcreate an empty queue\n\tadd the root node of t to the queue\n\twhile the queue is not empty:\n\t\tremove the node at the front of the queue\n\t\tprint the value in the node\n\t\tadd the node's left child (if any) to the queue\n\t\tadd the node's right child (if any) to the queue\n\nYou must implement this algorithm by making use of the Queue ADT provided. Note that the Queue ADT stores pointers (void * is a generic pointer type). This is because you should store node pointers in the queue rather than integers - if the queue stored integers then after dequeuing an integer, there would be no easy way to add its children to the queue.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runBst program.\n\nNote: Be careful to avoid memory leaks! Code that causes memory leaks will incur a penalty which is 10% of the marks for this task.\n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write it in analysis.txt along with an explanation. The time complexity should be in terms of n or h, where n is the number of nodes in the tree and h is the height of the tree. You should decide which is more appropriate for your implementation.\n\nNote: Make sure to include any Queue ADT functions you used in your analysis, because the time complexity of these functions may affect the time complexity of bstLevelOrder!",
+    "prompt": "按层从上到下、每层从左到右打印节点值。",
     "starter": "void bstLevelOrder(struct node *t) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "所有值在同一行，用空格分隔。 使用课程 Queue ADT，队列存节点指针。",
+    "example": {
+      "input": "根为 5，左右孩子为 3 和 7",
+      "output": "5 3 7"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-7",
@@ -135,12 +185,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in bst.c:\n\nstruct node *bstTrim(struct node *t, int depth);\n\nThis function should delete all the nodes in the given BST that are below the given depth and return the root of the updated tree. The root node is at depth 0, its children are at depth 1, and so on. If the given depth is -1, all nodes should be deleted.\n\nFor example, consider the following BST:\n\nIf the given depth is 2, the function should delete all nodes below depth 2 so that the BST now looks like so:\n\nOnce you think you've got the function working, test it by recompiling with make and running the runBst program.\n\nNote: Be careful to avoid memory leaks! Code that causes memory leaks will incur a penalty which is 10% of the marks for this task.\n\nNo time complexity analysis is required for this task.",
+    "prompt": "删除深度大于 depth 的节点，返回更新后的根。根的深度为 0。",
     "starter": "struct node *bstTrim(struct node *t, int depth) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "释放被删除的节点。depth = -1 时清空整棵树。",
+    "example": {
+      "input": "根为 5，左右孩子为 3 和 7，depth = 0",
+      "output": "只剩节点 5"
+    }
   },
   {
     "id": "unsw-26t3-lab-04-8",
@@ -148,12 +203,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 04",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to implement this function in numCommonValues.c:\n\nint numCommonValues(struct node *t1, struct node *t2);\n\nThis function should return the number of common values between the two given BSTs. The function must not use arrays or malloc/calloc, either directly or indirectly.\n\nFor example, consider the following BSTs:\n\nGiven the above BSTs, the function should return 3, because there are three common values between them: 3, 17 and 23.\n\nOnce you think you've got the function working, test it by recompiling with make and running the numCommonValues program. The program should behave like so:\n\n./numCommonValues\nEnter values to insert in t1: 14 7 3 23 20 17 29\nt1:\n\n    14\n    / \\\n   /   \\\n  7    23\n /     / \\\n3     /   \\\n     20   29\n    /\n   17\n\nEnter values to insert in t2: 17 3 2 16 23 26 24\nt2:\n\n    17\n    / \\\n   /   \\\n  3    23\n / \\     \\\n2  16    26\n         /\n        24\n\nNumber of common values: 3\n\nNote: Arrays and malloc/calloc are forbidden in this task. Solutions that use arrays or malloc/calloc will not receive any marks.\n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write it in analysis.txt along with an explanation. The time complexity should be in terms of one or more of the following: n _1 (the number of nodes in t1), h_1 (the height of t1), n_2 (the number of nodes in t2), and h_2 (the height of t2).\n\nHints\n\nPlease give the task at least 10 minutes of thought before looking at these hints!\n\nHint 1\n\nHere is a simple way to solve this problem:\n\nFor each value in one of the BSTs (say t1), check if the value exists in the other BST (t2)\n\nThink about how you could implement this (and try implementing it) before looking at the next hint!\n\nHint 2\n\nThis problem is similar to the bstCountOdds tutorial question, but instead of counting the number of values that are odd, we need to count the number of values that exist in the other BST. This means you can solve this problem by following the same structure as bstCountOdds.\n\nTry implementing this before looking at the next hint!\n\nHint 3\n\nCould you implement a helper function to check if a BST contains a value? Better yet, is there a function provided in bst.h that you can use?\n\nHint 4\n\nThe previous hints suggest that we need to recurse through one of the BSTs (say t1) to check if each of its values exists in the other BST (t2). When you recurse, you should simply pass down the root node of t2 instead of t2->left or t2->right, because the value you need to check could be anywhere in t2.",
+    "prompt": "统计两棵 BST 共有多少个值。",
     "starter": "int numCommonValues(struct node *t1, struct node *t2) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/4/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week04/downloads/files.zip",
+    "rules": "禁止数组和 malloc / calloc，包括间接调用。",
+    "example": {
+      "input": "第一棵含 {3, 7, 23}，第二棵含 {3, 17, 23}",
+      "output": "2"
+    }
   },
   {
     "id": "unsw-26t3-lab-05-1",
@@ -161,12 +221,18 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 05",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Implement the FbFriend() function in Fb.c, which takes the names of two people, and friends them if they are not already friends. The function should return true if the people were not friends and were successfully friended, and false if the two people were already friends.\n\nYou should implement your function so that the adjacency lists are kept in ascending order. For example, in the example in the Background section, since Harry (0) is friends with Ron (1) and Hermione (2), 1 should appear before 2 in Harry's adjacency list.\n\nYou can assume that the two people exist and are not the same person.\n\nWe have provided a function newAdjNode which creates a new adjacency list node.   Is inserting into an adjacency list similar to a problem that you have solved in a previous lab exercise?  Once you think you've got the function working, test it by recompiling with make and running the runFb program. You can test whether your function works using the + (add person), f (friend) and s (friendship status) commands. For example:\n\n./runFb\nFriendbook v1.0\nEnter ? to see the list of commands.\n> + Harry\nHarry was successfully added to Friendbook!\n> + Ron\nRon was successfully added to Friendbook!\n> + Hermione\nHermione was successfully added to Friendbook!\n> s Ron Hermione\nRon and Hermione are not friends.\n> f Ron Hermione\nSuccessfully friended Ron and Hermione!\n> s Ron Hermione\nRon and Hermione are friends.\n> s Harry Ron\nHarry and Ron are not friends.\n> f Harry Ron\nSuccessfully friended Harry and Ron!\n> s Harry Ron\nHarry and Ron are friends.\n> s Ron Hermione\nRon and Hermione are friends.\n> s Harry Hermione\nHarry and Hermione are not friends.\n\nYou can run the above test case with the following command:\n\n./runFb -e \n\nThis command runs the ./runFb program and causes it to read Friendbook commands from the file tests/friend-1.txt. The -e option (which stands for \"echo\") causes the program to print out the commands to the terminal as they are being run, which makes it easy to see which operations are being performed.\n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write in analysis.txt along with an explanation. The time complexity should be in terms of n, where n is the total number of people.",
-    "starter": "// TODO",
+    "prompt": "给两个人建立双向好友关系。新建成功返回 true，已经是好友返回 false。",
+    "starter": "bool FbFriend(Fb fb, char *name1, char *name2) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/5/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip",
+    "rules": "两人存在且不同。邻接表按用户 ID 升序。",
+    "example": {
+      "input": "A 和 B 原先不是好友",
+      "output": "返回 true，双方都能查到对方"
+    },
+    "context": "fb->names[id] 是用户名；fb->adj[id] 是该用户的邻接表。节点字段为 v（好友 ID）和 next。"
   },
   {
     "id": "unsw-26t3-lab-05-2",
@@ -174,12 +240,18 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 05",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Implement the FbNumFriends() function in Fb.c, which takes the name of a person and returns the number of friends they have. You can assume that the person exists.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runFb program. Here is an example test case:\n\n./runFb\nFriendbook v1.0\nEnter ? to see the list of commands.\n> + Harry\nHarry was successfully added to Friendbook!\n> + Ron\nRon was successfully added to Friendbook!\n> + Hermione\nHermione was successfully added to Friendbook!\n> f Harry Ron\nSuccessfully friended Harry and Ron!\n> f Ron Hermione\nSuccessfully friended Ron and Hermione!\n> n Harry\nHarry has 1 friend.\n> n Ron\nRon has 2 friends.\n> n Hermione\nHermione has 1 friend.\n\nThe Friendbook commands used in this example have been stored in the file tests/num-friends-1.txt, so you can also run this test case with the following command:\n\n./runFb -e \n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write in analysis.txt along with an explanation. The time complexity should be in terms of n, where n is the total number of people.",
-    "starter": "// TODO",
+    "prompt": "返回指定用户的好友数量。",
+    "starter": "int FbNumFriends(Fb fb, char *name) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/5/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip",
+    "rules": "用户存在。",
+    "example": {
+      "input": "A 的好友是 B 和 C",
+      "output": "2"
+    },
+    "context": "fb->names[id] 是用户名；fb->adj[id] 是该用户的邻接表。节点字段为 v（好友 ID）和 next。"
   },
   {
     "id": "unsw-26t3-lab-05-3",
@@ -187,12 +259,18 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 05",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Implement the FbMutualFriends() function in Fb.c, which takes the names of two people, and returns a list of all their mutual friends. A person is a mutual friend of two people if that person is friends with both of those people. To illustrate this, here is an example:\n\nIn the example, Harry and Hermione have three mutual friends: Neville, Ron and Luna. Draco and Vincent have one mutual friend: Gregory. Harry and Draco have no mutual friends.\n\nYou can assume that the two people exist and are not the same person. The mutual friends may be added to the list in any order.\n\nTo find out how to create a list and add names to it, see the comments in List.h, or read one of the existing functions in Fb.c that use the List ADT.  Once you think you've got the function working, test it by recompiling with make and running the runFb program. You can run the following command to test the scenario given above:\n\n./runFb -e \n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write in analysis.txt along with an explanation. The time complexity should be in terms of n, where n is the total number of people.",
-    "starter": "// TODO",
+    "prompt": "返回两个人的共同好友名单。",
+    "starter": "List FbMutualFriends(Fb fb, char *name1, char *name2) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/5/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip",
+    "rules": "两人存在且不同。输出顺序不限。",
+    "example": {
+      "input": "A 的好友是 B、C；D 的好友是 B、E",
+      "output": "[B]"
+    },
+    "context": "fb->names[id] 是用户名；fb->adj[id] 是该用户的邻接表。节点字段为 v（好友 ID）和 next。\nListNew() 创建列表，ListAppend(list, name) 添加名字。"
   },
   {
     "id": "unsw-26t3-lab-05-4",
@@ -200,12 +278,18 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 05",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Implement the FbUnfriend() function in Fb.c, which takes the names of two people, and unfriends them if they are friends. The function should return true if the people were friends and were successfully unfriended, and false if the two people were not friends (and so they could not be unfriended).\n\nYou can assume that the two people exist and are not the same person.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runFb program. Here is an example test case:\n\n./runFb\nFriendbook v1.0\nEnter ? to see the list of commands.\n> + Harry\nHarry was successfully added to Friendbook!\n> + Ron\nRon was successfully added to Friendbook!\n> + Hermione\nHermione was successfully added to Friendbook!\n> f Harry Ron\nSuccessfully friended Harry and Ron!\n> f Ron Hermione\nSuccessfully friended Ron and Hermione!\n> s Harry Ron\nHarry and Ron are friends.\n> s Ron Hermione\nRon and Hermione are friends.\n> u Harry Ron\nSuccessfully unfriended Harry and Ron!\n> s Harry Ron\nHarry and Ron are not friends.\n> s Ron Hermione\nRon and Hermione are friends.\n> n Harry\nHarry has 0 friends.\n\nThe Friendbook commands used in this example have been stored in the file tests/unfriend-1.txt, so you can also run this test case with the following command:\n\n./runFb -e \n\nNo time complexity analysis is required for this task.",
-    "starter": "// TODO",
+    "prompt": "解除双向好友关系。删除成功返回 true，原先没有好友关系则返回 false。",
+    "starter": "bool FbUnfriend(Fb fb, char *name1, char *name2) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/5/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip",
+    "rules": "两人存在且不同。",
+    "example": {
+      "input": "A 和 B 原先是好友",
+      "output": "返回 true，双方好友名单都移除对方"
+    },
+    "context": "fb->names[id] 是用户名；fb->adj[id] 是该用户的邻接表。节点字段为 v（好友 ID）和 next。"
   },
   {
     "id": "unsw-26t3-lab-05-5",
@@ -213,12 +297,18 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 05",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Implement the FbFriendRecs1() function in Fb.c, which takes the name of a person and finds friend recommendations for them. The function should store the recommendations in the given recs array and return the number of recommendations stored in the array.\n\nThe function should only recommend people who are friends of friends of the person. In other words, it should only recommend people who share at least one mutual friend with the person. Obviously, it should not recommend someone who is already the person's friend.\n\nEach recommendation consists of the name of the person being recommended and the number of mutual friends they share with the given person.\n\nThe recommendations should be sorted in descending order on the number of mutual friends shared, since someone with more mutual friends is more likely to be known by the person, and is therefore more likely to be added as a friend. If two people share the same number of mutual friends, they may be sorted in any order.\n\nFor example, consider the following scenario:\n\nIf FbFriendRecs1() is called with the name \"Harry\", the following output should be produced:\n\nHarry's friend recommendations:\n\tNeville                3 mutual friends\n\tLavender               2 mutual friends\n\tDraco                  1 mutual friends\n\nExplanation: Neville should be recommended first as he shares three mutual friends with Harry: Luna, Ron and Hermione. Lavender should be recommended next as she shares two mutual friends with Harry: Ron and Hermione. Draco should be recommended last as he shares just one mutual friend with Harry: Hermione. (Note: There is no typo on the last line - it is left as \"friends\" for simplicity's sake.)\n\nHint: You can use strcpy to copy a name into the name field of the recommendation struct.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runFb program. You can run the following command to test the scenario given above:\n\n./runFb -e \n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write in analysis.txt along with an explanation. The time complexity should be in terms of n, where n is the total number of people.",
-    "starter": "// TODO",
+    "prompt": "把好友的好友写入 recs，并返回推荐人数。每条记录含姓名和共同好友数。",
+    "starter": "int FbFriendRecs1(Fb fb, char *name, struct recommendation recs[]) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/5/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week05/downloads/files.zip",
+    "rules": "排除本人及现有好友。共同好友数降序，并列顺序不限。",
+    "example": {
+      "input": "A 只认识 B，B 还认识 C",
+      "output": "推荐 C，共同好友数 1"
+    },
+    "context": "fb->names[id] 是用户名；fb->adj[id] 是该用户的邻接表。节点字段为 v（好友 ID）和 next。"
   },
   {
     "id": "unsw-26t3-lab-07-1",
@@ -226,12 +316,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 07",
     "topic": "Graph",
     "type": "code",
-    "prompt": "One idea discussed in lectures is that if we perform a graph traversal and take all the edges were used during the traversal (i.e., edges that led to an unvisited vertex during the traversal), these edges produce a spanning tree.\n\nFor example, consider the following graph:\n\nIf a breadth-first search was performed on the graph starting from vertex 0, then the edges used during the BFS would produce the following spanning tree:\n\nOne way to identify these edges is to use the predecessor array from the graph traversal, since the edges in the spanning tree simply connect each vertex to its predecessor. For example, the predecessor array below was produced from a BFS on the above graph starting from vertex 0. You can check it against the spanning tree shown above.\n\n.pred-array.table td { width: 40px; text-align: center; } .pred-array.table .indices td { color: #aaa; }     Index   0   1   2   3   4   5   6   7   8\n-   0   0   0   2   1   3   5   6\n\nYour task is to implement breadth-first search and then return the spanning tree produced by the BFS as a graph. Implement this function in bfsTree.c:\n\nGraph bfsTree(Graph g, int src);\n\nThis function takes a graph and a vertex src, and returns a new graph which is the spanning tree produced by a BFS in the graph starting from src. The BFS should prioritise lower-numbered vertices, so if a vertex has multiple neighbours, they should be enqueued in increasing order.\n\nYou can assume that the graph is connected and contains at least two vertices.\n\nFor this task, you must use the adjacency matrix representation, which is defined in GraphAdjMatrixRep.h.\n\nHere is the pseudocode for BFS:\n\nbfs(g, src):\n\tInputs: graph g\n\t        source vertex src\n\t\n\tinitialise visited and predecessor arrays\n\tcreate queue and enqueue src\n\n\tmark src as visited\n\twhile the queue is not empty:\n\t\tdequeue u\n\n\t\tfor each neighbour v of u:\n\t\t\tif v has not been visited:\n\t\t\t\tmark v as visited\n\t\t\t\tset predecessor of v to u\n\t\t\t\tenqueue v\n\nHint: When creating the new spanning tree graph, you can use GraphInsertEdge to insert edges.\n\nTesting\n\nOnce you think you've got the function working, test it by recompiling with make and running the bfsTree program. The program takes two command-line arguments: the path to a graph file, and a source vertex. For example:\n\nmake\n...\n./bfsTree graphs/graph-1.txt 0\n-----\nGraph\n-----\nNumber of vertices: 9\nEdges:\n 0: 1 2 3\n 1: 0 3 5\n 2: 0 3 4\n 3: 0 1 2 6\n 4: 2\n 5: 1 7\n 6: 3 7 8\n 7: 5 6\n 8: 6\n\n----------------------\nBFS tree from vertex 0\n----------------------\nNumber of vertices: 9\nEdges:\n 0: 1 2 3\n 1: 0 5\n 2: 0 4\n 3: 0 6\n 4: 2\n 5: 1 7\n 6: 3 8\n 7: 5\n 8: 6\n\nYou can check whether the output is correct by using the graph visualiser tool. First, switch to 2-graph mode, then copy the input graph into the first panel, and then copy the output graph into the second panel. After moving the vertices around, you should get the following:",
+    "prompt": "从 src 开始做 BFS，把每条首次发现新顶点的边放入新的图并返回。",
     "starter": "Graph bfsTree(Graph g, int src) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/7/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip",
+    "rules": "使用邻接矩阵。多个邻点时优先编号小的；原图连通，至少两个顶点。",
+    "example": {
+      "input": "三角形 0—1、0—2、1—2，src = 0",
+      "output": "树边 0—1、0—2"
+    }
   },
   {
     "id": "unsw-26t3-lab-07-2",
@@ -239,12 +334,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 07",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Similarly, graph traversal with depth-first search also produces a spanning tree.\n\nFor example, depth-first search on the graph shown in Task 1 would produce the following spanning tree (assuming that the DFS prioritises lower-numbered vertices):\n\nYour task is to implement recursive depth-first search and then return the spanning tree produced by the DFS as a graph. Implement this function in dfsTree.c:\n\nGraph dfsTree(Graph g, int src);\n\nThis function takes a graph and a vertex src, and returns a new graph which is the spanning tree produced by a DFS in the graph starting from src. The DFS should prioritise lower-numbered vertices, so if a vertex has multiple neighbours, the neighbour with the lowest number should be visited first.\n\nYou can assume that the graph is connected and contains at least two vertices.\n\nFor this task, you must use the adjacency list representation, which is defined in GraphAdjListRep.h.\n\nHere is the pseudocode for DFS:\n\ndfs(g, src):\n\tInputs: graph g\n\t        source vertex src\n\t\n\tinitialise visited and predecessor arrays\n\n\trecursiveDfs(g, src, visited, predecessor)\n\nrecursiveDfs(g, u, visited, predecessor):\n\tmark u as visited\n\n\tfor each neighbour v of u:\n\t\tif v has not been visited:\n\t\t\tset predecessor of v to u\n\t\t\trecursiveDfs(g, v, visited, predecessor)\n\nTesting\n\nOnce you think you've got the function working, test it by recompiling with make and running the dfsTree program. The program takes two command-line arguments: the path to a graph file, and a source vertex. For example:\n\nmake\n...\n./dfsTree graphs/graph-1.txt 0\n-----\nGraph\n-----\nNumber of vertices: 9\nEdges:\n 0: 1 2 3\n 1: 0 3 5\n 2: 0 3 4\n 3: 0 1 2 6\n 4: 2\n 5: 1 7\n 6: 3 7 8\n 7: 5 6\n 8: 6\n\n----------------------\nDFS tree from vertex 0\n----------------------\nNumber of vertices: 9\nEdges:\n 0: 1\n 1: 0 3\n 2: 3 4\n 3: 1 2 6\n 4: 2\n 5: 7\n 6: 3 7 8\n 7: 5 6\n 8: 6\n\nAs in the previous task, you can check whether the output is correct by using the graph visualiser tool.",
+    "prompt": "从 src 开始做递归 DFS，返回由发现边构成的新图。",
     "starter": "Graph dfsTree(Graph g, int src) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/7/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip",
+    "rules": "使用邻接表。优先访问编号小的邻点；原图连通，至少两个顶点。",
+    "example": {
+      "input": "三角形 0—1、0—2、1—2，src = 0",
+      "output": "树边 0—1、1—2"
+    }
   },
   {
     "id": "unsw-26t3-lab-07-3",
@@ -252,12 +352,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 07",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to implement this function in shortestPath.c:\n\nint shortestPath(Graph g, int src, int dest, int path[]);\n\nThis function takes a graph, a source vertex src, a destination vertex dest, and an array path, and finds the shortest path from src to dest. It should store the path as a sequence of vertices in the given path array and return the number of vertices stored in the array. If there is no path from src to dest, the function should return 0. If there are multiple shortest paths from src to dest, it may return any of them.\n\nFor example, consider the following graph:\n\nIf src is 0 and dest is 10, then the function should store the path [0, 6, 1, 10] in the path array and return 4.\n\nFor this task, you must use the adjacency list representation, which is defined in GraphAdjListRep.h.\n\nTesting\n\nOnce you think you've got the function working, test it by recompiling with make and running the shortestPath program. The program takes three command-line arguments: the path to a graph file, a source vertex and a destination vertex. For example:\n\nmake\n...\n./shortestPath graphs/graph-2.txt 0 10\n-----\nGraph\n-----\nNumber of vertices: 11\nEdges:\n 0: 3 4 6\n 1: 5 6 8 10\n 2: 9 10\n 3: 0 6 7\n 4: 0 5\n 5: 1 4 6 9\n 6: 0 1 3 5\n 7: 3\n 8: 1\n 9: 2 5\n 10: 1 2\n\nShortest path from 0 to 10: 0 6 1 10\n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write it in analysis.txt along with an explanation. The time complexity should be in terms of V and/or E, where V is the number of vertices in the graph and E is the number of edges in the graph.",
+    "prompt": "把 src 到 dest 的一条最短路径写入 path，返回写入的顶点数。",
     "starter": "int shortestPath(Graph g, int src, int dest, int path[]) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/7/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip",
+    "rules": "使用邻接表。路径含首尾顶点；无路返回 0，并列可任选。",
+    "example": {
+      "input": "0—6—1—10 是 0 到 10 的最短路径",
+      "output": "path = [0, 6, 1, 10]，返回 4"
+    }
   },
   {
     "id": "unsw-26t3-lab-07-4",
@@ -265,12 +370,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 07",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to implement this function in cycle.c:\n\nint cycle(Graph g, int path[]);\n\nThis function takes a graph and an array path, and finds a cycle in the graph. It should store the cycle as a sequence of vertices in the given path array such that the first and last vertices are the same (showing that it is a cycle), and return the number of vertices stored in the array. If there is no cycle in the graph, the function should return 0. If there are multiple cycles, it may return any of them.\n\nFor example, consider the following graph:\n\nThe function should store one of the following sequences in the path array and return 5.\n\n[1, 2, 6, 5, 1]\n[1, 5, 6, 2, 1]\n[2, 6, 5, 1, 2]\n[2, 1, 5, 6, 2]\n[6, 5, 1, 2, 6]\n[6, 2, 1, 5, 6]\n[5, 1, 2, 6, 5]\n[5, 6, 2, 1, 5]\n\nFor this task, you must use the adjacency matrix representation, which is defined in GraphAdjMatrixRep.h.\n\nHints\n\nPlease give the task at least 10 minutes of thought before looking at these hints!\n\nHint 1\n\nThe problem of checking if a cycle exists is covered in lectures. How can you modify the solution to get the vertices in the cycle?\n\nHint 2\n\nThink about how you could use a predecessor array to get the vertices in the cycle.\n\nHint 3\n\nAs soon as you detect a cycle during the graph traversal, use the predecessor array to trace backwards through the cycle. Be careful, because the source vertex might not be part of the cycle!\n\nTesting\n\nOnce you think you've got the function working, test it by recompiling with make and running the cycle program. The program takes one command-line argument: the path to a graph file. For example:\n\nmake\n...\n./cycle graphs/graph-3.txt\n-----\nGraph\n-----\nNumber of vertices: 7\nEdges:\n 0: 1 4\n 1: 0 2 5\n 2: 1 3 6\n 3: 2\n 4: 0\n 5: 1 6\n 6: 2 5\n\nCycle: 1 5 6 2 1\n\nAnalysis 🔍\n\nWhen you're certain that the function works correctly, determine its worst-case time complexity and write it in analysis.txt along with an explanation. The time complexity should be in terms of V and/or E, where V is the number of vertices in the graph and E is the number of edges in the graph.",
+    "prompt": "找任意一个环，把顶点依次写入 path，并返回写入的顶点数。",
     "starter": "int cycle(Graph g, int path[]) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/7/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip",
+    "rules": "使用邻接矩阵。起点要在末尾再出现一次；无环返回 0。",
+    "example": {
+      "input": "三角形 0—1、1—2、2—0",
+      "output": "path 可以是 [0, 1, 2, 0]，返回 4"
+    }
   },
   {
     "id": "unsw-26t3-lab-07-5",
@@ -278,12 +388,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 07",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to implement this function in furthestVertex.c:\n\nstruct result furthestVertex(Graph g, int src);\n\nThis function takes a graph and a source vertex src, and finds the vertex which is furthest from src but still reachable. It should return that vertex and its distance from src in a struct result, which is defined as follows:\n\nstruct result {\n\tint vertex;\n\tint distance;\n};\n\nIf there are multiple vertices which are furthest from src, the function may return any of them.\n\nFor example, consider the following graph:\n\nIf src is 0, then the function should return a struct result with vertex set to 6 and distance set to 5.  For this task, you must use the adjacency matrix representation, which is defined in GraphAdjMatrixRep.h.\n\nTesting\n\nOnce you think you've got the function working, test it by recompiling with make and running the furthestVertex program. The program takes two command-line arguments: the path to a graph file and a source vertex. For example:\n\nmake\n...\n./furthestVertex graphs/graph-4.txt 0\n-----\nGraph\n-----\nNumber of vertices: 12\nEdges:\n 0: 3 7\n 1: 3\n 2: 3 5 7 11\n 3: 0 1 2\n 4: 10 11\n 5: 2 9\n 6: 8\n 7: 0 2 11\n 8: 6 9 10\n 9: 5 8 11\n 10: 4 8\n 11: 2 4 7 9\n\nFurthest vertex: 6 (distance = 5)\n\nNo time complexity analysis is required for this task.",
+    "prompt": "返回离 src 最远的可达顶点及其距离，填入 result.vertex 和 result.distance。",
     "starter": "struct result furthestVertex(Graph g, int src) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/7/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip",
+    "rules": "使用邻接矩阵。并列时任选一个。",
+    "example": {
+      "input": "0—1—2，src = 0",
+      "output": "vertex = 2，distance = 2"
+    }
   },
   {
     "id": "unsw-26t3-lab-07-6",
@@ -291,12 +406,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 07",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to implement this function in largestComponent.c:\n\nint largestComponent(Graph g, int component[]);\n\nThis function takes a graph and finds the largest connected component in the graph, which is the connected component that contains the most vertices. It should store the vertices in this component in the given component array (in any order) and return the number of vertices stored. If there are multiple connected components containing the most vertices, the function may return any of them.\n\nFor example, consider the following graph:\n\nThe largest connected component is the component that contains the vertices 3, 4, 6, 7 and 12, so the function should store these vertices in the component array (in any order) and return 5.\n\nFor this task, you must use the adjacency list representation, which is defined in GraphAdjListRep.h.\n\nTesting\n\nOnce you think you've got the function working, test it by recompiling with make and running the largestComponent program. The program takes one command-line argument: the path to a graph file. For example:\n\nmake\n...\n./largestComponent graphs/graph-5.txt\n-----\nGraph\n-----\nNumber of vertices: 14\nEdges:\n 0: 2 10\n 1: 8\n 2: 0\n 3: 6 12\n 4: 6 12\n 5: 13\n 6: 3 4 7\n 7: 6 12\n 8: 1 9 11\n 9: 8\n 10: 0\n 11: 8\n 12: 3 4 7\n 13: 5\n\nLargest component contains 5 vertices: 3 4 6 7 12\n\nNo time complexity analysis is required for this task.",
+    "prompt": "找顶点数最多的连通分量，把它的顶点写入 component，返回数量。",
     "starter": "int largestComponent(Graph g, int component[]) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/7/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week07/downloads/files.zip",
+    "rules": "使用邻接表。顶点顺序不限，并列任选。",
+    "example": {
+      "input": "分量分别为 {0, 1, 2} 和 {3, 4}",
+      "output": "写入 0、1、2，返回 3"
+    }
   },
   {
     "id": "unsw-26t3-lab-08-1",
@@ -304,12 +424,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 08",
     "topic": "MST",
     "type": "code",
-    "prompt": "Implement the GraphMst() function in Graph.c which takes in a graph and returns a minimum spanning tree of the graph as a new graph. If the given graph has no minimum spanning tree, the function should return NULL. If the graph has multiple minimum spanning trees, you can return any of them. The function must not modify the given graph.\n\nYou may use any minimum spanning tree algorithm you like. You can (and are encouraged to) make use of the priority queue ADT that we've supplied.\n\nWhen you think you are done, use the make command to recompile the testGraphMst program and use the provided input files (and/or your own) in the tests/graphMst directory to test your code. Each input file t.in has a corresponding expected output file t.exp. For example:\n\n./testGraphMst < tests/graphMst/1.in\nGraph:\nNumber of vertices: 3\nNumber of edges: 3\nEdge 0 - 1: 5.000000\nEdge 0 - 2: 4.000000\nEdge 1 - 2: 3.000000\n\nMinimum Spanning Tree:\nNumber of vertices: 3\nNumber of edges: 2\nEdge 0 - 2: 4.000000\nEdge 1 - 2: 3.000000\n# now compare with expected output in 1.exp\n\nAnother way to test your code is to add the -v flag to toggle the program's visualiser mode. This will cause the program to output an HTML page containing a visualisation of the minimum spanning tree produced by your function. You'll need to redirect the output to an .html file like so:\n\n./testGraphMst -v < tests/graphMst/1.in > tests/graphMst/1.html\n\nNow open the file in your web browser to get a nice visualisation of the result. For example, here is what the visualisation for 3.in should look like:\n\nThe edges of the MST (if it exists) will be highlighted in green. The vertices will always be initially arranged in a circle, but you can change how the graph looks by dragging the vertices around the canvas.\n\nThe .html file must be in the tests/graphMst directory for the visualiser to work, because the visualiser depends on other files in that directory (style.css and visualiser.js). Alternatively, you can move style.css and visualiser.js to the same directory as the .html file.",
-    "starter": "// TODO",
+    "prompt": "返回一张新图，表示原图的一棵最小生成树。",
+    "starter": "Graph GraphMst(Graph g) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/8/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week08/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week08/downloads/files.zip",
+    "rules": "不改原图。无生成树返回 NULL，并列任选。",
+    "example": {
+      "input": "边 0—1 重 5，0—2 重 4，1—2 重 3",
+      "output": "选 0—2 和 1—2，总权重 7"
+    }
   },
   {
     "id": "unsw-26t3-lab-08-2",
@@ -317,12 +442,18 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 08",
     "topic": "MST",
     "type": "code",
-    "prompt": "Implement the planGrid1() function in planner.c which takes an array of cities (of size numCities) and a power plant, and determines the most optimal (i.e., cost-minimising) configuration of power lines such that every city has access to electricity. The function should fill the given powerLines array with the required power lines and return the number of power lines stored in the array. If there are multiple optimal configurations, you can choose any of them.\n\nYou can make the following simplifying assumptions:\n\n• Cost is directly proportional to the total length of power lines used, so you should aim to minimise this total length.\n• Power lines can only be built between pairs of cities or between a city and a power plant, so you can't create a new place and build a power line to it.\n• You can assume the land is flat so that there is no additional cost from a difference in altitude. The cost of a power line between two locations (x_1, y_1) and (x_2, y_2) will therefore be directly proportional to $$ \\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$\n\nPlease note that you are not required to calculate the total cost - you are only required to find the configuration of power lines that would minimise the cost.\n\nWhen you think you are done, use the make command to recompile the gridPlanner program and use the provided input files (and/or your own) in the tests/gridPlanner directory to test your code. Each input file t.in has a corresponding expected output file t.exp. For example:\n\n./gridPlanner < tests/gridPlanner/1.in\nCity Sydney at (870, 204)\nCity Melbourne at (727, 94)\nCity Adelaide at (581, 174)\nCity Alice Springs at (474, 469)\nCity Darwin at (406, 736)\nCity Perth at (65, 254)\nCity Brisbane at (910, 374)\nPower Plant Canberra at (821, 165)\nPower line between Sydney (870, 204) and Canberra (821, 165)\nPower line between Sydney (870, 204) and Brisbane (910, 374)\nPower line between Melbourne (727, 94) and Canberra (821, 165)\nPower line between Melbourne (727, 94) and Adelaide (581, 174)\nPower line between Adelaide (581, 174) and Alice Springs (474, 469)\nPower line between Alice Springs (474, 469) and Darwin (406, 736)\nPower line between Alice Springs (474, 469) and Perth (65, 254)\n# now compare with 1.exp\n\nNote: You are not required to match the exact order of power lines or match the order of place names for each power line. For example, it would be valid for the power line between Sydney and Canberra to read:\n\nPower line between Canberra (821, 165) and Sydney (870, 204) \n\nYou can also test by using the program's visualiser mode:\n\n./gridPlanner -v < tests/gridPlanner/1.in > tests/gridPlanner/1.html\n\nHere is what the visualisation for 1.in should look like:\n\nThe .html file must be in the tests/gridPlanner directory for the visualiser to work, because the visualiser depends on other files in that directory (style.css and visualiser.js). Alternatively, you can move style.css and visualiser.js to the same directory as the .html file.   Only the input files 1.in, 2.in and 3.in are relevant for this task. The other input files (challenge1.in and challenge2.in) are relevant for the challenge task.",
-    "starter": "// TODO",
+    "prompt": "把让所有城市通电的最低成本电线方案写入 powerLines，返回写入条数。",
+    "starter": "int planGrid1(struct place cities[], int numCities,\n              struct place powerPlant,\n              struct powerLine powerLines[]) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/8/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week08/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week08/downloads/files.zip",
+    "rules": "城市与城市、城市与电厂之间可以连线。按平面欧氏距离计成本，并列任选。",
+    "example": {
+      "input": "电厂 (0,0)，两座城市 (1,0)、(3,0)",
+      "output": "电厂接近处城市，再连接两城，总长度 3"
+    },
+    "context": "struct place 提供 name、x、y。struct powerLine 的两个端点是 p1 和 p2。powerLines 已有足够空间。"
   },
   {
     "id": "unsw-26t3-lab-09-1",
@@ -330,12 +461,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 09",
     "topic": "Hash Table",
     "type": "code",
-    "prompt": "The stub code for HashTableInsert already takes care of resizing the table if necessary. Your task is to finish the implementation, using the linear probing strategy described in the Background section (and in the lectures) to handle hash collisions:\n\nvoid HashTableInsert(HashTable table, int key, int value);\n\nIf the key already exists in the hash table, this function should overwrite the existing value.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runHashTable program. Note that the hash table uses the simple hash function h(k) = k\\ \\%\\ N where N is the number of slots.",
+    "prompt": "实现线性探测插入。相同 key 已存在时覆盖它的 value。",
     "starter": "void HashTableInsert(HashTable table, int key, int value) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/9/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip",
+    "rules": "扩容由起始代码处理。哈希位置为 key % 槽数。",
+    "example": {
+      "input": "5 个槽，key 1 已在槽 1，插入 key 6",
+      "output": "若槽 2 为空，把 key 6 放到槽 2"
+    }
   },
   {
     "id": "unsw-26t3-lab-09-2",
@@ -343,12 +479,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 09",
     "topic": "Hash Table",
     "type": "code",
-    "prompt": "When deleting a key from a hash table using linear probing, we can't simply make the corresponding slot empty and be done, as this would prematurely end probe paths and hence break our search and insertion algorithms. One way of doing deletion properly is the backshift method: find the slot holding the to-be-deleted key and mark it as empty, then delete and reinsert the items in all subsequent slots up to the next empty slot.\n\nYour task is to implement HashTableDelete, using the backshift deletion method described above (and in the lectures):\n\nvoid HashTableDelete(HashTable table, int key);\n\nIf the key doesn't exist in the hash table, nothing should happen.\n\nOnce you think you've got the function working, test it by recompiling with make and running the runHashTable program. Note that the hash table uses the simple hash function h(k) = k\\ \\%\\ N where N is the number of slots.",
+    "prompt": "用 backshift 方法从线性探测表删除 key，使后续键仍可查到。",
     "starter": "void HashTableDelete(HashTable table, int key) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/9/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip",
+    "rules": "键不存在时直接返回。",
+    "example": {
+      "input": "槽 1 和槽 2 分别有同样哈希到 1 的 key 1、6，删除 key 1",
+      "output": "key 6 仍能查到"
+    }
   },
   {
     "id": "unsw-26t3-lab-09-3",
@@ -356,12 +497,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 09",
     "topic": "Hash Table",
     "type": "code",
-    "prompt": "Given an array that contains all of the integers from 1 to n with exactly one of them missing, we want to find the missing integer. For example, given the list [1, 6, 2, 5, 3], the missing integer is 4.\n\nThere is a simple but slow O(n^2) algorithm (loop through the array and search for each integer, and return the first one which isn't there) to solve this problem. Your task is to implement the following function in missing.c, using the HashTable ADT to solve it more efficiently:\n\nint findMissingInteger(int *integers, int n);\n\nYou should assume that the array is always well-formed, i.e., it satisfies the property described above (and hence the problem will always have a unique answer).\n\nTesting\n\nmissing.c contains a main function which allows you to test your findMissingInteger function. It accepts a space-separated list of integers as command-line arguments, which will be converted into an array that gets passed to your function. Here are some examples of its usage, and some expected outputs:\n\nmake\n...\n./missing 1 6 2 5 3\nThe missing integer is 4\n./missing 1 2 3 5 6\nThe missing integer is 4\n\nNote: Your solution must use the HashTable ADT to solve the problem. Solutions that do not use the HashTable ADT will not receive any marks.",
+    "prompt": "从 1 到 n 中找出数组里唯一缺失的整数。",
     "starter": "int findMissingInteger(int *integers, int n) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/9/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip",
+    "rules": "使用课程 HashTable ADT。输入保证只缺一个。",
+    "example": {
+      "input": "integers = [1, 6, 2, 5, 3]，n = 6",
+      "output": "4"
+    }
   },
   {
     "id": "unsw-26t3-lab-09-4",
@@ -369,12 +515,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 09",
     "topic": "Hash Table",
     "type": "code",
-    "prompt": "A vote has been held. Each running candidate was assigned a number, and voters were instructed to write the number of the candidate they wished to vote for on their ballot. The election is first-past-the-post, so the candidate with the most votes wins. For example, if the ballots were [1, 2, 1, 1, 4, 4], then the winner is candidate #1. If the ballots were [1, 2, 2, 1, 4] though, then we have a two-way tie with no clear winner. Since first-past-the-post doesn't specify how to handle ties, we will just declare situations like this a tie for now and resort to some other way of finding the winner later.\n\nYour task is to implement the following function in winner.c, using the HashTable ADT to try and find the winner given all of the ballots:\n\nint findWinner(int *ballots, int numBallots);\n\nIf there is a tie, the function should return NO_WINNER (which is defined for you in winner.c).\n\nTesting\n\nwinner.c contains a main function which allows you to test your findWinner function. It accepts a space-separated list of integers as command-line arguments, which will be converted into an array that gets passed to your function. Here are some examples of its usage, and some expected outputs:\n\nmake\n...\n./winner 1 2 1 1 4 4\nThe winner is candidate #1\n./winner 1 2 2 1 4\nTie!\n\nNote: Your solution must use the HashTable ADT to solve the problem. Solutions that do not use the HashTable ADT will not receive any marks.",
+    "prompt": "统计选票，返回票数最多的候选编号。最高票并列时返回 NO_WINNER。",
     "starter": "int findWinner(int *ballots, int numBallots) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/9/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip",
+    "rules": "使用课程 HashTable ADT。",
+    "example": {
+      "input": "ballots = [1, 2, 1, 1, 4, 4]",
+      "output": "1"
+    }
   },
   {
     "id": "unsw-26t3-lab-09-5",
@@ -382,12 +533,17 @@ const COURSE_QUESTIONS = [
     "source": "Lab · Week 09",
     "topic": "Hash Table",
     "type": "code",
-    "prompt": "Two strings s1 and s2 similar if there exists a one-to-one mapping from each distinct character in s1 to each distinct character in s2 that transforms s1 into s2. For example:\n\n• The strings s1 = \"adt\" and s2 = \"bst\" are similar, because the mapping 'a' -> 'b', 'd' -> 's' and 't' -> 't' transforms s1 into s2.\n• The strings s1 = \"adt\" and s2 = \"dcc\" are not similar, because the mapping that is required to transform s1 into s2 is 'a' -> 'd', 'd' -> 'c' and 't' -> 'c', but this mapping is not one-to-one.\n• The strings s1 = \"ab\" and s2 = \"ac\" are similar, because the mapping 'a' -> 'a', 'b' -> 'c' transforms s1 into s2.\n• The strings s1 = \"aa\" and s2 = \"bc\" are not similar, because to transform s1 into s2 we would need to map 'a' to two different characters, but such a mapping would not be one-to-one.\n• The strings s1 = \"abc\" and s2 = \"abcd\" are not similar, because there is no mapping that would transform s1 into s2.\n\nYour task is to implement the following function in similar.c, using the HashTable ADT to write an algorithm that determines if two strings are similar:\n\nbool areSimilarStrings(char *s1, char *s2);\n\nTesting\n\nsimilar.c contains a main function which allows you to test your areSimilarStrings function. It accepts two strings as command-line arguments which will be passed to your function. Here are some examples of its usage, and some expected outputs:\n\nmake\n...\n./similar adt bst\nThe strings are similar\n./similar adt dcc\nThe strings are not similar\n./similar aa bc\nThe strings are not similar\n\nNote: Your solution must use the HashTable ADT to solve the problem. Solutions that do not use the HashTable ADT will not receive any marks.",
+    "prompt": "判断两个字符串能否通过一一对应的字符替换互相匹配。",
     "starter": "bool areSimilarStrings(char *s1, char *s2) {\n    // TODO\n}",
     "answer": "",
     "explanation": "请参考同周 Lab 原题的共用设置、文件和提交说明。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/lab/9/questions",
-    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip"
+    "starterUrl": "https://cgi.cse.unsw.edu.au/~cs2521/26T3/labs/week09/downloads/files.zip",
+    "rules": "使用课程 HashTable ADT。不同字符不能映射到同一个字符。",
+    "example": {
+      "input": "s1 = \"adt\"，s2 = \"dcc\"",
+      "output": "false，因为 d 和 t 都要映射成 c"
+    }
   },
   {
     "id": "unsw-practice-furthest-reachable",
@@ -395,12 +551,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Graph",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to write a function, furthestReachable, that returns the furthest vertex that is reachable from a given source vertex. If there are multiple furthest vertices, return the one with the largest vertex number. If the source vertex is not connected to any other vertices, return the source vertex.\n\nAssumptions and Constraints\n\n• The graph contains at least one vertex.\n• The graph uses the adjacency matrix representation, and the graph struct is defined in Graph.h (and is therefore accessible from furthestReachable.c).\n• Vertices are numbered from 0 to n - 1, where n is the number of vertices.\n• The source vertex is between 0 and n - 1 (inclusive), where n is the number of vertices.\n• The given graph should not be modified.\n\nExamples\n\n./testFurthestReachable\nEnter number of vertices: 14\nEnter number of edges: 12\nEnter 12 edges in the form `v w` (no quotes):\n0 3\n0 8\n0 10\n1 5\n1 9\n2 10\n3 8\n3 12\n4 6\n4 7\n4 11\n7 13\nNumber of vertices: 14\nNumber of edges: 12\nEdges:\n 0: 3 8 10\n 1: 5 9\n 2: 10\n 3: 0 8 12\n 4: 6 7 11\n 5: 1\n 6: 4\n 7: 4 13\n 8: 0 3\n 9: 1\n10: 0 2\n11: 4\n12: 3\n13: 7\n\nEnter the source vertex: 10\nFurthest vertex reachable from vertex 10: 12\nEnter the source vertex: 12\nFurthest vertex reachable from vertex 12: 2\nEnter the source vertex: 5\nFurthest vertex reachable from vertex 5: 9\nEnter the source vertex: 6\nFurthest vertex reachable from vertex 6: 13\nEnter the source vertex:  \n\n./testFurthestReachable\nEnter number of vertices: 12\nEnter number of edges: 7\nEnter 7 edges in the form `v w` (no quotes):\n0 1\n2 3\n3 4\n5 10\n5 9\n9 11\n10 11\nNumber of vertices: 12\nNumber of edges: 7\nEdges:\n 0: 1\n 1: 0\n 2: 3\n 3: 2 4\n 4: 3\n 5: 9 10\n 6:\n 7:\n 8:\n 9: 5 11\n10: 5 11\n11: 9 10\n\nEnter the source vertex: 0\nFurthest vertex reachable from vertex 0: 1\nEnter the source vertex: 3\nFurthest vertex reachable from vertex 3: 4\nEnter the source vertex: 5\nFurthest vertex reachable from vertex 5: 11\nEnter the source vertex: 6\nFurthest vertex reachable from vertex 6: 6\nEnter the source vertex: \n\nHints\n\nOnly look at these hints if you are stuck. Note that hints like this will not be supplied in the exam.\n\nHint 1\n\nOne way to start would be to find the distances of each vertex from the starting vertex.\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                     # compiles the program\n./testFurthestReachable                  # tests with manual input, outputs to terminal\n./testFurthestReachable < input-file     # tests with input from a file, outputs to terminal\n./testFurthestReachable < tests/01.in    # for example, tests with input from tests/01.in\n                                           # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "返回离 src 最远的可达顶点。并列选编号最大者；src 孤立时返回 src。",
     "starter": "int furthestReachable(Graph g, int src) {\n    // TODO\n}",
     "answer": "static int *getDistances(Graph g, int src);\nstatic int *bfs(Graph g, int v);\n\nint furthestReachable(Graph g, int src) {\n    int *dist = getDistances(g, src);\n    \n    int furthest = src;\n    for (int v = 0; v < GraphNumVertices(g); v++) {\n        if (dist[v] != -1 && dist[v] >= dist[furthest]) {\n            furthest = v;\n        }\n    }\n    \n    return furthest;\n}\n\nstatic int *getDistances(Graph g, int src) {\n    int *pred = bfs(g, src);\n\n    int nV = GraphNumVertices(g);\n    int *distances = malloc(nV * sizeof(int));\n    for (int v = 0; v < nV; v++) {\n        if (pred[v] == -1) {\n            distances[v] = -1;\n        } else {\n            int distance = 0;\n            int curr = v;\n            while (curr != src) {\n                distance++;\n                curr = pred[curr];\n            }\n            distances[v] = distance;\n        }\n    }\n    \n    free(pred);\n    return distances;\n}\n\nstatic int *bfs(Graph g, int src) {\n    int nV = GraphNumVertices(g);\n    int *pred = malloc(nV * sizeof(int));\n    for (int i = 0; i < nV; i++) {\n        pred[i] = -1;\n    }\n    pred[src] = src;\n    \n    Queue q = QueueNew();\n    QueueEnqueue(q, src);\n    while (!QueueIsEmpty(q)) {\n        int curr = QueueDequeue(q);\n        for (int next = 0; next < nV; next++) {\n            if (GraphIsAdjacent(g, curr, next) && pred[next] == -1) {\n                pred[next] = curr;\n                QueueEnqueue(q, next);\n            }\n        }\n    }\n    QueueFree(q);\n    \n    return pred;\n}",
     "explanation": "用 BFS 计算起点到各点的距离，再从可达点中选距离最大的顶点。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/furthest-reachable/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/furthestReachable/downloads/furthestReachable.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/furthestReachable/downloads/furthestReachable.zip",
+    "rules": "用邻接矩阵，不改原图。",
+    "example": {
+      "input": "0—1、0—2，src = 0",
+      "output": "2"
+    }
   },
   {
     "id": "unsw-practice-has-cycle",
@@ -408,12 +569,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Graph",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to write a function, hasCycle, that determines whether or not the given graph contains a cycle. It should return true if the graph contains a cycle, and false otherwise.\n\nAssumptions and Constraints\n\n• The graph contains at least one vertex.\n• The graph uses the adjacency matrix representation, and the graph struct is defined in Graph.h (and is therefore accessible from hasCycle.c).\n• Vertices are numbered from 0 to n - 1, where n is the number of vertices.\n• The given graph should not be modified.\n\nExamples\n\n./testHasCycle\nEnter number of vertices: 8\nEnter number of edges: 7\nEnter 7 edges in the form `v w` (no quotes):\n0 1\n0 2\n0 3\n1 6\n2 5\n3 4\n3 7\nNumber of vertices: 8\nNumber of edges: 7\nEdges:\n 0: 1 2 3\n 1: 0 6\n 2: 0 5\n 3: 0 4 7\n 4: 3\n 5: 2\n 6: 1\n 7: 3\n\nhasCycle returned: FALSE\n\n./testHasCycle\nEnter number of vertices: 9\nEnter number of edges: 9\nEnter 9 edges in the form `v w` (no quotes):\n0 1\n0 5\n1 3\n1 6\n2 8\n3 4\n3 4\n6 7\n6 8\nNumber of vertices: 9\nNumber of edges: 9\nEdges:\n 0: 1 5\n 1: 0 3 6\n 2: 8\n 3: 1 4\n 4: 3\n 5: 0 8\n 6: 1 7 8\n 7: 6\n 8: 2 5 6\n\nhasCycle returned: TRUE\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                            # compiles the program\n./testHasCycle                  # tests with manual input, outputs to terminal\n./testHasCycle < input-file     # tests with input from a file, outputs to terminal\n./testHasCycle < tests/01.in    # for example, tests with input from tests/01.in\n                                  # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "判断无向图里是否存在环，返回布尔值。",
     "starter": "bool hasCycle(Graph g) {\n    // TODO\n}",
     "answer": "static bool doHasCycle(Graph g, int v, int prev, bool *visited);\n\nbool hasCycle(Graph g) {\n    bool *visited = calloc(GraphNumVertices(g), sizeof(bool));\n    \n    for (int v = 0; v < GraphNumVertices(g); v++) {\n        if (!visited[v]) {\n            if (doHasCycle(g, v, v, visited)) {\n                free(visited);\n                return true;\n            }\n        }\n    }\n    \n    free(visited);\n    return false;\n}\n\nstatic bool doHasCycle(Graph g, int v, int prev, bool *visited) {\n    visited[v] = true;\n    for (int w = 0; w < GraphNumVertices(g); w++) {\n        if (GraphIsAdjacent(g, v, w)) {\n            if (visited[w]) {\n                if (w != prev) {\n                    return true;\n                }\n            } else {\n                if (doHasCycle(g, w, v, visited)) {\n                    return true;\n                }\n            }\n        }\n    }\n    return false;\n}",
     "explanation": "DFS 记录父顶点。无向边指回父顶点是正常的，遇到已经访问的其他邻点则形成环。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/has-cycle/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/hasCycle/downloads/hasCycle.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/hasCycle/downloads/hasCycle.zip",
+    "rules": "用邻接矩阵，不改原图。",
+    "example": {
+      "input": "0—1、1—2、2—0",
+      "output": "true"
+    }
   },
   {
     "id": "unsw-practice-num-reachable",
@@ -421,12 +587,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Graph",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to write a function, numReachable, that returns the number of vertices that are reachable from a source vertex in the given graph, including the source vertex itself.\n\nAssumptions and Constraints\n\n• The graph contains at least one vertex.\n• The graph uses the adjacency matrix representation, and the graph struct is defined in Graph.h (and is therefore accessible from numReachable.c).\n• Vertices are numbered from 0 to n - 1, where n is the number of vertices.\n• The source vertex is between 0 and n - 1 (inclusive), where n is the number of vertices.\n• The given graph should not be modified.\n\nExamples\n\n./testNumReachable\nEnter number of vertices: 12\nEnter number of edges: 11\nEnter 11 edges in the form `v w` (no quotes):\n0 8\n0 3\n3 8\n0 10\n10 2\n1 9\n1 5\n5 9\n4 6\n4 7\n4 11\nNumber of vertices: 12\nNumber of edges: 11\nEdges:\n 0: 3 8 10\n 1: 5 9\n 2: 10\n 3: 0 8\n 4: 6 7 11\n 5: 1 9\n 6: 4\n 7: 4\n 8: 0 3\n 9: 1 5\n10: 0 2\n11: 4\n\nEnter the source vertex: 2\nNumber of vertices reachable from vertex 2: 5\nEnter the source vertex: 1\nNumber of vertices reachable from vertex 1: 3\nEnter the source vertex: 4\nNumber of vertices reachable from vertex 4: 4\nEnter the source vertex: \n\n./testNumReachable\nEnter number of vertices: 12\nEnter number of edges: 7\nEnter 7 edges in the form `v w` (no quotes):\n0 1\n2 3\n3 4\n5 9\n5 10\n9 11\n10 11\nNumber of vertices: 12\nNumber of edges: 7\nEdges:\n 0: 1\n 1: 0\n 2: 3\n 3: 2 4\n 4: 3\n 5: 9 10\n 6:\n 7:\n 8:\n 9: 5 11\n10: 5 11\n11: 9 10\n\nEnter the source vertex: 1\nNumber of vertices reachable from vertex 1: 2\nEnter the source vertex: 3\nNumber of vertices reachable from vertex 3: 3\nEnter the source vertex: 6\nNumber of vertices reachable from vertex 6: 1\nEnter the source vertex: 9\nNumber of vertices reachable from vertex 9: 4\nEnter the source vertex: \n\n./testNumReachable\nEnter number of vertices: 11\nEnter number of edges: 12\nEnter 12 edges in the form `v w` (no quotes):\n0 5\n1 2\n1 3\n1 4\n2 3\n2 4\n3 4\n5 6\n6 7\n7 8\n8 9\n9 10\nNumber of vertices: 11\nNumber of edges: 12\nEdges:\n 0: 5\n 1: 2 3 4\n 2: 1 3 4\n 3: 1 2 4\n 4: 1 2 3\n 5: 0 6\n 6: 5 7\n 7: 6 8\n 8: 7 9\n 9: 8 10\n10: 9\n\nEnter the source vertex: 3\nNumber of vertices reachable from vertex 3: 4\nEnter the source vertex: 9\nNumber of vertices reachable from vertex 9: 7\nEnter the source vertex: \n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                # compiles the program\n./testNumReachable                  # tests with manual input, outputs to terminal\n./testNumReachable < input-file     # tests with input from a file, outputs to terminal\n./testNumReachable < tests/01.in    # for example, tests with input from tests/01.in\n                                      # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "数出从 src 能到达多少个顶点，包括 src 自己。",
     "starter": "int numReachable(Graph g, int src) {\n    // TODO\n}",
     "answer": "static int doNumReachable(Graph g, int v, bool *visited);\n\nint numReachable(Graph g, int src) {\n    bool *visited = calloc(GraphNumVertices(g), sizeof(bool));\n    int result = doNumReachable(g, src, visited);\n    free(visited);\n    return result;\n}\n\nstatic int doNumReachable(Graph g, int v, int *visited) {\n    visited[v] = true;\n    int result = 1;\n    for (int w = 0; w < GraphNumVertices(g); w++) {\n        if (GraphIsAdjacent(g, v, w) && !visited[w]) {\n            result += doNumReachable(g, w, visited);\n        }\n    }\n    return result;\n}",
     "explanation": "从起点做 DFS，进入一个点就标记，递归只访问未标记的邻点，避免在环中重复计数。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/num-reachable/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/numReachable/downloads/numReachable.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/numReachable/downloads/numReachable.zip",
+    "rules": "用邻接矩阵，不改原图。",
+    "example": {
+      "input": "0—1—2，3 孤立，src = 0",
+      "output": "3"
+    }
   },
   {
     "id": "unsw-practice-num-within",
@@ -434,12 +605,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Graph",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to write a function, numWithin, that determines the number of vertices that are within a given distance of the given source vertex.\n\nAssumptions and Constraints\n\n• The graph contains at least one vertex.\n• The graph uses the adjacency matrix representation, and the graph struct is defined in Graph.h (and is therefore accessible from numWithin.c).\n• Vertices are numbered from 0 to n - 1, where n is the number of vertices.\n• The source vertex is between 0 and n - 1 (inclusive), where n is the number of vertices.\n• The given graph should not be modified.\n\nExamples\n\n./testNumWithin\nEnter number of vertices: 11\nEnter number of edges: 10\nEnter 10 edges in the form `v w` (no quotes):\n0 1\n1 2\n2 3\n3 4\n0 5\n5 6\n6 7\n0 8\n8 9\n0 10\nNumber of vertices: 11\nNumber of edges: 10\nEdges:\n 0: 1 5 8 10\n 1: 0 2\n 2: 1 3\n 3: 2 4\n 4: 3\n 5: 0 6\n 6: 5 7\n 7: 6\n 8: 0 9\n 9: 8\n10: 0\n\nEnter the source vertex and maximum distance: 0 5\nnumWithin(g, 0, 5) = 11\nEnter the source vertex and maximum distance: 0 4\nnumWithin(g, 0, 4) = 11\nEnter the source vertex and maximum distance: 0 3\nnumWithin(g, 0, 3) = 10\nEnter the source vertex and maximum distance: 0 2\nnumWithin(g, 0, 2) = 8\nEnter the source vertex and maximum distance: 0 1\nnumWithin(g, 0, 1) = 5\nEnter the source vertex and maximum distance: 0 0\nnumWithin(g, 0, 0) = 1\nEnter the source vertex and maximum distance: \n\n./testNumWithin\nEnter number of vertices: 11\nEnter number of edges: 12\nEnter 12 edges in the form `v w` (no quotes):\n0 1\n0 2\n0 6\n0 7\n1 2\n2 3\n2 5\n3 4\n6 7\n7 8\n7 10\n8 9\nNumber of vertices: 11\nNumber of edges: 12\nEdges:\n 0: 1 2 6 7\n 1: 0 2\n 2: 0 1 3 5\n 3: 2 4\n 4: 3\n 5: 2\n 6: 0 7\n 7: 0 6 8 10\n 8: 7 9\n 9: 8\n10: 7\n\nEnter the source vertex and maximum distance: 1 1\nnumWithin(g, 1, 1) = 3\nEnter the source vertex and maximum distance: 1 2\nnumWithin(g, 1, 2) = 7\nEnter the source vertex and maximum distance: 1 3\nnumWithin(g, 1, 3) = 10\nEnter the source vertex and maximum distance: 1 4\nnumWithin(g, 1, 4) = 11\nEnter the source vertex and maximum distance: 4 1\nnumWithin(g, 4, 1) = 2\nEnter the source vertex and maximum distance: 4 4\nnumWithin(g, 4, 4) = 8\nEnter the source vertex and maximum distance: \n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                             # compiles the program\n./testNumWithin                  # tests with manual input, outputs to terminal\n./testNumWithin < input-file     # tests with input from a file, outputs to terminal\n./testNumWithin < tests/01.in    # for example, tests with input from tests/01.in\n                                   # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "数出与 src 的最短距离不超过 dist 的顶点。",
     "starter": "int numWithin(Graph g, int src, int dist) {\n    // TODO\n}",
     "answer": "static int *getDistances(Graph g, int src);\nstatic int *bfs(Graph g, int src);\n\nint numWithin(Graph g, int src, int dist) {\n    int *distances = getDistances(g, src);\n\n    int count = 0;\n    for (int v = 0; v < GraphNumVertices(g); v++) {\n        if (distances[v] >= 0 && distances[v] <= dist) {\n            count++;\n        }\n    }\n\n    free(distances);\n    return count;\n}\n\nstatic int *getDistances(Graph g, int src) {\n    int *pred = bfs(g, src);\n\n    int nV = GraphNumVertices(g);\n    int *distances = malloc(nV * sizeof(int));\n    for (int v = 0; v < nV; v++) {\n        if (pred[v] == -1) {\n            distances[v] = -1;\n        } else {\n            int distance = 0;\n            int curr = v;\n            while (curr != src) {\n                distance++;\n                curr = pred[curr];\n            }\n            distances[v] = distance;\n        }\n    }\n    \n    free(pred);\n    return distances;\n}\n\nstatic int *bfs(Graph g, int src) {\n    int nV = GraphNumVertices(g);\n    int *pred = malloc(nV * sizeof(int));\n    for (int i = 0; i < nV; i++) {\n        pred[i] = -1;\n    }\n    pred[src] = src;\n    \n    Queue q = QueueNew();\n    QueueEnqueue(q, src);\n    while (!QueueIsEmpty(q)) {\n        int curr = QueueDequeue(q);\n        for (int next = 0; next < nV; next++) {\n            if (GraphIsAdjacent(g, curr, next) && pred[next] == -1) {\n                pred[next] = curr;\n                QueueEnqueue(q, next);\n            }\n        }\n    }\n    QueueFree(q);\n    \n    return pred;\n}",
     "explanation": "用 BFS 记录最短边数，再按题目距离上限统计可达点。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/num-within/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/numWithin/downloads/numWithin.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/numWithin/downloads/numWithin.zip",
+    "rules": "用邻接矩阵，不改原图；距离按边数计算。",
+    "example": {
+      "input": "0—1—2，src = 0，dist = 1",
+      "output": "2（顶点 0 和 1）"
+    }
   },
   {
     "id": "unsw-practice-shortest-distance",
@@ -447,12 +623,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Graph",
     "topic": "Graph",
     "type": "code",
-    "prompt": "Your task is to write a function, shortestDistance, that returns the number of edges on the shortest path between two vertices in the given graph. If there is no path between the two vertices, return -1.\n\nAssumptions and Constraints\n\n• The graph contains at least one vertex.\n• The graph uses the adjacency matrix representation, and the graph struct is defined in Graph.h (and is therefore accessible from shortestDistance.c).\n• Vertices are numbered from 0 to n - 1, where n is the number of vertices.\n• The source and destination vertices are between 0 and n - 1 (inclusive), where n is the number of vertices.\n• The given graph should not be modified.\n\nExamples\n\n./testShortestDistance\nEnter number of vertices: 6\nEnter number of edges: 5\nEnter 5 edges in the form `v w` (no quotes):\n0 1\n1 2\n2 3\n3 4\n4 5\nNumber of vertices: 6\nNumber of edges: 5\nEdges:\n 0: 1\n 1: 0 2\n 2: 1 3\n 3: 2 4\n 4: 3 5\n 5: 4\n\nEnter two vertices: 0 0\nThe shortest distance between vertices 0 and 0 is: 0\nEnter two vertices: 0 3\nThe shortest distance between vertices 0 and 3 is: 3\nEnter two vertices: 4 0\nThe shortest distance between vertices 4 and 0 is: 4\nEnter two vertices: 1 5\nThe shortest distance between vertices 1 and 5 is: 4\nEnter two vertices: \n\n./testShortestDistance\nEnter number of vertices: 10\nEnter number of edges: 10\nEnter 10 edges in the form `v w` (no quotes):\n0 1\n0 2\n1 3\n1 6\n2 9\n3 4\n3 5\n5 7\n5 9\n7 8\nNumber of vertices: 10\nNumber of edges: 10\nEdges:\n 0: 1 2\n 1: 0 3 6\n 2: 0 9\n 3: 1 4 5\n 4: 3\n 5: 3 7 9\n 6: 1\n 7: 5 8\n 8: 7\n 9: 2 5\n\nEnter two vertices: 0 7\nThe shortest distance between vertices 0 and 7 is: 4\nEnter two vertices: 8 2\nThe shortest distance between vertices 8 and 2 is: 4\nEnter two vertices: 5 6\nThe shortest distance between vertices 5 and 6 is: 3\nEnter two vertices: \n\n./testShortestDistance\nEnter number of vertices: 10\nEnter number of edges: 9\nEnter 9 edges in the form `v w` (no quotes):\n0 1\n1 2\n1 3\n2 4\n2 5\n3 5\n3 6\n7 8\n8 9\nNumber of vertices: 10\nNumber of edges: 9\nEdges:\n 0: 1\n 1: 0 2 3\n 2: 1 4 5\n 3: 1 5 6\n 4: 2\n 5: 2 3\n 6: 3\n 7: 8\n 8: 7 9\n 9: 8\n\nEnter two vertices: 6 4\nThe shortest distance between vertices 6 and 4 is: 4\nEnter two vertices: 0 5\nThe shortest distance between vertices 0 and 5 is: 3\nEnter two vertices: 0 8\nThere is no path between vertices 0 and 8\nEnter two vertices: \n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                    # compiles the program\n./testShortestDistance                  # tests with manual input, outputs to terminal\n./testShortestDistance < input-file     # tests with input from a file, outputs to terminal\n./testShortestDistance < tests/01.in    # for example, tests with input from tests/01.in\n                                          # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "返回 src 到 dest 的最短路径边数。不可达返回 -1。",
     "starter": "int shortestDistance(Graph g, int src, int dest) {\n    // TODO\n}",
     "answer": "int shortestDistance(Graph g, int src, int dest) {\n    int nV = GraphNumVertices(g);\n    int *pred = malloc(nV * sizeof(int));\n    for (int i = 0; i < nV; i++) {\n        pred[i] = -1;\n    }\n    pred[src] = src;\n    \n    bool found = false;\n    Queue q = QueueNew();\n    QueueEnqueue(q, src);\n    while (!found && !QueueIsEmpty(q)) {\n        Vertex u = QueueDequeue(q);\n        for (Vertex v = 0; v < nV; v++) {\n            if (GraphIsAdjacent(g, u, v) && pred[v] == -1) {\n                pred[v] = u;\n                if (v == dest) {\n                    found = true;\n                }\n                QueueEnqueue(q, v);\n            }\n        }\n    }\n    QueueFree(q);\n    \n    if (pred[dest] == -1) {\n        return -1;\n    }\n\n    int distance = 0;\n    Vertex curr = dest;\n    while (curr != src) {\n        distance++;\n        curr = pred[curr];\n    }\n    return distance;\n}",
     "explanation": "无权图用 BFS 按距离分层，先到达的路径边数最少。将不可达与距离为零的情况区分开。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/shortest-distance/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/shortestDistance/downloads/shortestDistance.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/graphs/shortestDistance/downloads/shortestDistance.zip",
+    "rules": "用邻接矩阵，不改原图。",
+    "example": {
+      "input": "0—1—2，src = 0，dest = 2",
+      "output": "2"
+    }
   },
   {
     "id": "unsw-practice-list-delete-duplicates",
@@ -460,12 +641,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listDeleteDuplicates, that deletes all duplicate values from a given list. For each value that occurs more than once in the list, every instance of the value except the first should be deleted.\n\nAssumptions and Constraints\n\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not change the values in any nodes.\n\nExamples\n\n./testListDeleteDuplicates\nEnter list: 1 2 3 4 5 6 1\n\nOriginal list: [1] -> [2] -> [3] -> [4] -> [5] -> [6] -> [1] -> X\nAfter deleting duplicates: [1] -> [2] -> [3] -> [4] -> [5] -> [6] -> X\n\n./testListDeleteDuplicates\nEnter list: 1 2 2 3 3 3 4 4 4 4\n\nOriginal list: [1] -> [2] -> [2] -> [3] -> [3] -> [3] -> [4] -> [4] -> [4] -> [4] -> X\nAfter deleting duplicates: [1] -> [2] -> [3] -> [4] -> X\n\n./testListDeleteDuplicates\nEnter list: 1 2 3 4 5 5 4 3 2 1\n\nOriginal list: [1] -> [2] -> [3] -> [4] -> [5] -> [5] -> [4] -> [3] -> [2] -> [1] -> X\nAfter deleting duplicates: [1] -> [2] -> [3] -> [4] -> [5] -> X\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                        # compiles the program\n./testListDeleteDuplicates                  # tests with manual input, outputs to terminal\n./testListDeleteDuplicates < input-file     # tests with input from a file, outputs to terminal\n./testListDeleteDuplicates < tests/01.in    # for example, tests with input from tests/01.in\n                                              # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "原地删除重复节点，每个值只保留首次出现的节点。",
     "starter": "void listDeleteDuplicates(struct list *l) {\n    // TODO\n}",
     "answer": "static struct node *listDelete(struct node *curr, int value);\n\nvoid listDeleteDuplicates(struct list *l) {\n\tstruct node *curr = l->head;\n\twhile (curr != NULL) {\n\t\tcurr->next = listDelete(curr->next, curr->value);\n\t\tcurr = curr->next;\n\t}\n}\n\n// A recursive function to delete all nodes with the given value\n// and then return the head of the list\nstatic struct node *listDelete(struct node *curr, int value) {\n\tif (curr == NULL) {\n\t\treturn NULL;\n\t}\n\t\n\tcurr->next = listDelete(curr->next, value);\n\t\n\tif (curr->value == value) {\n\t\tstruct node *temp = curr->next;\n\t\tfree(curr);\n\t\treturn temp;\n\t} else {\n\t\treturn curr;\n\t}\n}",
     "explanation": "遍历保留节点，再从后续链中移除和它同值的节点。删除后要保留更新后的链头。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-delete-duplicates/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listDeleteDuplicates/downloads/listDeleteDuplicates.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listDeleteDuplicates/downloads/listDeleteDuplicates.zip",
+    "rules": "不用数组，不分配新节点，不改节点值。",
+    "example": {
+      "input": "[3, 1, 3, 2, 1]",
+      "output": "[3, 1, 2]"
+    }
   },
   {
     "id": "unsw-practice-list-delete-largest",
@@ -473,12 +659,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listDeleteLargest, that deletes the largest value from a given list. If the largest value occurs multiple times in the list, delete only the first instance. If the given list is empty, the function should do nothing.\n\nAssumptions and Constraints\n\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not change the values in any nodes.\n\nExamples\n\n./testListDeleteLargest\nEnter list: 2 8 4 9 5\n\nOriginal list: [2] -> [8] -> [4] -> [9] -> [5] -> X\nAfter deleting largest: [2] -> [8] -> [4] -> [5] -> X\n\n./testListDeleteLargest\nEnter list: 1 7 2 7 3\n\nOriginal list: [1] -> [7] -> [2] -> [7] -> [3] -> X\nAfter deleting largest: [1] -> [2] -> [7] -> [3] -> X\n\n./testListDeleteLargest\nEnter list: 1\n\nOriginal list: [1] -> X\nAfter deleting largest: X\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                     # compiles the program\n./testListDeleteLargest                  # tests with manual input, outputs to terminal\n./testListDeleteLargest < input-file     # tests with input from a file, outputs to terminal\n./testListDeleteLargest < tests/01.in    # for example, tests with input from tests/01.in\n                                           # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "原地删除第一个最大值节点。空链表保持原样。",
     "starter": "void listDeleteLargest(struct list *l) {\n    // TODO\n}",
     "answer": "void listDeleteLargest(struct list *l) {\n    if (l->head == NULL) {\n        return;\n    }\n\n    struct node *max = l->head;\n    for (struct node *curr = l->head; curr != NULL; curr = curr->next) {\n        if (curr->value > max->value) {\n            max = curr;\n        }\n    }\n\n    if (max == l->head) {\n        l->head = l->head->next;\n    } else {\n        struct node *prev = l->head;\n        while (prev->next != max) {\n            prev = prev->next;\n        }\n        prev->next = prev->next->next;\n    }\n    free(max);\n}",
     "explanation": "先找最大值，再按题意删除最大值节点。处理头节点时直接更新链表的 head。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-delete-largest/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listDeleteLargest/downloads/listDeleteLargest.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listDeleteLargest/downloads/listDeleteLargest.zip",
+    "rules": "不用数组，不分配新节点，不改节点值。",
+    "example": {
+      "input": "[2, 9, 1, 9]",
+      "output": "[2, 1, 9]"
+    }
   },
   {
     "id": "unsw-practice-list-insert-nth",
@@ -486,12 +677,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listInsertNth, that takes three arguments: a linked list, a value and a position n, and inserts the value before position n of the list. Positions are counted in the same manner as the indexes of an array, so the first element in the list is regarded as being at position 0, the second element is regarded as being at position 1, and so on. If there are fewer than n elements in the list, the value should be appended to the end of the list.\n\nAssumptions and Constraints\n\n• n is non-negative.\n• You must not use arrays.\n• You must not change the values in any existing nodes.\n\nExamples\n\n./testListInsertNth\nEnter list: 16 7 8\nEnter value to insert: 12\nEnter position to insert at: 0\nOriginal list: [16] -> [7] -> [8] -> X\nList after inserting 12 at position 0: [12] -> [16] -> [7] -> [8] -> X\n\n./testListInsertNth\nEnter list: 16 7 8\nEnter value to insert: 12\nEnter position to insert at: 1\nOriginal list: [16] -> [7] -> [8] -> X\nList after inserting 12 at position 1: [16] -> [12] -> [7] -> [8] -> X\n\n./testListInsertNth\nEnter list: 16 7 8\nEnter value to insert: 12\nEnter position to insert at: 2\nOriginal list: [16] -> [7] -> [8] -> X\nList after inserting 12 at position 2: [16] -> [7] -> [12] -> [8] -> X\n\n./testListInsertNth\nEnter list: 16 7 8\nEnter value to insert: 12\nEnter position to insert at: 3\nOriginal list: [16] -> [7] -> [8] -> X\nList after inserting 12 at position 3: [16] -> [7] -> [8] -> [12] -> X\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                 # compiles the program\n./testListInsertNth                  # tests with manual input, outputs to terminal\n./testListInsertNth < input-file     # tests with input from a file, outputs to terminal\n./testListInsertNth < tests/01.in    # for example, tests with input from tests/01.in\n                                       # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "在零起算的位置 n 前插入 value；位置超出链表就追加。",
     "starter": "void listInsertNth(struct list *l, int value, int n) {\n    // TODO\n}",
     "answer": "static struct node *newNode(int val);\n\nvoid listInsertNth(struct list *l, int value, int n) {\n\tstruct node *new = newNode(value);\n\t\n\tif (l->head == NULL || n == 0) {\n\t\tnew->next = l->head;\n\t\tl->head = new;\n\t} else {\n\t\tstruct node *curr = l->head;\n\t\tint i = 1;\n\t\twhile (curr->next != NULL && i < n) {\n\t\t\tcurr = curr->next;\n\t\t\ti++;\n\t\t}\n\t\tnew->next = curr->next;\n\t\tcurr->next = new;\n\t}\n}\n\nstatic struct node *newNode(int val) {\n\tstruct node *n = malloc(sizeof(*n));\n\tif (n == NULL) {\n\t\tfprintf(stderr, \"error: out of memory\\n\");\n\t\texit(EXIT_FAILURE);\n\t}\n\tn->value = val;\n\tn->next = NULL;\n\treturn n;\n}",
     "explanation": "沿链走到目标位置，把新节点接到前驱与后继之间。插入位置为零时更新链头。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-insert-nth/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listInsertNth/downloads/listInsertNth.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listInsertNth/downloads/listInsertNth.zip",
+    "rules": "n ≥ 0。不用数组，不改已有节点的值。",
+    "example": {
+      "input": "[2, 5, 8]，value = 6，n = 2",
+      "output": "[2, 5, 6, 8]"
+    }
   },
   {
     "id": "unsw-practice-list-is-k-periodic",
@@ -499,12 +695,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listIsKPeriodic, that takes two arguments: a linked list and a value k, and determines if the list is k-periodic. A list is k-periodic if it repeats itself every k values. If the list has k or fewer elements, then it is k-periodic by default.\n\nAssumptions and Constraints\n\n• k is positive.\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not modify the given list.\n\nExamples\n\n./testListIsKPeriodic\nEnter list: 2 2 2 2 2 2 2\nEnter k: 1\nList: [2] -> [2] -> [2] -> [2] -> [2] -> [2] -> [2] -> X\nlistIsKPeriodic returned TRUE\n\n./testListIsKPeriodic\nEnter list: 2 2 2 2 2 2 3\nEnter k: 1\nList: [2] -> [2] -> [2] -> [2] -> [2] -> [2] -> [3] -> X\nlistIsKPeriodic returned FALSE\n\n./testListIsKPeriodic\nEnter list: 2 3 4 2 3 4 2\nEnter k: 2\nList: [2] -> [3] -> [4] -> [2] -> [3] -> [4] -> [2] -> X\nlistIsKPeriodic returned FALSE\n\n./testListIsKPeriodic\nEnter list: 2 3 4 2 3 4 2\nEnter k: 3\nList: [2] -> [3] -> [4] -> [2] -> [3] -> [4] -> [2] -> X\nlistIsKPeriodic returned TRUE\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                   # compiles the program\n./testListIsKPeriodic                  # tests with manual input, outputs to terminal\n./testListIsKPeriodic < input-file     # tests with input from a file, outputs to terminal\n./testListIsKPeriodic < tests/01.in    # for example, tests with input from tests/01.in\n                                         # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "判断相隔 k 位的元素是否总相同。长度不超过 k 时返回 true。",
     "starter": "bool listIsKPeriodic(struct list *l, int k) {\n    // TODO\n}",
     "answer": "bool listIsKPeriodic(struct list *l, int k) {\n\tstruct node *curr = l->head;\n\tstruct node *ahead = curr;\n\t\n\tint i = 0;\n\twhile (ahead != NULL && i < k) {\n\t\tahead = ahead->next;\n\t\ti++;\n\t}\n\t\n\twhile (ahead != NULL) {\n\t\tif (curr->value != ahead->value) {\n\t\t\treturn false;\n\t\t}\n\t\tcurr = curr->next;\n\t\tahead = ahead->next;\n\t}\n\t\n\treturn true;\n}",
     "explanation": "让两个指针相隔 k 个节点并同步推进，逐一比较对应值。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-is-k-periodic/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listIsKPeriodic/downloads/listIsKPeriodic.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listIsKPeriodic/downloads/listIsKPeriodic.zip",
+    "rules": "k > 0。不用数组或 malloc，也不修改链表。",
+    "example": {
+      "input": "[1, 2, 1, 2, 1]，k = 2",
+      "output": "true"
+    }
   },
   {
     "id": "unsw-practice-list-is-ordered",
@@ -512,12 +713,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listIsOrdered, that determines whether a linked list is sorted in either ascending or descending order. It should return true if the list is sorted in ascending or descending order, and false otherwise. Your function should not modify the list. An empty list is considered to be sorted.\n\nAssumptions and Constraints\n\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not modify the given list.\n\nExamples\n\n./testListIsOrdered\nEnter list: 2 4 5 5 8 9\nlistIsOrdered returned TRUE\n\n./testListIsOrdered\nEnter list: 2 4 7 5 4\nlistIsOrdered returned FALSE\n\n./testListIsOrdered\nEnter list: 9 8 7 2\nlistIsOrdered returned TRUE\n\n./testListIsOrdered\nEnter list: \nlistIsOrdered returned TRUE\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                 # compiles the program\n./testListIsOrdered                  # tests with manual input, outputs to terminal\n./testListIsOrdered < input-file     # tests with input from a file, outputs to terminal\n./testListIsOrdered < tests/01.in    # for example, tests with input from tests/01.in\n                                       # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "判断链表是否非递减或非递增。空链表视为有序。",
     "starter": "bool listIsOrdered(struct list *l) {\n    // TODO\n}",
     "answer": "static bool listIsAscending(struct node *n);\nstatic bool listIsDescending(struct node *n);\n\nbool listIsOrdered(struct list *l) {\n\treturn listIsAscending(l->head) || listIsDescending(l->head);\n}\n\nstatic bool listIsAscending(struct node *n) {\n\tif (n == NULL || n->next == NULL) {\n\t\treturn true;\n\t}\n\treturn n->value <= n->next->value && listIsAscending(n->next);\n}\n\nstatic bool listIsDescending(struct node *n) {\n\tif (n == NULL || n->next == NULL) {\n\t\treturn true;\n\t}\n\treturn n->value >= n->next->value && listIsDescending(n->next);\n}",
     "explanation": "分别检查相邻节点是否满足升序或降序条件，整体只需满足其中一种。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-is-ordered/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listIsOrdered/downloads/listIsOrdered.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listIsOrdered/downloads/listIsOrdered.zip",
+    "rules": "不用数组或 malloc，也不修改链表。",
+    "example": {
+      "input": "[7, 7, 4, 1]",
+      "output": "true"
+    }
   },
   {
     "id": "unsw-practice-list-is-palindromic",
@@ -525,12 +731,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listIsPalindromic, that determines whether the sequence of values in a given doubly linked list is palindromic. A sequence of values is palindromic if it reads the same backwards as forwards. For example, the sequence [1, 2, 3, 2, 1] is palindromic, whereas the sequence [1, 2, 3, 4] is not. The function should return true if the sequence of values in the linked list is palindromic, and false otherwise.\n\nAssumptions and Constraints\n\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not modify the given list.\n\nExamples\n\n./testListIsPalindromic\nEnter list: 1 2 3 2 1\nlistIsPalindromic returned TRUE\n\n./testListIsPalindromic\nEnter list: 1 2 3 4\nlistIsPalindromic returned FALSE\n\n./testListIsPalindromic\nEnter list: 9 4 7 1 1 7 4 9\nlistIsPalindromic returned TRUE\n\n./testListIsPalindromic\nEnter list: 1 8 2 7 7 2 9 1\nlistIsPalindromic returned FALSE\n\n./testListIsPalindromic\nEnter list: \nlistIsPalindromic returned TRUE\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                     # compiles the program\n./testListIsPalindromic                  # tests with manual input, outputs to terminal\n./testListIsPalindromic < input-file     # tests with input from a file, outputs to terminal\n./testListIsPalindromic < tests/01.in    # for example, tests with input from tests/01.in\n                                           # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.\n\nFollow up: How would you solve this problem if the list was only a singly linked list? Can you still do it in O(n) time?",
+    "prompt": "判断双向链表正读和倒读的值是否完全相同。",
     "starter": "bool listIsPalindromic(struct list *l) {\n    // TODO\n}",
     "answer": "bool listIsPalindromic(struct list *l) {\n\tstruct node *curr1 = l->head;\n\tstruct node *curr2 = l->tail;\n\twhile (curr1 != NULL) {\n\t\tif (curr1->value != curr2->value) {\n\t\t\treturn false;\n\t\t}\n\t\tcurr1 = curr1->next;\n\t\tcurr2 = curr2->prev;\n\t}\n\treturn true;\n}",
     "explanation": "按正序和逆序对应比较。遇到不一致即返回，注意空链和单节点。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-is-palindromic/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listIsPalindromic/downloads/listIsPalindromic.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listIsPalindromic/downloads/listIsPalindromic.zip",
+    "rules": "不用数组或 malloc，也不修改链表。",
+    "example": {
+      "input": "[1, 2, 3, 2, 1]",
+      "output": "true"
+    }
   },
   {
     "id": "unsw-practice-list-merge-ordered",
@@ -538,12 +749,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listMergeOrdered, that takes two ordered lists and merges their values into a new ordered list. For example, if the two lists are [1, 5, 7, 8] and [2, 3, 4, 6, 9], the function should return the list [1, 2, 3, 4, 5, 6, 7, 8, 9].\n\nAssumptions and Constraints\n\n• The given lists are sorted in ascending order.\n• You must not use arrays.\n• You must not modify the given lists.\n\nExamples\n\n./testListMergeOrdered\nEnter list 1: 1 5 7 8\nEnter list 2: 2 3 4 6 9\n\nList 1: [1] -> [5] -> [7] -> [8] -> X\nList 2: [2] -> [3] -> [4] -> [6] -> [9] -> X\nMerged: [1] -> [2] -> [3] -> [4] -> [5] -> [6] -> [7] -> [8] -> [9] -> X\n\n./testListMergeOrdered\nEnter list 1: 1 2 4 8 9\nEnter list 2: 3 5 6\n\nList 1: [1] -> [2] -> [4] -> [8] -> [9] -> X\nList 2: [3] -> [5] -> [6] -> X\nMerged: [1] -> [2] -> [3] -> [4] -> [5] -> [6] -> [8] -> [9] -> X\n\n./testListMergeOrdered\nEnter list 1: 2 3 4 4 5 7 8\nEnter list 2: 1 4 7\n\nList 1: [2] -> [3] -> [4] -> [4] -> [5] -> [7] -> [8] -> X\nList 2: [1] -> [4] -> [7] -> X\nMerged: [1] -> [2] -> [3] -> [4] -> [4] -> [4] -> [5] -> [7] -> [7] -> [8] -> X\n\n./testListMergeOrdered\nEnter list 1: \nEnter list 2: 1 3 4 5 6 8 9\n\nList 1: X\nList 2: [1] -> [3] -> [4] -> [5] -> [6] -> [8] -> [9] -> X\nMerged: [1] -> [3] -> [4] -> [5] -> [6] -> [8] -> [9] -> X\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                    # compiles the program\n./testListMergeOrdered                  # tests with manual input, outputs to terminal\n./testListMergeOrdered < input-file     # tests with input from a file, outputs to terminal\n./testListMergeOrdered < tests/01.in    # for example, tests with input from tests/01.in\n                                          # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "把两个升序链表合成一个新的升序链表。",
     "starter": "struct list *listMergeOrdered(struct list *l1, struct list *l2) {\n    // TODO\n}",
     "answer": "static void listAppend(struct list *l, int val);\nstatic struct node *newNode(int val);\n\nstruct list *listMergeOrdered(struct list *l1, struct list *l2) {\n\tstruct list *l3 = listNew();\n\t\n\tstruct node *curr1 = l1->head;\n\tstruct node *curr2 = l2->head;\n\twhile (curr1 != NULL && curr2 != NULL) {\n\t\tif (curr1->value < curr2->value) {\n\t\t\tlistAppend(l3, curr1->value);\n\t\t\tcurr1 = curr1->next;\t\t\t\n\t\t} else {\n\t\t\tlistAppend(l3, curr2->value);\n\t\t\tcurr2 = curr2->next;\n\t\t}\n\t}\n\t\n\twhile (curr1 != NULL) {\n\t\tlistAppend(l3, curr1->value);\n\t\tcurr1 = curr1->next;\n\t}\n\t\n\twhile (curr2 != NULL) {\n\t\tlistAppend(l3, curr2->value);\n\t\tcurr2 = curr2->next;\n\t}\n\t\n\treturn l3;\n}\n\nstatic void listAppend(struct list *l, int val) {\n\tstruct node *n = newNode(val);\n\tif (l->head == NULL) {\n\t\tl->head = n;\n\t} else {\n\t\tl->tail->next = n;\n\t}\n\tl->tail = n;\n}\n\nstatic struct node *newNode(int val) {\n\tstruct node *n = malloc(sizeof(*n));\n\tif (n == NULL) {\n\t\tfprintf(stderr, \"error: out of memory\\n\");\n\t\texit(EXIT_FAILURE);\n\t}\n\tn->value = val;\n\tn->next = NULL;\n\treturn n;\n}",
     "explanation": "同时遍历两个有序链表，每次取当前较小值，最后接上剩余值。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-merge-ordered/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listMergeOrdered/downloads/listMergeOrdered.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listMergeOrdered/downloads/listMergeOrdered.zip",
+    "rules": "保留重复值，不用数组，不改输入。",
+    "example": {
+      "input": "[1, 4] 和 [2, 4, 5]",
+      "output": "[1, 2, 4, 4, 5]"
+    }
   },
   {
     "id": "unsw-practice-list-num-duplicates",
@@ -551,12 +767,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listNumDuplicates, that returns the number of duplicate elements in the given linked list, which you can assume is ordered. The number of duplicate elements is the minimum number of elements that would need to be removed to obtain a list with no duplicates. For example, the list [1, 2, 2, 3, 3, 3] contains three duplicate elements, because three elements would need to be removed to obtain a list with no duplicates: 2, 3 and 3. (However, you should not actually remove any elements - you should simply return the number of duplicate values.)\n\nAssumptions and Constraints\n\n• The given list is sorted in either ascending or descending order.\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not modify the given list.\n\nExamples\n\nYour program should behave like these examples:\n\n./testListNumDuplicates\nEnter list: 1 2 3 4 5 5 5\nlistNumDuplicates returned 2\n\nExplanation: two elements would need to be removed to obtain a list with no duplicates: 5 and 5.\n\n./testListNumDuplicates\nEnter list: 1 1 1 1 1 1 1\nlistNumDuplicates returned 6\n\nExplanation: six elements would need to be removed to obtain a list with no duplicates: 1, 1, 1, 1, 1 and 1.\n\n./testListNumDuplicates\nEnter list: 6 6 5 5 4 4 3 3 2 2 1 1 0\nlistNumDuplicates returned 6\n\nExplanation: six elements would need to be removed to obtain a list with no duplicates: 6, 5, 4, 3, 2 and 1.\n\n./testListNumDuplicates\nEnter list: 1 1 1 1 1 1 2 2 3 4 5 5 5 5\nlistNumDuplicates returned 9\n\nExplanation: nine elements would need to be removed to obtain a list with no duplicates: 1, 1, 1, 1, 1, 2, 5, 5 and 5.\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                     # compiles the program\n./testListNumDuplicates                  # tests with manual input, outputs to terminal\n./testListNumDuplicates < input-file     # tests with input from a file, outputs to terminal\n./testListNumDuplicates < tests/01.in    # for example, tests with input from tests/01.in\n                                           # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.\n\nFollow up: How would you solve this problem if the list was unordered? Can you do it without modifying the list or creating any new lists?",
+    "prompt": "返回让有序链表变成无重复所需删除的最少节点数。",
     "starter": "int listNumDuplicates(struct list *l) {\n    // TODO\n}",
     "answer": "int listNumDuplicates(struct list *l) {\n\tint count = 0;\n\tstruct node *curr = l->head;\n\twhile (curr != NULL && curr->next != NULL) {\n\t\tif (curr->value == curr->next->value) {\n\t\t\tcount++;\n\t\t}\n\t\tcurr = curr->next;\n\t}\n\treturn count;\n}",
     "explanation": "相等值在有序链表中相邻。比较每对相邻节点，相等就加一，因此连续 m 个相同值贡献 m−1。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-num-duplicates/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listNumDuplicates/downloads/listNumDuplicates.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listNumDuplicates/downloads/listNumDuplicates.zip",
+    "rules": "输入可升序或降序。不删除节点，不用数组或 malloc。",
+    "example": {
+      "input": "[1, 2, 2, 3, 3, 3]",
+      "output": "3"
+    }
   },
   {
     "id": "unsw-practice-list-set-difference",
@@ -564,12 +785,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listSetDifference, that takes two lists, l1 and l2, that represent sets and returns a new list representing the set difference l1 - l2. The values in the returned list may be in any order. Since the given lists represent sets, you may assume that no value appears more than once in a list.\n\nAssumptions and Constraints\n\n• No value appears more than once in a list.\n• You must not use arrays.\n• You must not modify the given lists.\n\nExamples\n\n./testListSetDifference\nEnter list 1: 4 3 1 7 6\nEnter list 2: 6 2 1 5 3\n\nSet 1: {4, 3, 1, 7, 6}\nSet 2: {6, 2, 1, 5, 3}\nDifference: {4, 7}\n\n./testListSetDifference\nEnter list 1: 1 3 5 7 9\nEnter list 2: 8 6 4 2 0\n\nSet 1: {1, 3, 5, 7, 9}\nSet 2: {8, 6, 4, 2, 0}\nDifference: {1, 3, 5, 7, 9}\n\n./testListSetDifference\nEnter list 1: 9 1 8 2 5\nEnter list 2: 1 5 2 9 8\n\nSet 1: {9, 1, 8, 2, 5}\nSet 2: {1, 5, 2, 9, 8}\nDifference: {}\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                     # compiles the program\n./testListSetDifference                  # tests with manual input, outputs to terminal\n./testListSetDifference < input-file     # tests with input from a file, outputs to terminal\n./testListSetDifference < tests/01.in    # for example, tests with input from tests/01.in\n                                           # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "生成新链表，只保留 l1 中有、l2 中没有的值。",
     "starter": "struct list *listSetDifference(struct list *l1, struct list *l2) {\n    // TODO\n}",
     "answer": "static bool listContains(struct list *l, int value);\nstatic void listPrepend(struct list *l, int value);\nstatic struct node *newNode(int val);\n\nstruct list *listSetDifference(struct list *l1, struct list *l2) {\n\tstruct list *l3 = listNew();\n\t\n\tstruct node *curr = l1->head;\n\twhile (curr != NULL) {\n\t\tif (!listContains(l2, curr->value)) {\n\t\t\tlistPrepend(l3, curr->value);\n\t\t}\n\t\tcurr = curr->next;\n\t}\n\t\n\treturn l3;\n}\n\nstatic bool listContains(struct list *l, int value) {\n\tfor (struct node *curr = l->head; curr != NULL; curr = curr->next) {\n\t\tif (curr->value == value) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n}\n\nstatic void listPrepend(struct list *l, int value) {\n\tstruct node *n = newNode(value);\n\tn->next = l->head;\n\tl->head = n;\n}\n\nstatic struct node *newNode(int val) {\n\tstruct node *n = malloc(sizeof(*n));\n\tif (n == NULL) {\n\t\tfprintf(stderr, \"error: out of memory\\n\");\n\t\texit(EXIT_FAILURE);\n\t}\n\tn->value = val;\n\tn->next = NULL;\n\treturn n;\n}",
     "explanation": "遍历第一集合，只保留第二集合中不存在的值。差集有方向。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-set-difference/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listSetDifference/downloads/listSetDifference.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listSetDifference/downloads/listSetDifference.zip",
+    "rules": "两个输入各自无重复。不用数组，不改输入，输出顺序不限。",
+    "example": {
+      "input": "l1 = [1, 3, 4]，l2 = [3, 5]",
+      "output": "包含 1 和 4"
+    }
   },
   {
     "id": "unsw-practice-list-set-intersection",
@@ -577,12 +803,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listSetIntersection, that takes two lists representing sets and returns a new list that represents the intersection of those sets. For example, if the two lists are [4, 3, 1, 7, 6] and [3, 2, 5, 1, 6], the function should return a list containing the elements 1, 3 and 6. The values in the returned list may be in any order. Since the given lists represent sets, you may assume that no value appears more than once in a list.\n\nAssumptions and Constraints\n\n• No value appears more than once in a list.\n• You must not use arrays.\n• You must not modify the given lists.\n\nExamples\n\n./testListSetIntersection\nEnter list 1: 4 3 1 7 6\nEnter list 2: 3 2 1 5 6\n\nSet 1: {4, 3, 1, 7, 6}\nSet 2: {3, 2, 1, 5, 6}\nIntersection: {1, 3, 6}\n\n./testListSetIntersection\nEnter list 1: 1 3 5 7 9\nEnter list 2: 8 6 4 2 0\n\nSet 1: {1, 3, 5, 7, 9}\nSet 2: {8, 6, 4, 2, 0}\nIntersection: {}\n\n./testListSetIntersection\nEnter list 1: \nEnter list 2: 1 8 3 9\n\nSet 1: {}\nSet 2: {1, 8, 3, 9}\nIntersection: {}\n\n./testListSetIntersection\nEnter list 1: 5 8 3 9 6 7 1 4 2\nEnter list 2: 3 2 8 4 0 9\n\nSet 1: {5, 8, 3, 9, 6, 7, 1, 4, 2}\nSet 2: {3, 2, 8, 4, 0, 9}\nIntersection: {2, 3, 4, 8, 9}\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                       # compiles the program\n./testListSetIntersection                  # tests with manual input, outputs to terminal\n./testListSetIntersection < input-file     # tests with input from a file, outputs to terminal\n./testListSetIntersection < tests/01.in    # for example, tests with input from tests/01.in\n                                             # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "生成新链表，包含两个输入集合共有的值。",
     "starter": "struct list *listSetIntersection(struct list *s1, struct list *s2) {\n    // TODO\n}",
     "answer": "static void listPrepend(struct list *l, int val);\nstatic struct node *newNode(int val);\nstatic bool inList(struct list *l, int val);\n\nstruct list *listSetIntersection(struct list *s1, struct list *s2) {\n\tstruct list *s3 = listNew();\n\t\n\tfor (struct node *curr = s1->head; curr != NULL; curr = curr->next) {\n\t\tif (inList(s2, curr->value)) {\n\t\t\tlistPrepend(s3, curr->value);\n\t\t}\n\t}\n\t\n\treturn s3;\n}\n\nstatic void listPrepend(struct list *l, int val) {\n\tstruct node *n = newNode(val);\n\tn->next = l->head;\n\tl->head = n;\n}\n\nstatic struct node *newNode(int val) {\n\tstruct node *n = malloc(sizeof(*n));\n\tif (n == NULL) {\n\t\tfprintf(stderr, \"error: out of memory\\n\");\n\t\texit(EXIT_FAILURE);\n\t}\n\tn->value = val;\n\tn->next = NULL;\n\treturn n;\n}\n\nstatic bool inList(struct list *l, int val) {\n\tfor (struct node *curr = l->head; curr != NULL; curr = curr->next) {\n\t\tif (curr->value == val) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n}",
     "explanation": "遍历第一集合，只把也存在于第二集合的值加入结果。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-set-intersection/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listSetIntersection/downloads/listSetIntersection.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listSetIntersection/downloads/listSetIntersection.zip",
+    "rules": "两个输入各自无重复。不用数组，不改输入，输出顺序不限。",
+    "example": {
+      "input": "[1, 3, 4] 和 [3, 4, 5]",
+      "output": "包含 3 和 4"
+    }
   },
   {
     "id": "unsw-practice-list-set-union",
@@ -590,12 +821,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listSetUnion, that takes two lists representing sets and returns a new list that represents the union of those sets. For example, if the two lists are [4, 3, 1, 7, 6] and [3, 2, 5, 1, 6], the function should return a list containing the elements 1, 2, 3, 4, 5, 6 and 7. The values in the returned list may be in any order. Since the given lists represent sets, you may assume that no value appears more than once in a list.\n\nAssumptions and Constraints\n\n• No value appears more than once in a list.\n• You must not use arrays.\n• You must not modify the given lists.\n\nExamples\n\n./testListSetUnion\nEnter list 1: 4 3 1 7 6\nEnter list 2: 3 2 1 5 6\n\nSet 1: {4, 3, 1, 7, 6}\nSet 2: {3, 2, 1, 5, 6}\nUnion: {1, 2, 3, 4, 5, 6, 7}\n\n./testListSetUnion\nEnter list 1: 1 3 5 7 9\nEnter list 2: 8 6 4 2 0\n\nSet 1: {1, 3, 5, 7, 9}\nSet 2: {8, 6, 4, 2, 0}\nUnion: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}\n\n./testListSetUnion\nEnter list 1: \nEnter list 2: 1 8 3 9\n\nSet 1: {}\nSet 2: {1, 8, 3, 9}\nUnion: {1, 3, 8, 9}\n\n./testListSetUnion\nEnter list 1: \nEnter list 2: \n\nSet 1: {}\nSet 2: {}\nUnion: {}\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                # compiles the program\n./testListSetUnion                  # tests with manual input, outputs to terminal\n./testListSetUnion < input-file     # tests with input from a file, outputs to terminal\n./testListSetUnion < tests/01.in    # for example, tests with input from tests/01.in\n                                      # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "生成新链表，每个出现在任一输入集合中的值只放一次。",
     "starter": "struct list *listSetUnion(struct list *s1, struct list *s2) {\n    // TODO\n}",
     "answer": "static void listPrepend(struct list *l, int val);\nstatic struct node *newNode(int val);\nstatic bool inList(struct list *l, int val);\n\nstruct list *listSetUnion(struct list *s1, struct list *s2) {\n\tstruct list *s3 = listNew();\n\t\n\tfor (struct node *curr = s1->head; curr != NULL; curr = curr->next) {\n\t\tlistPrepend(s3, curr->value);\n\t}\n\tfor (struct node *curr = s2->head; curr != NULL; curr = curr->next) {\n\t\tif (!inList(s3, curr->value)) {\n\t\t\tlistPrepend(s3, curr->value);\n\t\t}\n\t}\n\t\n\treturn s3;\n}\n\nstatic void listPrepend(struct list *l, int val) {\n\tstruct node *n = newNode(val);\n\tn->next = l->head;\n\tl->head = n;\n}\n\nstatic struct node *newNode(int val) {\n\tstruct node *n = malloc(sizeof(*n));\n\tif (n == NULL) {\n\t\tfprintf(stderr, \"error: out of memory\\n\");\n\t\texit(EXIT_FAILURE);\n\t}\n\tn->value = val;\n\tn->next = NULL;\n\treturn n;\n}\n\nstatic bool inList(struct list *l, int val) {\n\tfor (struct node *curr = l->head; curr != NULL; curr = curr->next) {\n\t\tif (curr->value == val) {\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n}",
     "explanation": "先纳入一个集合的值，再添加另一个集合中尚未出现的值。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-set-union/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listSetUnion/downloads/listSetUnion.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listSetUnion/downloads/listSetUnion.zip",
+    "rules": "两个输入各自无重复。不用数组，不改输入，输出顺序不限。",
+    "example": {
+      "input": "[1, 3] 和 [3, 5]",
+      "output": "包含 1、3、5"
+    }
   },
   {
     "id": "unsw-practice-list-zip",
@@ -603,12 +839,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, listZip, that takes two lists and zips their values into a new list by alternating taking values from each of the lists. For example, if the two lists are [7, 5, 2, 9] and [4, 8, 1, 6], the function should return the list [7, 4, 5, 8, 2, 1, 9, 6]. If one of the lists is longer than the other, then the excess values in the longer list should simply be appended to the resulting list.\n\nIn the general case, listZip takes two lists [a_1, a_2, ... , a_n] and [b_1, b_2, ... , b_m], and produces a new list as shown below:\n\n• If n = m, the new list is [ a_1, b_1, a_2, b_2, ... , a_n, b_n]\n• If \\( n\n• If n > m, the new list is [ a_1, b_1, a_2, b_2, ... , a_m, b_m, a_{m + 1}, a_{m + 2}, ... , a_n]\n\nAssumptions and Constraints\n\n• You must not use arrays.\n• You must not modify the given lists.\n\nExamples\n\n./testListZip\nEnter list 1: 1 3 5 7\nEnter list 2: 8 6 4 2\n\nList 1: [1] -> [3] -> [5] -> [7] -> X\nList 2: [8] -> [6] -> [4] -> [2] -> X\nZipped: [1] -> [8] -> [3] -> [6] -> [5] -> [4] -> [7] -> [2] -> X\n\n./testListZip\nEnter list 1: 7 2 8\nEnter list 2: 5 1 4 9 3 6\n\nList 1: [7] -> [2] -> [8] -> X\nList 2: [5] -> [1] -> [4] -> [9] -> [3] -> [6] -> X\nZipped: [7] -> [5] -> [2] -> [1] -> [8] -> [4] -> [9] -> [3] -> [6] -> X\n\n./testListZip\nEnter list 1: 4 3 7 2 9\nEnter list 2: 6 1\n\nList 1: [4] -> [3] -> [7] -> [2] -> [9] -> X\nList 2: [6] -> [1] -> X\nZipped: [4] -> [6] -> [3] -> [1] -> [7] -> [2] -> [9] -> X\n\n./testListZip\nEnter list 1: \nEnter list 2: 1 7 3 8 5 2 4\n\nList 1: X\nList 2: [1] -> [7] -> [3] -> [8] -> [5] -> [2] -> [4] -> X\nZipped: [1] -> [7] -> [3] -> [8] -> [5] -> [2] -> [4] -> X\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                           # compiles the program\n./testListZip                  # tests with manual input, outputs to terminal\n./testListZip < input-file     # tests with input from a file, outputs to terminal\n./testListZip < tests/01.in    # for example, tests with input from tests/01.in\n                                 # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "从 l1 开始交替取值，生成新链表。一条用尽后，追加另一条剩余的值。",
     "starter": "struct list *listZip(struct list *l1, struct list *l2) {\n    // TODO\n}",
     "answer": "static void listAppend(struct list *l, int val);\nstatic struct node *newNode(int val);\n\nstruct list *listZip(struct list *l1, struct list *l2) {\n\tstruct list *l3 = listNew();\n\t\n\tstruct node *curr1 = l1->head;\n\tstruct node *curr2 = l2->head;\n\twhile (curr1 != NULL && curr2 != NULL) {\n\t\tlistAppend(l3, curr1->value);\n\t\tlistAppend(l3, curr2->value);\n\t\tcurr1 = curr1->next;\n\t\tcurr2 = curr2->next;\n\t}\n\t\n\twhile (curr1 != NULL) {\n\t\tlistAppend(l3, curr1->value);\n\t\tcurr1 = curr1->next;\n\t}\n\t\n\twhile (curr2 != NULL) {\n\t\tlistAppend(l3, curr2->value);\n\t\tcurr2 = curr2->next;\n\t}\n\t\n\treturn l3;\n}\n\nstatic void listAppend(struct list *l, int val) {\n\tstruct node *n = newNode(val);\n\tif (l->head == NULL) {\n\t\tl->head = n;\n\t} else {\n\t\tl->tail->next = n;\n\t}\n\tl->tail = n;\n}\n\nstatic struct node *newNode(int val) {\n\tstruct node *n = malloc(sizeof(*n));\n\tif (n == NULL) {\n\t\tfprintf(stderr, \"error: out of memory\\n\");\n\t\texit(EXIT_FAILURE);\n\t}\n\tn->value = val;\n\tn->next = NULL;\n\treturn n;\n}",
     "explanation": "根据题目规定的节奏从两条链取值，处理一条链先耗尽时的剩余节点。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/list-zip/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listZip/downloads/listZip.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/listZip/downloads/listZip.zip",
+    "rules": "不用数组，不改输入。",
+    "example": {
+      "input": "l1 = [7, 5, 2]，l2 = [4, 8]",
+      "output": "[7, 4, 5, 8, 2]"
+    }
   },
   {
     "id": "unsw-practice-reverse-dllist",
@@ -616,12 +857,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, reverseDLList, that reverses a given doubly linked list. You should not change the values in any nodes or create any new nodes - instead, you should just rearrange the nodes and pointers of the given list.\n\nAssumptions and Constraints\n\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not change the values in any nodes.\n\nExamples\n\n./testReverseDLList\nEnter list: 2 3 5 7 11\n\nOriginal list:\nSize: 5\nForwards:  [2] -> [3] -> [5] -> [7] -> [11] -> X\nBackwards: [11] -> [7] -> [5] -> [3] -> [2] -> X\n\nReversed list:\nSize: 5\nForwards:  [11] -> [7] -> [5] -> [3] -> [2] -> X\nBackwards: [2] -> [3] -> [5] -> [7] -> [11] -> X\n\n./testReverseDLList\nEnter list: \n\nOriginal list:\nSize: 0\nForwards:  X\nBackwards: X\n\nReversed list:\nSize: 0\nForwards:  X\nBackwards: X\n\n./testReverseDLList\nEnter list: 1 2 7 9 2 1\n\nOriginal list:\nSize: 6\nForwards:  [1] -> [2] -> [7] -> [9] -> [2] -> [1] -> X\nBackwards: [1] -> [2] -> [9] -> [7] -> [2] -> [1] -> X\n\nReversed list:\nSize: 6\nForwards:  [1] -> [2] -> [9] -> [7] -> [2] -> [1] -> X\nBackwards: [1] -> [2] -> [7] -> [9] -> [2] -> [1] -> X\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                 # compiles the program\n./testReverseDLList                  # tests with manual input, outputs to terminal\n./testReverseDLList < input-file     # tests with input from a file, outputs to terminal\n./testReverseDLList < tests/01.in    # for example, tests with input from tests/01.in\n                                       # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "原地反转双向链表，更新首尾和节点的前后连接。",
     "starter": "void reverseDLList(struct list *l) {\n    // TODO\n}",
     "answer": "static void swap(struct node **ptr1, struct node **ptr2);\n\nvoid reverseDLList(struct list *l) {\n\tstruct node *curr = l->head;\n\twhile (curr != NULL) {\n\t\tswap(&(curr->prev), &(curr->next));\n\t\tcurr = curr->prev;\n\t}\n\n\tswap(&(l->head), &(l->tail));\n}\n\nstatic void swap(struct node **ptr1, struct node **ptr2) {\n\tstruct node *temp = *ptr1;\n\t*ptr1 = *ptr2;\n\t*ptr2 = temp;\n}",
     "explanation": "双向链表逐节点交换前后指针，最后交换头尾。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/reverse-dllist/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/reverseDLList/downloads/reverseDLList.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/reverseDLList/downloads/reverseDLList.zip",
+    "rules": "不用数组或 malloc，不改节点值。",
+    "example": {
+      "input": "1 ⇄ 2 ⇄ 3",
+      "output": "3 ⇄ 2 ⇄ 1"
+    }
   },
   {
     "id": "unsw-practice-reverse-list",
@@ -629,12 +875,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · Linked List",
     "topic": "Linked List",
     "type": "code",
-    "prompt": "Your task is to write a function, reverseList, that reverses a given singly linked list. You should not change the values in any nodes or create any new nodes - instead, you should just rearrange the nodes and pointers of the given list.\n\nAssumptions and Constraints\n\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not change the values in any nodes.\n\nExamples\n\n./testReverseList\nEnter list: 2 3 5 7 11\nOriginal list: [2] -> [3] -> [5] -> [7] -> [11] -> X\nReversed list: [11] -> [7] -> [5] -> [3] -> [2] -> X\n\n./testReverseList\nEnter list: \nOriginal list: X\nReversed list: X\n\n./testReverseList\nEnter list: 1 2 7 9 2 1\nOriginal list: [1] -> [2] -> [7] -> [9] -> [2] -> [1] -> X\nReversed list: [1] -> [2] -> [9] -> [7] -> [2] -> [1] -> X\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                               # compiles the program\n./testReverseList                  # tests with manual input, outputs to terminal\n./testReverseList < input-file     # tests with input from a file, outputs to terminal\n./testReverseList < tests/01.in    # for example, tests with input from tests/01.in\n                                     # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "原地反转单向链表，更新头指针。",
     "starter": "void reverseList(struct list *l) {\n    // TODO\n}",
     "answer": "void reverseList(struct list *l) {\n\tstruct node *prev = NULL;\n\tstruct node *curr = l->head;\n\twhile (curr != NULL) {\n\t\tstruct node *temp = curr;\n\t\tcurr = curr->next;\n\t\ttemp->next = prev;\n\t\tprev = temp;\n\t}\n\tl->head = prev;\n}",
     "explanation": "先保存当前节点的后继，再反转 next 指针。遍历结束后把链头设为最后处理的节点。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/lists/reverse-list/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/reverseList/downloads/reverseList.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/lists/reverseList/downloads/reverseList.zip",
+    "rules": "不用数组或 malloc，不改节点值。",
+    "example": {
+      "input": "1 → 2 → 3",
+      "output": "3 → 2 → 1"
+    }
   },
   {
     "id": "unsw-practice-bst-delete-largest",
@@ -642,12 +893,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · BST",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to write a function, bstDeleteLargest, that takes a BST and a pointer to an integer max, and deletes the largest value in the given BST, sets *max to the value that was deleted, and returns the root of the updated tree,\n\nAssumptions and Constraints\n\n• The given BST is non-empty.\n• You must not use arrays.\n• You must not use any variant of malloc, either directly or indirectly.\n• You must not change the values in any nodes.\n\nExamples\n\n./testBstDeleteLargest\nEnter the preorder traversal of the BST: 5 3 2 7 8\n\nBST:\n\n    5\n   / \\\n  3   7\n /     \\\n2       8\n\nBST after deleting largest:\n\n    5\n   / \\\n  3   7\n /\n2\n\nThe largest value was 8\n\n./testBstDeleteLargest\nEnter the preorder traversal of the BST: 6 2 1 4\n\nBST:\n\n    6\n   /\n  2\n / \\\n1   4\n\nBST after deleting largest:\n\n  2\n / \\\n1   4\n\nThe largest value was 6\n\n./testBstDeleteLargest\nEnter the preorder traversal of the BST: 2 3 7 5\n\nBST:\n\n2\n \\\n  3\n   \\\n    7\n   /\n  5\n\nBST after deleting largest:\n\n2\n \\\n  3\n   \\\n    5\n\nThe largest value was 7\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                    # compiles the program\n./testBstDeleteLargest                  # tests with manual input, outputs to terminal\n./testBstDeleteLargest < input-file     # tests with input from a file, outputs to terminal\n./testBstDeleteLargest < tests/01.in    # for example, tests with input from tests/01.in\n                                          # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.\n\nFollow up: Can you solve this using both iterative and recursive approaches?",
+    "prompt": "删除 BST 的最大值，把它写入 *max，返回新的根。",
     "starter": "struct node *bstDeleteLargest(struct node *t, int *max) {\n    // TODO\n}",
     "answer": "struct node *bstDeleteLargest(struct node *t, int *max) {\n\tif (t->right == NULL) {\n\t\t*max = t->value;\n\t\tstruct node *newRoot = t->left;\n\t\tfree(t);\n\t\treturn newRoot;\n\t} else {\n\t\tt->right = bstDeleteLargest(t->right, max);\n\t\treturn t;\n\t}\n}",
     "explanation": "沿右子树找最大节点。删去该节点时用其左子树接替，并把更新后的根传回。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bst-delete-largest/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstDeleteLargest/downloads/bstDeleteLargest.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstDeleteLargest/downloads/bstDeleteLargest.zip",
+    "rules": "树非空。不用数组或 malloc，不改节点值。",
+    "example": {
+      "input": "根为 5，右孩子为 8",
+      "output": "*max = 8，更新后只剩 5"
+    }
   },
   {
     "id": "unsw-practice-bst-get-kth",
@@ -655,12 +911,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · BST",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to write a function, bstGetKth, that takes a BST and a value k, and returns the value at index k in the BST. The smallest value in the BST is regarded as being at index 0, the second smallest value is regarded as being at index 1, and so on.\n\nAssumptions and Constraints\n\n• k is between 0 and n - 1, where n is the size of the tree\n• You must not modify the given tree.\n\nExamples\n\n./testBstGetKth\nEnter the preorder traversal of the BST: 3 2 1 4 5\n\nBST:\n\n    3\n   / \\\n  2   4\n /     \\\n1       5\n\nEnter k: 0\nFor k = 0, bstGetKth returned 1\nEnter k: 1\nFor k = 1, bstGetKth returned 2\nEnter k: 2\nFor k = 2, bstGetKth returned 3\nEnter k: 3\nFor k = 3, bstGetKth returned 4\nEnter k: 4\nFor k = 4, bstGetKth returned 5\nEnter k: \n\n./testBstGetKth\nEnter the preorder traversal of the BST: 8 2 5 4 7 12 13\n\nBST:\n\n   8\n  / \\\n /   \\\n2    12\n \\     \\\n  5    13\n / \\\n4   7\n\nEnter k: 0\nFor k = 0, bstGetKth returned 2\nEnter k: 1\nFor k = 1, bstGetKth returned 4\nEnter k: 2\nFor k = 2, bstGetKth returned 5\nEnter k: 3\nFor k = 3, bstGetKth returned 7\nEnter k: 4\nFor k = 4, bstGetKth returned 8\nEnter k: 5\nFor k = 5, bstGetKth returned 12\nEnter k: 6\nFor k = 6, bstGetKth returned 13\nEnter k: \n\n./testBstGetKth\nEnter the preorder traversal of the BST: 7\n\nBST:\n\n7\n\nEnter k: 0\nFor k = 0, bstGetKth returned 7\nEnter k: \n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                             # compiles the program\n./testBstGetKth                  # tests with manual input, outputs to terminal\n./testBstGetKth < input-file     # tests with input from a file, outputs to terminal\n./testBstGetKth < tests/01.in    # for example, tests with input from tests/01.in\n                                   # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "返回 BST 中按升序排列下标为 k 的值，最小值下标为 0。",
     "starter": "int bstGetKth(struct node *t, int k) {\n    // TODO\n}",
     "answer": "static int bstSize(struct node *t);\n\nint bstGetKth(struct node *t, int k) {\n    int leftSize = bstSize(t->left);\n    if (k == leftSize) {\n        return t->value;\n    } else if (k < leftSize) {\n        return bstGetKth(t->left, k);\n    } else {\n        return bstGetKth(t->right, k - leftSize - 1);\n    }\n}\n\nstatic int bstSize(struct node *t) {\n    if (t == NULL) {\n        return 0;\n    } else {\n        return 1 + bstSize(t->left) + bstSize(t->right);\n    }\n}",
     "explanation": "比较 k 与左子树大小加一。去右子树时扣除左子树和当前根的排名。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bst-get-kth/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstGetKth/downloads/bstGetKth.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstGetKth/downloads/bstGetKth.zip",
+    "rules": "k 保证有效，不改原树。",
+    "example": {
+      "input": "树包含 2、5、9，k = 1",
+      "output": "5"
+    }
   },
   {
     "id": "unsw-practice-bst-get-smallest",
@@ -668,12 +929,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · BST",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to write a function, bstGetSmallest, that returns a pointer to the node containing the smallest value in the given BST. If the tree is empty, return NULL.\n\nAssumptions and Constraints\n\n• You must not modify the given tree.\n\nExamples\n\n./testBstGetSmallest\nEnter the preorder traversal of the BST: 6 5 2 8 9\n\nBST:\n\n    6\n   / \\\n  5   8\n /     \\\n2       9\n\nbstGetSmallest returned: 2\n\n./testBstGetSmallest\nEnter the preorder traversal of the BST: 5 8 6 9\n\nBST:\n\n5\n \\\n  8\n / \\\n6   9\n\nbstGetSmallest returned: 5\n\n./testBstGetSmallest\nEnter the preorder traversal of the BST: \n\nBST:\n\nX\n\nbstGetSmallest returned: NULL\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                  # compiles the program\n./testBstGetSmallest                  # tests with manual input, outputs to terminal\n./testBstGetSmallest < input-file     # tests with input from a file, outputs to terminal\n./testBstGetSmallest < tests/01.in    # for example, tests with input from tests/01.in\n                                        # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.\n\nFollow up: Can you solve this using both iterative and recursive approaches?",
+    "prompt": "返回 BST 最小值所在节点的指针。空树返回 NULL。",
     "starter": "struct node *BSTreeGetSmallest(struct node *t) {\n    // TODO\n}",
     "answer": "struct node *BSTreeGetSmallest(struct node *t) {\n    while (t != NULL && t->left != NULL) {\n        t = t->left;\n    }\n    return t;\n}",
     "explanation": "BST 最小节点在最左端。每步只走左子树，直到无左孩子。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bst-get-smallest/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstGetSmallest/downloads/bstGetSmallest.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstGetSmallest/downloads/bstGetSmallest.zip",
+    "rules": "不改原树。",
+    "example": {
+      "input": "树包含 2、5、9",
+      "output": "指向值为 2 的节点"
+    }
   },
   {
     "id": "unsw-practice-bst-postfix",
@@ -681,12 +947,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · BST",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to write a function, bstPostfix, that prints out the values of the given BST in postfix order. The values should be printed out space-separated on a single line.\n\nAssumptions and Constraints\n\n• You must not modify the given tree.\n\nExamples\n\n./testBstPostfix\nEnter the preorder traversal of the BST: \n\nBST:\n\nX\n\nValues in postfix order: \n\n./testBstPostfix\nEnter the preorder traversal of the BST: 8 7 4 2 1 3 6\n\nBST:\n\n        8\n       /\n      7\n     /\n    4\n   / \\\n  2   6\n / \\\n1   3\n\nValues in postfix order: 1 3 2 6 4 7 8 \n\n./testBstPostfix\nEnter the preorder traversal of the BST: 7 4 3 1 10 8 13\n\nBST:\n\n       7\n      / \\\n     /   \\\n    4    10\n   /     / \\\n  3     8  13\n /\n1\n\nValues in postfix order: 1 3 4 8 13 10 7 \n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                 # compiles the program\n./testBstPostfix                  # tests with manual input, outputs to terminal\n./testBstPostfix < input-file     # tests with input from a file, outputs to terminal\n./testBstPostfix < tests/01.in    # for example, tests with input from tests/01.in\n                                       # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "按后序遍历打印 BST 的值。",
     "starter": "void bstPostfix(struct node *t) {\n    // TODO\n}",
     "answer": "void bstPostfix(struct node *t) {\n\tif (t != NULL) {\n\t\tbstPostfix(t->left);\n\t\tbstPostfix(t->right);\n\t\tprintf(\"%d \", t->value);\n\t}\n}",
     "explanation": "后序遍历先左、再右、最后处理根；空节点直接返回。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bst-postfix/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstPostfix/downloads/bstPostfix.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/bstPostfix/downloads/bstPostfix.zip",
+    "rules": "单行空格分隔，不改原树。",
+    "example": {
+      "input": "根为 5，左右孩子为 2 和 7",
+      "output": "2 7 5"
+    }
   },
   {
     "id": "unsw-practice-tree-copy",
@@ -694,12 +965,17 @@ const COURSE_QUESTIONS = [
     "source": "Practice · BST",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to write a function, treeCopy, that copies a tree up to a given depth. If the given depth is negative, you should return an empty tree. If the given depth is greater than the height of the tree, you should return a copy of the entire tree.\n\nExamples\n\n./testTreeCopy\nEnter the preorder traversal of the tree: 4 2 1 3 6 5 7\nEnter the in-order traversal of the tree: 1 2 3 4 5 6 7\nEnter depth: 1\n\nTree:\n\n      4\n     / \\\n    /   \\\n   /     \\\n  2       6\n / \\     / \\\n1   3   5   7\n\nCopy of the tree up to depth 1:\n\n  4\n / \\\n2   6\n\n./testTreeCopy\nEnter the preorder traversal of the tree: 2 1 4 3 6 5\nEnter the in-order traversal of the tree: 1 2 3 4 5 6\nEnter depth: 0\n\nTree:\n\n  2\n / \\\n1   4\n   / \\\n  3   6\n     /\n    5\n\nCopy of the tree up to depth 0:\n\n2\n\n./testTreeCopy\nEnter the preorder traversal of the tree: 4 1 7\nEnter the in-order traversal of the tree: 1 4 7\nEnter depth: -1\n\nTree:\n\n  4\n / \\\n1   7\n\nCopy of the tree up to depth -1:\n\nX\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                            # compiles the program\n./testTreeCopy                  # tests with manual input, outputs to terminal\n./testTreeCopy < input-file     # tests with input from a file, outputs to terminal\n./testTreeCopy < tests/01.in    # for example, tests with input from tests/01.in\n                                  # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.",
+    "prompt": "复制根到指定深度的节点，根深度为 0。",
     "starter": "struct node *treeCopy(struct node *t, int depth) {\n    // TODO\n}",
     "answer": "static struct node *newNode(int value);\n\nstruct node *treeCopy(struct node *t, int depth) {\n\tif (t == NULL || depth < 0) {\n\t\treturn NULL;\n\t}\n\t\n\tstruct node *copy = newNode(t->value);\n\tcopy->left = treeCopy(t->left, depth - 1);\n\tcopy->right = treeCopy(t->right, depth - 1);\n\treturn copy;\n}\n\nstatic struct node *newNode(int value) {\n\tstruct node *t = malloc(sizeof(*t));\n\tif (t == NULL) {\n\t\tfprintf(stderr, \"error: out of memory\\n\");\n\t\texit(EXIT_FAILURE);\n\t}\n\n\tt->value = value;\n\tt->left = NULL;\n\tt->right = NULL;\n\treturn t;\n}",
     "explanation": "空树返回空指针。对每个原节点分配独立节点，递归复制左右子树。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/trees/tree-copy/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/treeCopy/downloads/treeCopy.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/treeCopy/downloads/treeCopy.zip",
+    "rules": "深度为负时返回空树，深度超过树高时复制整棵树。",
+    "example": {
+      "input": "根为 5，左右孩子为 2 和 7，depth = 0",
+      "output": "一棵新的树，只含节点 5"
+    }
   },
   {
     "id": "unsw-practice-tree-is-size-balanced",
@@ -707,11 +983,16 @@ const COURSE_QUESTIONS = [
     "source": "Practice · BST",
     "topic": "BST",
     "type": "code",
-    "prompt": "Your task is to write a function, treeIsSizeBalanced, that determines whether a given tree is size balanced. A tree is size balanced if, for every node, the difference in size (i.e., number of nodes) between its left and right subtrees does not exceed 1. The function should return true if the tree is size balanced, and false otherwise.\n\nExamples\n\n./testTreeIsSizeBalanced\nEnter the preorder traversal of the tree: 3 2 1 4 5\nEnter the in-order traversal of the tree: 1 2 3 4 5\n\nTree:\n\n    3\n   / \\\n  2   4\n /     \\\n1       5\n\ntreeIsSizeBalanced returned TRUE\n\n./testTreeIsSizeBalanced\nEnter the preorder traversal of the tree: 1 2 4 7 5 3 6\nEnter the in-order traversal of the tree: 7 4 2 5 1 6 3\n\nTree:\n\n        1\n       / \\\n      /   \\\n     /     \\\n    2       3\n   / \\     /\n  4   5   6\n /\n7\n\ntreeIsSizeBalanced returned FALSE\n\n./testTreeIsSizeBalanced\nEnter the preorder traversal of the tree: \nEnter the in-order traversal of the tree: \n\nTree:\n\nX\n\ntreeIsSizeBalanced returned TRUE\n\nTesting\n\nYou can compile and test your function using the following commands:\n\nmake                                      # compiles the program\n./testTreeIsSizeBalanced                  # tests with manual input, outputs to terminal\n./testTreeIsSizeBalanced < input-file     # tests with input from a file, outputs to terminal\n./testTreeIsSizeBalanced < tests/01.in    # for example, tests with input from tests/01.in\n                                            # (then manually compare with tests/01.exp)\n\nAfter you have manually tested your solution, you can autotest it by running ./autotest. This will run some basic tests on your program, as well as check for memory leaks/errors.\n\nIt is possible to devise your own tests by creating your own input files. See the existing input files for examples. Note that you will need to check the output yourself.\n\nFollow up: Can you solve this in O(n) time?",
+    "prompt": "检查每个节点的左右子树节点数之差是否都不超过 1。",
     "starter": "bool treeIsSizeBalanced(struct node *t) {\n    // TODO\n}",
     "answer": "static int treeSize(struct node *t);\n\nbool treeIsSizeBalanced(struct node *t) {\n\tif (t == NULL) {\n\t\treturn true;\n\t}\n\t\n\tint l = treeSize(t->left);\n\tint r = treeSize(t->right);\n\tif (l - r > 1 || r - l > 1) {\n\t\treturn false;\n\t} else {\n\t\treturn treeIsSizeBalanced(t->left) &&\n\t\t       treeIsSizeBalanced(t->right);\n\t}\n}\n\nstatic int treeSize(struct node *t) {\n\tif (t == NULL) {\n\t\treturn 0;\n\t} else {\n\t\treturn 1 + treeSize(t->left) + treeSize(t->right);\n\t}\n}",
     "explanation": "检查每个节点左右子树的节点数差，并递归验证两边。这里比较节点数，不是高度。",
     "origin": "https://cgi.cse.unsw.edu.au/~cs2521/practice-exercises/trees/tree-is-size-balanced/exercise",
-    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/treeIsSizeBalanced/downloads/treeIsSizeBalanced.zip"
+    "starterUrl": "https://www.cse.unsw.edu.au/~cs2521/practice-exercises/trees/treeIsSizeBalanced/downloads/treeIsSizeBalanced.zip",
+    "rules": "",
+    "example": {
+      "input": "根节点只有左子树，左子树有 2 个节点",
+      "output": "false"
+    }
   }
 ];

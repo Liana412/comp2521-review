@@ -20,9 +20,9 @@ pre{background:#f8f7f4;border-color:#ece7df;color:#342f29}.empty{color:#81796e;b
 details.check-group{border-bottom:1px solid #f0ece6;padding:11px 0}details.check-group:last-child{border:0}details.check-group summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:650;list-style:none}details.check-group summary::-webkit-details-marker{display:none}details.check-group summary:before{content:"›";font-size:17px;color:#998775;margin-right:8px}details.check-group[open] summary:before{content:"⌄"}details.check-group .check-row{padding-left:20px}details.check-group .progress{margin-left:20px;width:calc(100% - 20px)}
 .question-picker{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.question-picker select{width:auto;min-width:0;max-width:100%}.question-picker #question{flex:1;min-width:min(100%,240px)}.question-text,.tip{white-space:pre-wrap;overflow-wrap:anywhere}.question-text{line-height:1.55}.panel{min-width:0}.panel pre{overflow:auto}details.solution summary{cursor:pointer;font-weight:650}.editor{width:100%}
 .workbench{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}.workbench .writing-panel{position:sticky;top:16px}.writing-panel .editor{min-height:300px;margin-top:10px}.source-links a{color:#795938}.question-text{margin-bottom:0}@media(max-width:1050px){.workbench{grid-template-columns:1fr}.workbench .writing-panel{position:static}}
-.exercise-panel .task-copy{font-size:1.05rem;line-height:1.75;margin:0 0 20px;overflow-wrap:anywhere}.exercise-panel h3{font-size:.82rem;letter-spacing:.04em;color:#6f5a45;margin:18px 0 6px}.example-card{border:1px solid #e9e0d3;border-radius:12px;background:#faf7f1;overflow:hidden}.example-card div{padding:12px 14px;display:grid;gap:4px}.example-card div+div{border-top:1px solid #e9e0d3}.example-card span{font-size:.8rem;color:#6f5a45}.example-card code{white-space:pre-wrap;overflow-wrap:anywhere}.exercise-panel .context-copy{line-height:1.65;margin:8px 0;color:#594c40}.exercise-panel .source-links{margin-top:10px}.exercise-panel summary{cursor:pointer;color:#795938}.exercise-panel details{margin-top:18px}
+.statement{font-size:.97rem;line-height:1.7;overflow-wrap:anywhere}.statement p{margin:0 0 13px}.statement :is(h4,h5,h6){font-size:.95rem;margin:22px 0 8px}.statement :is(ul,ol){padding-inline-start:22px}.statement img{display:block;max-width:100%;max-height:300px;margin:16px auto;object-fit:contain}.statement pre{white-space:pre-wrap;background:#f6f2eb;color:#302a25;border:1px solid #ebe3d7;border-radius:8px;padding:12px;margin:12px 0}.statement :not(pre)>code{background:#f6f2eb;border-radius:4px;padding:1px 4px}.statement table{border-collapse:collapse;max-width:100%;display:block;overflow:auto}.statement :is(td,th){border:1px solid #ebe3d7;padding:5px 9px}.exercise-panel details{margin-top:16px}.exercise-panel summary{cursor:pointer;color:#795938}.source-links{margin-top:10px}.example-figure{margin:18px 0;border:1px solid #e9e0d3;border-radius:12px;background:#faf7f1;padding:12px 16px}.example-figure figcaption{font-weight:650;margin-bottom:6px}.example-figure svg{width:100%;max-width:420px;display:block}.example-figure .cell{fill:#fffdfa;stroke:#d2c1aa}.example-figure .output-cell{fill:#eee4d4;stroke:#bb9e7b}.example-figure text{fill:#493c31;font-family:ui-monospace,monospace;font-size:13px}.example-figure .diagram-label{font-family:system-ui,sans-serif;font-size:12px;font-weight:650}
 </style></head><body><header><div class="logo">◈ COMP<span>2521</span> <small style="font-size:12px;color:#9c907f;font-weight:500">REVIEW STUDIO</small></div><div class="actions"><span class="badge">26T3</span></div></header><div class="app"><aside><nav id="nav"></nav><div class="sidebar-foot">草稿和错题自动保存在此浏览器</div></aside><main class="main" id="view"></main></div><div class="toast" id="toast"></div>
-<script src="questions.js?v=3"></script>
+<script src="questions.js?v=4"></script>
 <script>
 const TEMPLATES=[
 {category:'Graph',name:'BFS · 邻接矩阵',desc:'Queue + visited + pred；遍历所有 vertex，而不是 edge 数量。',code:`void bfs(Graph g, Vertex src) {
@@ -188,8 +188,30 @@ function chooseSource(value) {
   source = value;
   selectQuestion(COURSE_QUESTIONS.find(q => q.source === source).id);
 }
+function exampleDiagram(q) {
+  if (!q.example || q.hasOfficialDiagram) return '';
+  const arrays = text => [...text.matchAll(/\[(-?\d+(?:,\s*-?\d+)*)\]/g)].map(m => m[1].split(/,\s*/));
+  const chain = text => text.match(/-?\d+(?:\s*[→⇄]\s*-?\d+)+/)?.[0].split(/\s*[→⇄]\s*/);
+  const output = arrays(q.example.output)[0] || chain(q.example.output);
+  const input = arrays(q.example.input);
+  if (!input.length && chain(q.example.input)) input.push(chain(q.example.input));
+  if (!input.length || !output) return '';
+  const params = [...q.example.input.matchAll(/\b(n|value|k|depth) = (-?\d+)/g)].map(m => m[0]);
+  const rows = [...input.map((values, i) => ({values, label: input.length > 1 ? `Input ${i + 1}` : 'Input'})),
+    {values:output,label:'Output'}];
+  const width = 105 + 41 * Math.max(...rows.map(row => row.values.length));
+  return `<figure class="example-figure">
+    <figcaption>Example visualization${params.length ? ` · ${esc(params.join(', '))}` : ''}</figcaption>
+    <svg viewBox="0 0 ${width} ${rows.length * 40}" role="img" aria-label="${esc(rows.map(row => row.label + ': ' + row.values.join(', ')).join('. '))}">
+      ${rows.map(({values,label},row) => `<text x="0" y="${row*40+24}" class="diagram-label">${label}</text>
+        ${values.map((value,col) => `<rect x="${82+col*41}" y="${row*40+4}" width="34" height="30" rx="5" class="${label==='Output'?'output-cell':'cell'}"></rect>
+          <text x="${99+col*41}" y="${row*40+24}" text-anchor="middle">${esc(value)}</text>`).join('')}`).join('')}
+    </svg>
+  </figure>`;
+}
 function practice() {
   const q = qget();
+  const official = COURSE_QUESTIONS.find(item => item.id === q.id);
   source = q.source;
   const groups = [...new Set([...COURSE_QUESTIONS.map(q => q.source), source])];
   const questions = COURSE_QUESTIONS.filter(q => q.source === source);
@@ -209,15 +231,13 @@ function practice() {
     <div class="workbench">
     <section class="panel exercise-panel">
       <h2 style="margin-top:0">${esc(q.title)}</h2>
-      <p class="task-copy">${esc(q.prompt)}</p>
-      ${q.example ? `<h3>示例</h3>
-        <div class="example-card">
-          <div><span>给定</span><code>${esc(q.example.input)}</code></div>
-          <div><span>预期结果</span><code>${esc(q.example.output)}</code></div>
-        </div>` : ''}
-      ${q.rules ? `<h3>需要遵守</h3><p class="context-copy">${esc(q.rules)}</p>` : ''}
+      <div class="statement" lang="en">${official?.statement ?? `<p>${esc(q.prompt)}</p>`}</div>
+      ${exampleDiagram(q)}
+      ${official?.sourceNotes ? `<details>
+        <summary>Original examples, testing and setup notes</summary>
+        <div class="statement" lang="en">${official.sourceNotes}</div></details>` : ''}
       ${q.context ? `<details><summary>题目用到的类型和接口</summary>
-        <p class="context-copy question-text">${esc(q.context)}</p></details>` : ''}
+        <p class="question-text">${esc(q.context)}</p></details>` : ''}
       ${q.origin?.startsWith('https://cgi.cse.unsw.edu.au/') ? `<details>
         <summary>课程原题与配套资料</summary>
         <div class="actions source-links">

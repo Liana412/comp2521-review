@@ -21,8 +21,10 @@ details.check-group{border-bottom:1px solid #f0ece6;padding:11px 0}details.check
 .question-picker{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.question-picker select{width:auto;min-width:0;max-width:100%}.question-picker #question{flex:1;min-width:min(100%,240px)}.question-text,.tip{white-space:pre-wrap;overflow-wrap:anywhere}.question-text{line-height:1.55}.panel{min-width:0}.panel pre{overflow:auto}details.solution summary{cursor:pointer;font-weight:650}.editor{width:100%}
 .workbench{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}.workbench .writing-panel{position:sticky;top:16px}.writing-panel .editor{min-height:300px;margin-top:10px}.source-links a{color:#795938}.question-text{margin-bottom:0}@media(max-width:1050px){.workbench{grid-template-columns:1fr}.workbench .writing-panel{position:static}}
 .statement{font-size:.97rem;line-height:1.7;overflow-wrap:anywhere}.statement p{margin:0 0 13px}.statement :is(h4,h5,h6){font-size:.95rem;margin:22px 0 8px}.statement :is(ul,ol){padding-inline-start:22px}.statement img{display:block;max-width:100%;max-height:300px;margin:16px auto;object-fit:contain}.statement pre{white-space:pre-wrap;background:#f6f2eb;color:#302a25;border:1px solid #ebe3d7;border-radius:8px;padding:12px;margin:12px 0}.statement :not(pre)>code{background:#f6f2eb;border-radius:4px;padding:1px 4px}.statement table{border-collapse:collapse;max-width:100%;display:block;overflow:auto}.statement :is(td,th){border:1px solid #ebe3d7;padding:5px 9px}.exercise-panel details{margin-top:16px}.exercise-panel summary{cursor:pointer;color:#795938}.source-links{margin-top:10px}.example-figure{margin:18px 0;border:1px solid #e9e0d3;border-radius:12px;background:#faf7f1;padding:12px 16px}.example-figure figcaption{font-weight:650;margin-bottom:6px}.example-figure svg{width:100%;max-width:420px;display:block}.example-figure .cell{fill:#fffdfa;stroke:#d2c1aa}.example-figure .output-cell{fill:#eee4d4;stroke:#bb9e7b}.example-figure text{fill:#493c31;font-family:ui-monospace,monospace;font-size:13px}.example-figure .diagram-label{font-family:system-ui,sans-serif;font-size:12px;font-weight:650}
+.reference-notes{max-width:880px}.reference-notes details{border-top:1px solid #e9e0d3;padding:13px 0}.reference-notes summary{font-weight:650;cursor:pointer}.reference-notes .statement{padding:12px 0 0}.reference-notes blockquote{margin:0 0 16px;padding:0 12px;border-left:3px solid #d7c5ad;color:#594c40}.reference-notes pre code{white-space:pre}
 </style></head><body><header><div class="logo">◈ COMP<span>2521</span> <small style="font-size:12px;color:#9c907f;font-weight:500">REVIEW STUDIO</small></div><div class="actions"><span class="badge">26T3</span></div></header><div class="app"><aside><nav id="nav"></nav><div class="sidebar-foot">草稿和错题自动保存在此浏览器</div></aside><main class="main" id="view"></main></div><div class="toast" id="toast"></div>
 <script src="questions.js?v=4"></script>
+<script src="slides-notes.js"></script>
 <script>
 const TEMPLATES=[
 {category:'Graph',name:'BFS · 邻接矩阵',desc:'Queue + visited + pred；遍历所有 vertex，而不是 edge 数量。',code:`void bfs(Graph g, Vertex src) {
@@ -269,7 +271,38 @@ function markMistake() {
 }
 function highlighted(code,fragment){code=String(code||'');if(!fragment)return esc(code);let i=code.indexOf(fragment);if(i<0)return esc(code);return esc(code.slice(0,i))+'<mark class="highlight">'+esc(fragment)+'</mark>'+esc(code.slice(i+fragment.length))}
 function mistakes(){let arr=state.questions.filter(q=>state.mistakes[q.id]);if(!arr.length){$('view').innerHTML=header('错题集','错误代码高亮 + 自己的注解，集中复盘薄弱环节。')+`<div class="empty">暂时没有错题。去「做题」做题后，点「加入错题集」。<p><button class="btn primary" onclick="setTab('practice')">开始刷题</button></p></div>`;return}if(!arr.some(q=>q.id===selected))selected=arr[0].id;let q=qget(),m=state.mistakes[q.id];$('view').innerHTML=header('错题集','把写错的代码片段复制到「高亮文本」，再记录原因；下次复习直接看错误与正确答案。')+`<div class="layout"><div class="question-list">${arr.map(x=>`<div class="item ${x.id===selected?'active':''}" onclick="selectQuestion(decodeURIComponent('${encodeURIComponent(x.id).replaceAll("'", "%27")}'))"><span class="tag red">错题</span><strong>${esc(x.title)}</strong><span class="muted-small">${esc(x.topic)}</span></div>`).join('')}</div><div class="panel"><h2 style="margin-top:0">${esc(q.title)}</h2><div class="section-title">你的上次代码（高亮视图）</div><pre id="codeHigh">${highlighted(state.attempts[q.id]??q.starter,m.highlight)}</pre><label class="label">高亮代码片段（原样复制其中一行或部分文字）</label><input id="hi" value="${esc(m.highlight)}" placeholder="例如：if (t == NULL && depth < 0)" oninput="saveMistake()"><label class="label">错误注解 / 为什么错 / 正确思路</label><textarea id="note" rows="4" placeholder="例如：两个退出条件应使用 ||，否则会解引用空指针。" oninput="saveMistake()">${esc(m.note)}</textarea><div class="section-title section">参考答案</div><pre>${esc(q.answer)}</pre><div class="tip">${esc(q.explanation)}</div><div class="actions section"><button class="btn" onclick="setTab('practice')">重新做这题</button><button class="btn warn" onclick="delete state.mistakes[selected];save();render()">移出错题集</button></div></div></div>`}function saveMistake(){let m=state.mistakes[selected];m.highlight=$('hi').value;m.note=$('note').value;$('codeHigh').innerHTML=highlighted(state.attempts[selected]??qget().starter,m.highlight);save()}
-function review(){let groups=['All',...new Set(TEMPLATES.map(t=>t.category))];$('view').innerHTML=header('代码模板 & ADT 速查','只保留高频算法骨架与复杂度，便于考前快速回忆。参考实现使用示意接口，实际提交请以课程提供的 .h 文件为准。')+`<div class="actions" style="margin-bottom:18px">${groups.map(g=>`<button class="btn" onclick="renderRefs('${g}')">${g}</button>`).join('')}</div><div class="ref-grid" id="refs"></div>`;renderRefs('All')}function renderRefs(g){$('refs').innerHTML=TEMPLATES.filter(t=>g==='All'||t.category===g).map((t,i)=>`<section class="panel ref-card"><div class="head"><div><span class="tag purple">${esc(t.category)}</span><h3 style="margin:8px 0 0">${esc(t.name)}</h3></div><button class="btn" onclick="copyText(${TEMPLATES.indexOf(t)})">复制</button></div><div class="muted-small" style="padding:0 18px 12px">${esc(t.desc)}</div><pre>${esc(t.code)}</pre></section>`).join('')}function copyText(i){navigator.clipboard.writeText(TEMPLATES[i].code).then(()=>toast('模板已复制')).catch(()=>toast('浏览器未授权复制'))}
+function review() {
+  $('view').innerHTML = header('速查') + `
+    <div class="actions" style="margin-bottom:16px">
+      <button class="btn" id="slidesReference" onclick="showReference('slides')">课件笔记</button>
+      <button class="btn" id="templateReference" onclick="showReference('templates')">代码模板 / ADT</button>
+    </div>
+    <div id="referenceContent"></div>`;
+  showReference('slides');
+}
+function showReference(kind) {
+  const slides = kind === 'slides';
+  $('slidesReference').setAttribute('aria-pressed', String(slides));
+  $('templateReference').setAttribute('aria-pressed', String(!slides));
+  $('slidesReference').classList.toggle('primary', slides);
+  $('templateReference').classList.toggle('primary', !slides);
+  if (slides) {
+    $('referenceContent').innerHTML = `<section class="panel reference-notes">
+      <div class="statement">${SLIDES_NOTES.intro}</div>
+      ${SLIDES_NOTES.sections.map(({title, body}) => `<details>
+        <summary>${esc(title)}</summary>
+        <div class="statement">${body}</div>
+      </details>`).join('')}
+    </section>`;
+    return;
+  }
+  const groups = ['All', ...new Set(TEMPLATES.map(t => t.category))];
+  $('referenceContent').innerHTML = `<div class="actions" style="margin-bottom:18px">
+    ${groups.map(group => `<button class="btn" onclick="renderRefs('${group}')">${group}</button>`).join('')}
+    </div><div class="ref-grid" id="refs"></div>`;
+  renderRefs('All');
+}
+function renderRefs(g){$('refs').innerHTML=TEMPLATES.filter(t=>g==='All'||t.category===g).map((t,i)=>`<section class="panel ref-card"><div class="head"><div><span class="tag purple">${esc(t.category)}</span><h3 style="margin:8px 0 0">${esc(t.name)}</h3></div><button class="btn" onclick="copyText(${TEMPLATES.indexOf(t)})">复制</button></div><div class="muted-small" style="padding:0 18px 12px">${esc(t.desc)}</div><pre>${esc(t.code)}</pre></section>`).join('')}function copyText(i){navigator.clipboard.writeText(TEMPLATES[i].code).then(()=>toast('模板已复制')).catch(()=>toast('浏览器未授权复制'))}
 function downloadText(filename,content,type='text/markdown;charset=utf-8'){let blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function exportTemplates(){let md='# COMP2521 · 模板代码与 ADT 复习\n\n> 代码模板仅作复习参考。请根据实际课程头文件核对 ADT 接口。\n\n';for(let t of TEMPLATES){md+=`## ${t.category} · ${t.name}\n\n${t.desc}\n\n\`\`\`text\n${t.code}\n\`\`\`\n\n`;}downloadText('COMP2521-templates.md',md);toast('代码模板已导出')}
 function exportMistakes(){let arr=state.questions.filter(q=>state.mistakes[q.id]);let md='# COMP2521 · 错题笔记\n\n';if(!arr.length)md+='暂无错题。请先在刷题页面标记错题。\n';for(let q of arr){let m=state.mistakes[q.id],mine=state.attempts[q.id]??q.starter;md+=`## ${q.title}\n\n- 来源：${q.source}\n- 知识点：${q.topic}\n\n**题目：** ${q.prompt}\n\n**高亮错误片段：**\n\n\`\`\`c\n${m.highlight||'（未标注）'}\n\`\`\`\n\n**我的代码：**\n\n\`\`\`c\n${mine}\n\`\`\`\n\n**我的注解：** ${m.note||'（未填写）'}\n\n**参考答案：**\n\n\`\`\`c\n${q.answer||'（暂无答案）'}\n\`\`\`\n\n**解析：** ${q.explanation||'（暂无解析）'}\n\n---\n\n`;}downloadText('COMP2521-mistake-notes.md',md);toast('错题笔记已导出')}

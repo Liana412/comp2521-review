@@ -22,9 +22,11 @@ details.check-group{border-bottom:1px solid #f0ece6;padding:11px 0}details.check
 .workbench{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}.workbench .writing-panel{position:sticky;top:16px}.writing-panel .editor{min-height:300px;margin-top:10px}.source-links a{color:#795938}.question-text{margin-bottom:0}@media(max-width:1050px){.workbench{grid-template-columns:1fr}.workbench .writing-panel{position:static}}
 .statement{font-size:.97rem;line-height:1.7;overflow-wrap:anywhere}.statement p{margin:0 0 13px}.statement :is(h4,h5,h6){font-size:.95rem;margin:22px 0 8px}.statement :is(ul,ol){padding-inline-start:22px}.statement img{display:block;max-width:100%;max-height:300px;margin:16px auto;object-fit:contain}.statement pre{white-space:pre-wrap;background:#f6f2eb;color:#302a25;border:1px solid #ebe3d7;border-radius:8px;padding:12px;margin:12px 0}.statement :not(pre)>code{background:#f6f2eb;border-radius:4px;padding:1px 4px}.statement table{border-collapse:collapse;max-width:100%;display:block;overflow:auto}.statement :is(td,th){border:1px solid #ebe3d7;padding:5px 9px}.exercise-panel details{margin-top:16px}.exercise-panel summary{cursor:pointer;color:#795938}.source-links{margin-top:10px}.example-figure{margin:18px 0;border:1px solid #e9e0d3;border-radius:12px;background:#faf7f1;padding:12px 16px}.example-figure figcaption{font-weight:650;margin-bottom:6px}.example-figure svg{width:100%;max-width:420px;display:block}.example-figure .cell{fill:#fffdfa;stroke:#d2c1aa}.example-figure .output-cell{fill:#eee4d4;stroke:#bb9e7b}.example-figure text{fill:#493c31;font-family:ui-monospace,monospace;font-size:13px}.example-figure .diagram-label{font-family:system-ui,sans-serif;font-size:12px;font-weight:650}
 .reference-notes{max-width:880px}.reference-notes details{border-top:1px solid #e9e0d3;padding:13px 0}.reference-notes summary{font-weight:650;cursor:pointer}.reference-notes .statement{padding:12px 0 0}.reference-notes blockquote{margin:0 0 16px;padding:0 12px;border-left:3px solid #d7c5ad;color:#594c40}.reference-notes pre code{white-space:pre}
+.course-files summary{font-weight:650;cursor:pointer}.course-files select{width:100%;margin-top:10px}.course-files pre{white-space:pre;max-height:36vh;margin-bottom:0}.course-files .file-label{display:block;margin-top:10px}
 </style></head><body><header><div class="logo">◈ COMP<span>2521</span> <small style="font-size:12px;color:#9c907f;font-weight:500">REVIEW STUDIO</small></div><div class="actions"><span class="badge">26T3</span></div></header><div class="app"><aside><nav id="nav"></nav><div class="sidebar-foot">草稿和错题自动保存在此浏览器</div></aside><main class="main" id="view"></main></div><div class="toast" id="toast"></div>
 <script src="questions.js?v=4"></script>
 <script src="slides-notes.js"></script>
+<script src="exercise-files.js"></script>
 <script>
 const TEMPLATES=[
 {category:'Graph',name:'BFS · 邻接矩阵',desc:'Queue + visited + pred；遍历所有 vertex，而不是 edge 数量。',code:`void bfs(Graph g, Vertex src) {
@@ -211,6 +213,16 @@ function exampleDiagram(q) {
     </svg>
   </figure>`;
 }
+function courseFiles(questionId) {
+  const files = QUESTION_FILES[questionId];
+  if (!files) return '';
+  return `<details class="course-files section">
+    <summary>配套代码 · ${files.names.length} 个文件</summary>
+    <label class="muted-small file-label" for="courseFile">UNSW 官方起始工程（只读）</label>
+    <select id="courseFile">${files.names.map(name => `<option>${esc(name)}</option>`).join('')}</select>
+    <pre><code id="courseFileContents"></code></pre>
+  </details>`;
+}
 function practice() {
   const q = qget();
   const official = COURSE_QUESTIONS.find(item => item.id === q.id);
@@ -251,6 +263,7 @@ function practice() {
       <label class="section-title" for="answerEditor">我的作答</label>
       <textarea class="editor" id="answerEditor" spellcheck="false">${esc(state.attempts[q.id] ?? q.starter)}</textarea>
       <div class="actions section"><button class="btn warn" onclick="markMistake()">加入错题</button></div>
+      ${courseFiles(q.id)}
       ${q.answer ? `<details class="solution section"><summary>官方答案 / 解析</summary>
         <pre>${esc(q.answer)}</pre><div class="tip">${esc(q.explanation)}</div>
       </details>` : ''}
@@ -258,6 +271,16 @@ function practice() {
     </div>`;
   $('prev').onclick = () => selectQuestion(questions[index - 1].id);
   $('next').onclick = () => selectQuestion(questions[index + 1].id);
+  const files = QUESTION_FILES[q.id];
+  if (files) {
+    const filePicker = $('courseFile');
+    const fileContents = $('courseFileContents');
+    const showFile = name => {
+      fileContents.textContent = EXERCISE_FILES[files.package][name];
+    };
+    showFile(files.names[0]);
+    filePicker.onchange = () => showFile(filePicker.value);
+  }
   const editor = $('answerEditor');
   editor.oninput = () => {
     state.attempts[q.id] = editor.value;
